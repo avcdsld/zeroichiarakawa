@@ -11,16 +11,13 @@ export default function Page() {
         }
         return (
           <div key={index} className="space-y-2">
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-              {section.items.map((item: any) => {
-                if (!item.slug) {
-                  return null;
-                }
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+              {section.items.map((item: any, index: number) => {
                 return (
                   <WorkCard
-                    key={item.slug}
+                    key={item.slug + index}
                     item={item}
-                    href={`/${item.slug}`}
+                    href={item.slug ? `/${item.slug}` : item.externalUrl}
                   />
                   // <Link
                   //   href={`/${item.slug}`}
