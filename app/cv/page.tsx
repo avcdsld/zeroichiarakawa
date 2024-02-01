@@ -90,7 +90,7 @@ export default function Page() {
         <br />
       </p>
 
-      <h3 className="text-base font-normal">著作</h3>
+      <h3 className="text-base font-normal">Books</h3>
       <p>
         2023　“<a href="/works/code-poetry-collection">コード詩集</a>” (A
         collection of poems self-published at 技術書典 15)
