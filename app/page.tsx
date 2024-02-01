@@ -1,24 +1,36 @@
-import { menuData } from '#/lib/menu-data';
 import Link from 'next/link';
+import { menuData } from '#/lib/menu-data';
+import { WorkCard } from '#/ui/work-card';
 
 export default function Page() {
   return (
     <div className="space-y-10 text-white">
       {menuData.map((section, index) => {
+        if (section.name !== 'Works') {
+          return null;
+        }
         return (
           <div key={index} className="space-y-2">
-            <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
               {section.items.map((item: any) => {
+                if (!item.slug) {
+                  return null;
+                }
                 return (
-                  <Link
+                  <WorkCard
+                    key={item.slug}
+                    item={item}
                     href={`/${item.slug}`}
-                    key={item.name}
-                    className="group block space-y-4 rounded-lg bg-gray-900 px-4 py-2 hover:bg-gray-800"
-                  >
-                    <div className="font-medium text-gray-200 group-hover:text-gray-50">
-                      {item.name}
-                    </div>
-                  </Link>
+                  />
+                  // <Link
+                  //   href={`/${item.slug}`}
+                  //   key={item.name}
+                  //   className="group block space-y-4 rounded-lg bg-gray-900 px-4 py-2 hover:bg-gray-800"
+                  // >
+                  //   <div className="font-medium text-gray-200 group-hover:text-gray-50">
+                  //     {item.name}
+                  //   </div>
+                  // </Link>
                 );
               })}
             </div>
