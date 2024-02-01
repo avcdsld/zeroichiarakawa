@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description:
       'A smart contract engineer and code poet who started developing blockchain and decentralized applications in 2017. In 2019, developed miime, an NFT marketplace on Ethereum. Since 2021, has been working at Mercari Inc., developing NFT-related products. From 2022, they have been intensifying their artistic endeavors, exploring the structural and poetic beauty of code through the use of blockchain and smart contracts.',
     // images: [`/api/og?title=Zeroichi Arakawa`],
-    images: [`/images/og.png`],
+    images: [`/images/og.jpg`],
   },
   twitter: {
     card: 'summary_large_image',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description:
       'A smart contract engineer and code poet who started developing blockchain and decentralized applications in 2017. In 2019, developed miime, an NFT marketplace on Ethereum. Since 2021, has been working at Mercari Inc., developing NFT-related products. From 2022, they have been intensifying their artistic endeavors, exploring the structural and poetic beauty of code through the use of blockchain and smart contracts.',
     // images: [`/api/og?title=Zeroichi Arakawa`],
-    images: [`/images/og.png`],
+    images: [`/images/og.jpg`],
   },
 };
 
