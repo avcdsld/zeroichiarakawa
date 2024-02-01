@@ -25,7 +25,7 @@ export function GlobalNav() {
           onClick={close}
         >
           <h3 className="font-semibold tracking-wide text-gray-400 group-hover:text-gray-50">
-            Ara / Zeroichi Arakawa
+            Zeroichi Arakawa / Ara
           </h3>
         </Link>
       </div>

@@ -4,7 +4,7 @@ export default function Page() {
     <div className="prose prose-sm prose-invert max-w-none text-gray-200">
       <h1 className="text-2xl font-bold">CV</h1>
 
-      <h2 className="text-xl font-bold">Ara / 荒川零一 Zeroichi Arakawa</h2>
+      <h2 className="text-xl font-bold">荒川零一 Zeroichi Arakawa / Ara</h2>
 
       <p>
         Born in 1988. Smart contract engineer and code poet. He started
