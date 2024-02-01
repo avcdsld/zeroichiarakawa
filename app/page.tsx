@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { menuData } from '#/lib/menu-data';
 import { WorkCard } from '#/ui/work-card';
 
@@ -19,15 +18,6 @@ export default function Page() {
                     item={item}
                     href={item.slug ? `/${item.slug}` : item.externalUrl}
                   />
-                  // <Link
-                  //   href={`/${item.slug}`}
-                  //   key={item.name}
-                  //   className="group block space-y-4 rounded-lg bg-gray-900 px-4 py-2 hover:bg-gray-800"
-                  // >
-                  //   <div className="font-medium text-gray-200 group-hover:text-gray-50">
-                  //     {item.name}
-                  //   </div>
-                  // </Link>
                 );
               })}
             </div>
