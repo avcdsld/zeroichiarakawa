@@ -7,7 +7,7 @@ export const metadata = {
   openGraph: {
     title,
     // images: [`/api/og?title=${title}`],
-    images: [`/images/og.png`],
+    images: [`/images/og.jpg`],
   },
 };
 
