@@ -1,4 +1,6 @@
 export default function Page() {
+  const lastUpdated = new Date('2024-02-06');
+
   return (
     // <div className="text-gray-200 space-y-4">
     <div className="prose prose-sm prose-invert max-w-none text-gray-200">
@@ -100,6 +102,15 @@ export default function Page() {
         <br />
       </p>
 
+      <p className="mt-8">
+        Last updated:{' '}
+        {lastUpdated.toLocaleDateString('en-US', {
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric',
+        })}
+      </p>
+
       <hr />
 
       <p>
@@ -189,6 +200,10 @@ export default function Page() {
         </a>
         』（技術書典 15 にて自主出版した詩集）
         <br />
+      </p>
+
+      <p className="mt-8">
+        最終更新日: {new Date().toLocaleDateString('ja-JP')}
       </p>
     </div>
   );
