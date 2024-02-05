@@ -7,13 +7,10 @@ export default function Page() {
       <h2 className="text-xl font-bold">荒川零一 Zeroichi Arakawa / Ara</h2>
 
       <p>
-        Born in 1988. Smart contract engineer and code poet. He started
-        developing blockchain and decentralized applications in 2017. In 2019,
-        developed miime, an NFT marketplace on Ethereum. Since 2021, has been
-        working at Mercari Inc., developing NFT-related products. From 2022,
-        they have been intensifying their artistic endeavors, exploring the
-        structural and poetic beauty of code through the use of blockchain and
-        smart contracts.
+        Born in 1988. Smart contract engineer and code poet. He continuously
+        explore and experiment with the literary and structural beauty of
+        program code, focusing on the theme of updating the senses created by
+        digital data.
       </p>
 
       <h3 className="text-base font-normal">
@@ -42,13 +39,13 @@ export default function Page() {
 
       <h3 className="text-base font-normal">Exhibitions</h3>
       <p>
-        2024　
+        2024.1　
         <a href="https://pox.exhibit.website/" target="_blank" rel="noreferrer">
           DIG SHIBUYA - Proof of X: Decoding PFP Culture
         </a>{' '}
         (GALLERY X BY PARCO, Tokyo) [Async to Sync]
         <br />
-        2023　
+        2023.9　
         <a
           href="https://www.artstageosaka.com/artists"
           target="_blank"
@@ -58,7 +55,7 @@ export default function Page() {
         </a>{' '}
         (Grand Cube Osaka, Osaka) [Digital Native Art]
         <br />
-        2023　
+        2023.6　
         <a
           href="https://pox.exhibit.website/2023"
           target="_blank"
@@ -68,7 +65,7 @@ export default function Page() {
         </a>{' '}
         (THE FACE DAIKANYAMA, Tokyo) [Digital Native Art]
         <br />
-        2022　
+        2022.9　
         <a
           href="https://cryptoart.tokyo/cawatokyo2022/"
           target="_blank"
@@ -78,7 +75,7 @@ export default function Page() {
         </a>{' '}
         (DMM Azabu Satellite, Tokyo) [Lost Language]
         <br />
-        2022　
+        2022.7　
         <a
           href="https://conata.world/caf/2022"
           target="_blank"
@@ -92,10 +89,10 @@ export default function Page() {
 
       <h3 className="text-base font-normal">Books</h3>
       <p>
-        2023　“<a href="/works/code-poetry-collection">コード詩集</a>” (A
+        2023.11　“<a href="/works/code-poetry-collection">コード詩集</a>” (A
         collection of poems self-published at 技術書典 15)
         <br />
-        2023　“
+        2023.11　“
         <a href="/works/crypto-modern-poetry">
           現代暗号詩 ― GPT-4 によるニーモニックの詩
         </a>
@@ -106,10 +103,8 @@ export default function Page() {
       <hr />
 
       <p>
-        1988年生まれ。スマートコントラクトエンジニア、コード詩人。2017年からブロックチェーンおよび分散型アプリの開発を始める。2019年
-        Ethereum 上の NFT マーケットプレイス miime
-        を開発。2021年より株式会社メルカリで NFT
-        関連プロダクトを開発。2022年からアーティスト活動を本格化し、ブロックチェーンやスマートコントラクトを使ってコードの持つ構造的・詩的な美しさを表現することを模索している。
+        1988年生まれ。スマートコントラクトエンジニア、コード詩人。
+        プログラムのコードに文学的・構造的な美しさを見出し、デジタルデータがつくる感覚のアップデートをテーマに試行錯誤を続けている。
       </p>
 
       <h3 className="text-base font-normal">学歴/職歴</h3>
@@ -135,13 +130,13 @@ export default function Page() {
 
       <h3 className="text-base font-normal">展覧会</h3>
       <p>
-        2024　
+        2024.1　
         <a href="https://pox.exhibit.website/" target="_blank" rel="noreferrer">
           DIG SHIBUYA - Proof of X: Decoding PFP Culture
         </a>
         （GALLERY X BY PARCO、東京） [Async to Sync]
         <br />
-        2023　
+        2023.9　
         <a
           href="https://www.artstageosaka.com/artists"
           target="_blank"
@@ -151,7 +146,7 @@ export default function Page() {
         </a>
         （グランキューブ大阪、大阪） [Digital Native Art]
         <br />
-        2023　
+        2023.6　
         <a
           href="https://pox.exhibit.website/2023"
           target="_blank"
@@ -161,7 +156,7 @@ export default function Page() {
         </a>
         （THE FACE DAIKANYAMA、東京） [Digital Native Art]
         <br />
-        2022　
+        2022.9　
         <a
           href="https://cryptoart.tokyo/cawatokyo2022/"
           target="_blank"
@@ -171,7 +166,7 @@ export default function Page() {
         </a>
         （DMM 麻布サテライト、東京） [Lost Language]
         <br />
-        2022　
+        2022.7　
         <a
           href="https://conata.world/caf/2022"
           target="_blank"
@@ -185,10 +180,10 @@ export default function Page() {
 
       <h3 className="text-base font-normal">著作</h3>
       <p>
-        2023　『<a href="/works/code-poetry-collection">コード詩集</a>
+        2023.11　『<a href="/works/code-poetry-collection">コード詩集</a>
         』（技術書典 15 にて自主出版した詩集）
         <br />
-        2023　『
+        2023.11　『
         <a href="/works/crypto-modern-poetry">
           現代暗号詩 ― GPT-4 によるニーモニックの詩
         </a>
