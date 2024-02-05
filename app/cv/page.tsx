@@ -7,10 +7,10 @@ export default function Page() {
       <h2 className="text-xl font-bold">荒川零一 Zeroichi Arakawa / Ara</h2>
 
       <p>
-        Born in 1988. Smart contract engineer and code poet. He continuously
-        explore and experiment with the literary and structural beauty of
-        program code, focusing on the theme of updating the senses created by
-        digital data.
+        Born in 1988. Smart contract engineer and code poet based in Japan. He
+        continuously explore and experiment with the literary and structural
+        beauty of program code, focusing on the theme of updating the senses
+        created by digital data.
       </p>
 
       <h3 className="text-base font-normal">
