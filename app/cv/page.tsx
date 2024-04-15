@@ -1,5 +1,5 @@
 export default function Page() {
-  const lastUpdated = new Date('2024-02-06');
+  const lastUpdated = new Date('2024-04-10');
 
   return (
     // <div className="text-gray-200 space-y-4">
@@ -203,7 +203,7 @@ export default function Page() {
       </p>
 
       <p className="mt-8">
-        最終更新日: {new Date().toLocaleDateString('ja-JP')}
+        最終更新日: {lastUpdated.toLocaleDateString('ja-JP')}
       </p>
     </div>
   );
