@@ -117,6 +117,11 @@ export const menuData: any[] = [
         externalUrl: 'https://twitter.com/arandoros',
       },
       {
+        name: 'fxhash',
+        slug: '',
+        externalUrl: 'https://www.fxhash.xyz/u/Ara%20Zeroichi',
+      },
+      {
         name: 'GitHub',
         slug: '',
         externalUrl: 'https://github.com/avcdsld',
