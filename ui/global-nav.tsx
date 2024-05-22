@@ -103,7 +103,7 @@ function GlobalNavItem({
       ) : (
         <a
           onClick={close}
-          href={item.externalUrls[0]}
+          href={item && item!.externalUrls && item!.externalUrls[0]}
           target="_blank"
           rel="noreferrer"
           className={clsx(
