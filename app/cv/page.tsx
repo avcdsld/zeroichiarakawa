@@ -41,8 +41,18 @@ export default function Page() {
 
       <h3 className="text-base font-normal">Exhibitions</h3>
       <p>
+        2024.4　
+        <a
+          href="https://www.fxhash.xyz/generative/30729"
+          target="_blank"
+          rel="noreferrer"
+        >
+          ‘Visual Poetry’ group show curated by Atelier
+        </a>
+        （fxhash, Online） [inside window]
+        <br />
         2024.1　
-        <a href="https://pox.exhibit.website/" target="_blank" rel="noreferrer">
+        <a href="https://proofofx.art/" target="_blank" rel="noreferrer">
           DIG SHIBUYA - Proof of X: Decoding PFP Culture
         </a>{' '}
         (GALLERY X BY PARCO, Tokyo) [Async to Sync]
@@ -58,11 +68,7 @@ export default function Page() {
         (Grand Cube Osaka, Osaka) [Digital Native Art]
         <br />
         2023.6　
-        <a
-          href="https://pox.exhibit.website/2023"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://proofofx.art/2023" target="_blank" rel="noreferrer">
           Proof of X 2023
         </a>{' '}
         (THE FACE DAIKANYAMA, Tokyo) [Digital Native Art]
@@ -120,8 +126,7 @@ export default function Page() {
 
       <h3 className="text-base font-normal">学歴/職歴</h3>
       <p>
-        2024.4 ―　情報科学芸術大学院大学（IAMAS）メディア表現研究科
-        博士後期程入学予定
+        2024.4 ―　情報科学芸術大学院大学（IAMAS）メディア表現研究科 博士後期課程
         <br />
         2021.8
         ―　株式会社メルカリ/株式会社メルコイン　ブロックチェーン・エンジニア
@@ -141,11 +146,21 @@ export default function Page() {
 
       <h3 className="text-base font-normal">展覧会</h3>
       <p>
+        2024.4　
+        <a
+          href="https://www.fxhash.xyz/generative/30729"
+          target="_blank"
+          rel="noreferrer"
+        >
+          ‘Visual Poetry’ グループ展 curated by Atelier
+        </a>
+        （fxhash, オンライン） [inside window]
+        <br />
         2024.1　
-        <a href="https://pox.exhibit.website/" target="_blank" rel="noreferrer">
+        <a href="https://proofofx.art/2023" target="_blank" rel="noreferrer">
           DIG SHIBUYA - Proof of X: Decoding PFP Culture
         </a>
-        （GALLERY X BY PARCO、東京） [Async to Sync]
+        （GALLERY X BY PARCO, 東京） [Async to Sync]
         <br />
         2023.9　
         <a
@@ -155,17 +170,13 @@ export default function Page() {
         >
           art stage OSAKA 2023 - Proof of X
         </a>
-        （グランキューブ大阪、大阪） [Digital Native Art]
+        （グランキューブ大阪, 大阪） [Digital Native Art]
         <br />
         2023.6　
-        <a
-          href="https://pox.exhibit.website/2023"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://proofofx.art/2023" target="_blank" rel="noreferrer">
           Proof of X 2023
         </a>
-        （THE FACE DAIKANYAMA、東京） [Digital Native Art]
+        （THE FACE DAIKANYAMA, 東京） [Digital Native Art]
         <br />
         2022.9　
         <a
@@ -175,7 +186,7 @@ export default function Page() {
         >
           Crypto Art Week Asia Tokyo 2022
         </a>
-        （DMM 麻布サテライト、東京） [Lost Language]
+        （DMM 麻布サテライト, 東京） [Lost Language]
         <br />
         2022.7　
         <a
@@ -185,7 +196,7 @@ export default function Page() {
         >
           Crypto Art Fes 2022
         </a>
-        （渋谷SPACE EDGE、東京） [萩原朔太郎 詩のNFT]
+        （渋谷SPACE EDGE, 東京） [萩原朔太郎 詩のNFT]
         <br />
       </p>
 

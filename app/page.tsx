@@ -16,7 +16,7 @@ export default function Page() {
                   <WorkCard
                     key={item.slug + index}
                     item={item}
-                    href={item.slug ? `/${item.slug}` : item.externalUrl}
+                    href={item.slug ? `/${item.slug}` : item.externalUrls[0]}
                   />
                 );
               })}

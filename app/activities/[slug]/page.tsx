@@ -39,18 +39,22 @@ export default function Page({ params }: { params: { slug: string } }) {
         <p>{menuItem.description}</p>
       </div>
 
-      {menuItem.externalUrl ? (
-        <p>
-          <a
-            href={menuItem.externalUrl}
-            target="_blank"
-            rel="noreferrer"
-            style={{ textDecoration: 'none' }}
-          >
-            {menuItem.externalUrl}
-          </a>
-        </p>
-      ) : null}
+      {menuItem.externalUrls &&
+        menuItem.externalUrls.length > 0 &&
+        menuItem.externalUrls.map((url: string) =>
+          url ? (
+            <p key={url}>
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'none' }}
+              >
+                {url}
+              </a>
+            </p>
+          ) : null,
+        )}
     </div>
   );
 }
