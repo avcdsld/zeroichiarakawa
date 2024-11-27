@@ -1,5 +1,5 @@
 export default function Page() {
-  const lastUpdated = new Date('2024-04-10');
+  const lastUpdated = new Date('2024-11-27');
 
   return (
     // <div className="text-gray-200 space-y-4">
@@ -41,6 +41,16 @@ export default function Page() {
 
       <h3 className="text-base font-normal">Exhibitions</h3>
       <p>
+        2024.11　
+        <a
+          href="https://www.ycam.jp/events/2024/exhibition-of-award-winning-works/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          1st Japan Generative Art Award Exhibition
+        </a>
+        （Yamaguchi Center for Arts and Media [YCAM]） [DeepSea]
+        <br />
         2024.4　
         <a
           href="https://www.fxhash.xyz/generative/30729"
@@ -97,7 +107,7 @@ export default function Page() {
 
       <h3 className="text-base font-normal">Books</h3>
       <p>
-        2023.11　“<a href="/works/code-poetry-collection">コード詩集</a>” (A
+        2024.09　“<a href="/works/code-poetry-collection">コード詩集</a>” (A
         collection of poems self-published at 技術書典 15)
         <br />
         2023.11　“
@@ -105,6 +115,15 @@ export default function Page() {
           現代暗号詩 ― GPT-4 によるニーモニックの詩
         </a>
         ” (A collection of poems self-published at 技術書典 15)
+        <br />
+      </p>
+
+      <h3 className="text-base font-normal">Award</h3>
+      <p>
+        2024.9　
+        <a href="https://generativeart.or.jp/generative-art-award/generative-art-award-winner-2024">
+          1st Japan Generative Art Award ― Selected Work
+        </a>
         <br />
       </p>
 
@@ -146,6 +165,16 @@ export default function Page() {
 
       <h3 className="text-base font-normal">展覧会</h3>
       <p>
+        2024.11　
+        <a
+          href="https://www.ycam.jp/events/2024/exhibition-of-award-winning-works/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          第一回ジェネラティブアート・アワード受賞作品展
+        </a>
+        （山口情報芸術センター [YCAM], 山口） [DeepSea]
+        <br />
         2024.4　
         <a
           href="https://www.fxhash.xyz/generative/30729"
@@ -210,6 +239,15 @@ export default function Page() {
           現代暗号詩 ― GPT-4 によるニーモニックの詩
         </a>
         』（技術書典 15 にて自主出版した詩集）
+        <br />
+      </p>
+
+      <h3 className="text-base font-normal">受賞</h3>
+      <p>
+        2024.9　
+        <a href="https://generativeart.or.jp/generative-art-award/generative-art-award-winner-2024">
+          第一回ジェネラティブアート・アワード 入賞
+        </a>
         <br />
       </p>
 
