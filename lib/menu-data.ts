@@ -33,7 +33,7 @@ export const menuData: any[] = [
           'この作品は、JavaScript で書かれた短い詩を、テストという行為を通じて探求する試みです。テストはソフトウェア開発において重要なプロセスであり、コードの実行結果を検証するために様々なツールが開発されています。この作品では JavaScript 用のテストフレームワーク Mocha を組み込み、ブラウザ上でコードのテストを繰り返し行います。 作品の中心には「DeepSea」と名付けたクラスがあります。このクラスは再帰的なコンストラクタを持ち、インスタンス化されると内部変数「mystery」に別のインスタンスを格納します。そのインスタンスはほとんどの場合、同じ「DeepSea」クラスのインスタンスですが、深く深く潜った場合、低い確率で古代魚のインスタンスが格納されることがあります。 私は、このような構造をプログラミング言語の持つ独自の価値と捉えています。視覚化されていなくとも、この構造そのものがジェネラティブアートと呼べるのではないかと考えています。テストフレームワークは、その内部状態を解き明かし、共有する手段を提供します。これは期待と現実のギャップを明らかにし、古代魚がまだ生きているという歴史的な出来事を思い出させます。この作品が、テストとコード作品の関係について考えるきっかけとなることを願います。',
         externalUrls: [
           'https://github.com/avcdsld/deep_sea',
-          'https://deepsea-code.web.app/',
+          'https://deepsea.poesy.run/',
         ],
         year: '2024',
       },
@@ -96,14 +96,14 @@ export const menuData: any[] = [
         slug: 'works/lost-language',
         description:
           'The world is full of letters and data that can no longer be deciphered, and these are growing in number. The same is true in the digital world. In this work, by loading my original font into p5.js, I expressed the lost language wandering in the digital space.',
-        externalUrls: ['https://lost-language.web.app'],
+        externalUrls: ['https://lost-language.poesy.run'],
         year: '2022',
       },
       {
         name: 'Sakutaro Poems NFTs',
         slug: 'works/sakutaro-poems-nfts',
         description: `Thirty-nine poems from Sakutaro Hagiwara's late self-selected collection "Shukumei" have been inscribed on the blockchain as full-on-chain NFTs. These NFTs have a little mysterious property in that their contents change depending on the owner. These NFTs will be issued on multiple blockchains. NFTs can be issued on chains such as Ethereum, Polygon, BSC, Arbitrum, Optimism, Shiden, Avalanche C-Chain, Flow, Tezos, Sui, Aptos, etc. Up to 39 NFTs can be issued for each chain. I like the literary works of Sakutaro Hagiwara. What can we do to add value to this and keep it in the digital space for a long time? How enduring are the NFT standards and SVG data? Which chains should be used to ensure that they remain in place for a long time? This is an experiment that will be conducted many years into the future.`,
-        externalUrls: ['https://sakutaro-poem-nft.web.app'],
+        externalUrls: ['https://sakutaro.poesy.run'],
         year: '2022',
       },
       {
