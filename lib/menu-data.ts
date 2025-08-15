@@ -27,6 +27,39 @@ export const menuData: any[] = [
         year: '2023―',
       },
       {
+        name: 'BUGCAT',
+        slug: 'works/bugcat',
+        description:
+          'BUGCAT explores the poetics of code through its failures. When developers write smart contracts, they believe they are creating closed systems—deterministic machines that execute exactly as written. But language, even programming language, always contains more than its authors intend.Each BUGCAT is a monument to a moment when code transcended its own grammar. They are smart contracts that remember other smart contracts, creating a living archive of the times when code escaped its own intentions. Through the act of remembrance, they transform technical failures into philosophical artifacts. This is executable poetry—code that runs on the Ethereum Virtual Machine, consuming gas, altering state, moving value. Unlike traditional poetry, these verses have material consequences. They exist not on paper but in the consensus of thousands of nodes, resilient and redundantly remembered.',
+        image: '/images/bugcat.jpg',
+        externalUrls: ['https://bugcat.org/'],
+        year: '2025',
+      },
+      {
+        name: 'Contract Domino',
+        slug: 'works/contract-domino',
+        description: `Contract Domino is a work composed of smart contracts deployed on the Ethereum blockchain and the chain of events they set in motion.
+
+The blockchain offers a new "form of trust" as a digital public space—one that holds particular significance for artists working with code. Here, all code runs under shared rules, on shared storage, with every process recorded. As long as the network remains sufficiently decentralized, the code continues to exist "alive." It is not a mere archive, but an ever-open work.
+For example, Is Art by Rhea Myers, created in 2015, can still be invoked today, and in 2024 Sarah Friend produced Yesbot, a smart contract that directly connects to it.
+
+I regard this technology as a historical turning point on par with the invention of language, writing, or the printing press. Yet, much of what has been created on it has amounted to meaningless centralized currencies, speculative games, or exploitative schemes—sometimes even involving artists themselves. Exploits of smart contract vulnerabilities have been frequent, and Lawrence Lessig's "Code is Law" has acquired an ironic tone.
+One particularly striking example is the change to the SELFDESTRUCT opcode, which once allowed a contract to be completely erased, and was abused to destroy trusted contracts and steal funds. Today, it can only target contracts deployed within the same transaction. This shift gave me a complex feeling toward the act of destruction.
+
+Within this constraint, the work orchestrates the chain destruction of multiple smart contracts. Destruction here means the abandonment of a contract or promise. The 17 contracts correspond to the 17 global goals humanity has pledged to pursue. I have always been conscious of what exists "inside" a smart contract and what remains "outside," much like discerning what is written in a legal document and what is not. For this piece, I inscribed a declaration of humanity's future path into the source code uploaded to Etherscan, though it does not exist inside the contracts themselves.
+
+Interaction is possible in two ways: arranging the dominoes and toppling them in separate transactions, or performing both in a single one. The choice determines whether a contract is truly destroyed, or merely appears to be while in fact persisting. In either case, the act can be repeated indefinitely, as long as the blockchain endures.
+
+The work offers no visual interface. Instead, it provides its GitHub repository, the code and transaction records on Etherscan, and sequence diagrams as interpretive guides.
+Conceptual in nature yet grounded in the real resource of the world computer, it enables a direct experience of the creation and destruction of smart contracts—this, I believe, is its defining quality.`,
+        image: '/images/contract-domino.jpg',
+        externalUrls: [
+          'https://github.com/avcdsld/contract-domino',
+          'https://github.com/avcdsld/contract-domino/tree/main/doc',
+        ],
+        year: '2025',
+      },
+      {
         name: 'DeepSea',
         slug: 'works/deepsea',
         description:
@@ -153,26 +186,6 @@ export const menuData: any[] = [
         name: 'GitHub',
         slug: '',
         externalUrls: ['https://github.com/avcdsld'],
-      },
-      {
-        name: 'Medium',
-        slug: '',
-        externalUrls: ['https://medium.com/@avcdsld'],
-      },
-      {
-        name: 'Qiita',
-        slug: '',
-        externalUrls: ['https://qiita.com/avcdsld'],
-      },
-      {
-        name: 'Speaker Deck',
-        slug: '',
-        externalUrls: ['https://speakerdeck.com/avcdsld'],
-      },
-      {
-        name: 'Instagram',
-        slug: '',
-        externalUrls: ['https://www.instagram.com/ara721_'],
       },
     ],
   },
