@@ -77,7 +77,7 @@ Conceptual in nature yet grounded in the real resource of the world computer, it
           "‘inside window’ is part of the ‘Visual Poetry’ group show curated by Atelier. This work merges code poetry and generative art. When executed, it searches for all the functions within the browser's ‘window’ object, selects one, and calls it. The return from this function call reveals words of an error message that lie deep within the code, unveiling an unimaginably vast horizon. This is an introspective piece where generative art reflects upon itself, representing a completely new form of generative poetry.",
         externalUrls: [
           'https://www.fxhash.xyz/generative/30729',
-          'https://www.atelierart.io/post/code-as-poetry-a-dialogue-with-ara-on-inside-window',
+          'https://web.archive.org/web/20240721103006/https://www.atelierart.io/post/code-as-poetry-a-dialogue-with-ara-on-inside-window',
         ],
         year: '2024',
       },
