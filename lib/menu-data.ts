@@ -53,10 +53,7 @@ Interaction is possible in two ways: arranging the dominoes and toppling them in
 The work offers no visual interface. Instead, it provides its GitHub repository, the code and transaction records on Etherscan, and sequence diagrams as interpretive guides.
 Conceptual in nature yet grounded in the real resource of the world computer, it enables a direct experience of the creation and destruction of smart contracts—this, I believe, is its defining quality.`,
         image: '/images/contract-domino.jpg',
-        externalUrls: [
-          'https://github.com/avcdsld/contract-domino',
-          'https://github.com/avcdsld/contract-domino/tree/main/doc',
-        ],
+        externalUrls: ['https://contract-domino.poesy.run/'],
         year: '2025',
       },
       {
