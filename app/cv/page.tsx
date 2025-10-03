@@ -51,6 +51,12 @@ export default function Page() {
         </a>
         （NEORT++, Tokyo） [BUGCAT] [Executed Poetry] [CodeTEI]
         <br />
+        2025.2　
+        <a href="https://byod.neort.io/" target="_blank" rel="noreferrer">
+          BYOD² (Bring Your Own Data & Display) Exhibition
+        </a>
+        （MIYASHITA PARK, Tokyo） [Lost Language] [inside window] [DeepSea]
+        <br />
         2024.11　
         <a
           href="https://www.ycam.jp/events/2024/exhibition-of-award-winning-works/"
@@ -210,6 +216,12 @@ export default function Page() {
           展覧会「計算する詩 / Computational Poetry」
         </a>
         （NEORT++, 東京） [BUGCAT] [Executed Poetry] [CodeTEI]
+        <br />
+        2025.2　
+        <a href="https://byod.neort.io/" target="_blank" rel="noreferrer">
+          BYOD² (Bring Your Own Data & Display) Exhibition
+        </a>
+        （MIYASHITA PARK, 東京） [Lost Language] [inside window] [DeepSea]
         <br />
         2024.11　
         <a
