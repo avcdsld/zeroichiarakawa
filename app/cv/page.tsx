@@ -1,5 +1,5 @@
 export default function Page() {
-  const lastUpdated = new Date('2024-11-27');
+  const lastUpdated = new Date('2025-10-03');
 
   return (
     // <div className="text-gray-200 space-y-4">
@@ -41,6 +41,16 @@ export default function Page() {
 
       <h3 className="text-base font-normal">Exhibitions</h3>
       <p>
+        2025.9　
+        <a
+          href="https://two.neort.io/ja/exhibitions/computational_poetry"
+          target="_blank"
+          rel="noreferrer"
+        >
+          &ldquo;Computational Poetry&rdquo; Exhibition
+        </a>
+        （NEORT++, Tokyo） [BUGCAT] [Executed Poetry] [CodeTEI]
+        <br />
         2024.11　
         <a
           href="https://www.ycam.jp/events/2024/exhibition-of-award-winning-works/"
@@ -105,16 +115,42 @@ export default function Page() {
         <br />
       </p>
 
+      <h3 className="text-base font-normal">Conference Presentations</h3>
+      <p>
+        2025.9　
+        <a
+          href="https://jadh2025.hmt.osaka-u.ac.jp/program"
+          target="_blank"
+          rel="noreferrer"
+        >
+          The 14th Conference of Japanese Association for Digital Humanities
+          (JADH2025)
+        </a>
+        　&ldquo;CodeTEI: A TEI Extension and PoC System for Executable
+        Poetry&rdquo;
+        <br />
+        2025.7　
+        <a
+          href="https://www.jassweb.jp/?page_id=4814"
+          target="_blank"
+          rel="noreferrer"
+        >
+          日本記号学会第45回大会
+        </a>
+        &ldquo;コードポエトリーにおける記号転位とパース記号分類の応用&rdquo;
+        <br />
+      </p>
+
       <h3 className="text-base font-normal">Books</h3>
       <p>
-        2024.09　“<a href="/works/code-poetry-collection">コード詩集</a>” (A
-        collection of poems self-published at 技術書典 15)
+        2024.09　&ldquo;<a href="/works/code-poetry-collection">コード詩集</a>
+        &rdquo; (A collection of poems self-published at 技術書典 15)
         <br />
-        2023.11　“
+        2023.11　&ldquo;
         <a href="/works/crypto-modern-poetry">
           現代暗号詩 ― GPT-4 によるニーモニックの詩
         </a>
-        ” (A collection of poems self-published at 技術書典 15)
+        &rdquo; (A collection of poems self-published at 技術書典 15)
         <br />
       </p>
 
@@ -165,6 +201,16 @@ export default function Page() {
 
       <h3 className="text-base font-normal">展覧会</h3>
       <p>
+        2025.9　
+        <a
+          href="https://two.neort.io/ja/exhibitions/computational_poetry"
+          target="_blank"
+          rel="noreferrer"
+        >
+          展覧会「計算する詩 / Computational Poetry」
+        </a>
+        （NEORT++, 東京） [BUGCAT] [Executed Poetry] [CodeTEI]
+        <br />
         2024.11　
         <a
           href="https://www.ycam.jp/events/2024/exhibition-of-award-winning-works/"
@@ -226,6 +272,31 @@ export default function Page() {
           Crypto Art Fes 2022
         </a>
         （渋谷SPACE EDGE, 東京） [萩原朔太郎 詩のNFT]
+        <br />
+      </p>
+
+      <h3 className="text-base font-normal">学会発表</h3>
+      <p>
+        2025.9　
+        <a
+          href="https://jadh2025.hmt.osaka-u.ac.jp/program"
+          target="_blank"
+          rel="noreferrer"
+        >
+          The 14th Conference of Japanese Association for Digital Humanities
+          (JADH2025)
+        </a>
+        　「CodeTEI: A TEI Extension and PoC System for Executable Poetry」
+        <br />
+        2025.7　
+        <a
+          href="https://www.jassweb.jp/?page_id=4814"
+          target="_blank"
+          rel="noreferrer"
+        >
+          日本記号学会第45回大会
+        </a>
+        「コードポエトリーにおける記号転位とパース記号分類の応用」
         <br />
       </p>
 
