@@ -27,12 +27,30 @@ export const menuData: any[] = [
         year: '2023―',
       },
       {
+        name: 'CodeTEI',
+        slug: 'works/code-tei',
+        description:
+          '"CodeTEI" is a technical specification for quoting and interpreting executable poetry that itself stands as a poem.\nIt extends the international standard TEI (Text Encoding Initiative) for scholarly documents, defining an XML schema that structures the execution, quotation, and multi-layered interpretation of code poetry. Each line of a poem carries a persistent identifier in the format `codetei://sha3-256-<digest>#<lineID>`, enabling precise citation. Annotations by humans, AI, and systems are recorded without hierarchy, and even execution logs or error messages are treated as new lines woven into the body of the poem.\nIn the exhibition, HTML quoting one of the "Executed Poetry" poems, "If your heart is empty, borrow love from the universe.", is displayed alongside XML containing equivalent information written according to the CodeTEI specification. CodeTEI is a protocol for preserving, quoting, and interpreting poetry in the digital age, and is itself a meta-poem that explores what poetry is.',
+        image: '/images/code-tei.jpg',
+        externalUrls: ['https://github.com/CodeArtStudies/CodeTEI'],
+        year: '2025',
+      },
+      {
         name: 'BUGCAT',
         slug: 'works/bugcat',
         description:
           'BUGCAT explores the poetics of code through its failures. When developers write smart contracts, they believe they are creating closed systems—deterministic machines that execute exactly as written. But language, even programming language, always contains more than its authors intend.Each BUGCAT is a monument to a moment when code transcended its own grammar. They are smart contracts that remember other smart contracts, creating a living archive of the times when code escaped its own intentions. Through the act of remembrance, they transform technical failures into philosophical artifacts. This is executable poetry—code that runs on the Ethereum Virtual Machine, consuming gas, altering state, moving value. Unlike traditional poetry, these verses have material consequences. They exist not on paper but in the consensus of thousands of nodes, resilient and redundantly remembered.',
         image: '/images/bugcat.jpg',
-        externalUrls: ['https://bugcat.org/'],
+        externalUrls: ['https://bugcat.org'],
+        year: '2025',
+      },
+      {
+        name: 'Executed Poetry',
+        slug: 'works/executed-poetry',
+        description:
+          'Executed Poetry is a device that runs code-poems and displays their fleeting traces.\n\nWhen the button is pressed, a short poem written in Python is executed inside the microcontroller. On the e-paper display, the executed poem appears together with its execution count, processing time, and the microcontroller\'s unique public key and signature. These serve as cryptographic proof that the poem was indeed executed on that machine.\n\nThe included poems use Python\'s primitive features to explore philosophical themes such as existence, eternity, and nothingness. One begins an infinite loop only to end it instantly; another defines and deletes a class that never truly exists; yet another returns itself while simultaneously negating itself. In just a few lines, the code oscillates on the boundary between computation and philosophy.\n\nPoems are no longer merely read—they are executed. What we witness are the traces of execution, the epitaphs engraved by the machine itself.\n\nExhibited at "Computational Poetry" exhibition, NEORT++ Gallery, Tokyo, 2025',
+        image: '/images/executed-poetry.jpg',
+        externalUrls: ['https://executed-poetry.poesy.run'],
         year: '2025',
       },
       {
@@ -148,6 +166,18 @@ Conceptual in nature yet grounded in the real resource of the world computer, it
   {
     name: 'Activities',
     items: [
+      {
+        name: 'Computational Poetry Exhibition',
+        slug: 'activities/computational-poetry-exhibition',
+      },
+      {
+        name: 'JADH 2025',
+        slug: 'activities/jadh-2025',
+      },
+      {
+        name: 'JASS 45',
+        slug: 'activities/jass-45',
+      },
       {
         name: 'Interview by Flowverse',
         slug: 'activities/interview-by-flowverse',
