@@ -1,7 +1,7 @@
 import '#/styles/globals.css';
 import { Metadata } from 'next';
-import { GlobalNav } from '#/ui/global-nav';
 import { notoSerifJP } from '#/font/font';
+import { LayoutWrapper } from '#/ui/layout-wrapper';
 
 export const metadata: Metadata = {
   metadataBase: new URL('http://localhost:3000'),
@@ -35,17 +35,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="[color-scheme:dark]">
-      {/* <body className="bg-gray-1100 overflow-y-scroll bg-[url('/grid.svg')] pb-36"> */}
       <body
         className={`${notoSerifJP.className} bg-gray-1100 overflow-y-scroll pb-36`}
       >
-        <GlobalNav />
-
-        <div className="lg:pl-72">
-          <div className="mx-auto max-w-4xl space-y-8 px-2 pt-20 lg:px-8 lg:py-8">
-            <div className="p-3.5 lg:p-6">{children}</div>
-          </div>
-        </div>
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );
