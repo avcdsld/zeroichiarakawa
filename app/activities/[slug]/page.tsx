@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { menuData } from '#/lib/menu-data';
-import { notoSansJP } from '#/font/font';
+import { notoSerifJP } from '#/font/font';
 
 export default function Page({ params }: { params: { slug: string } }) {
   const menuItem = menuData
@@ -15,7 +15,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   return (
     <div className="prose prose-sm prose-invert max-w-none text-gray-200">
       <div className="flex justify-center">
-        <h1 className={`${notoSansJP.className} text-2xl font-normal`}>
+        <h1 className={`${notoSerifJP.className} text-2xl font-normal`}>
           {menuItem.name}
         </h1>
       </div>

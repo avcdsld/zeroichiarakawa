@@ -6,7 +6,7 @@ import { useSelectedLayoutSegment } from 'next/navigation';
 import { MenuAlt2Icon, XIcon } from '@heroicons/react/solid';
 import clsx from 'clsx';
 import { useState } from 'react';
-import { notoSansJP } from '../font/font';
+import { notoSerifJP } from '../font/font';
 
 export function GlobalNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,7 +55,7 @@ export function GlobalNav() {
             return (
               <div key={index}>
                 <div
-                  className={`${notoSansJP.className} mb-2 px-3 text-xs font-bold font-semibold uppercase tracking-wider text-gray-400/80`}
+                  className={`${notoSerifJP.className} mb-2 px-3 text-xs font-bold font-semibold uppercase tracking-wider text-gray-400/80`}
                 >
                   <div>{section.name}</div>
                 </div>
