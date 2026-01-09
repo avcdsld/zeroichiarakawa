@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { notoSansJP } from '#/font/font';
+import { notoSerifJP } from '#/font/font';
 
 export const WorkCard = ({ item, href }: { item: any; href: string }) => {
   const slug = item.slug.replace('works/', '');
@@ -34,7 +34,7 @@ export const WorkCard = ({ item, href }: { item: any; href: string }) => {
           {item.name}
         </div>
         <div
-          className={`${notoSansJP.className} group-hover:text-vercel-cyan truncate text-xs text-gray-200`}
+          className={`${notoSerifJP.className} group-hover:text-vercel-cyan truncate text-xs text-gray-200`}
         >
           {item.year}
         </div>

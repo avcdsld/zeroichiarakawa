@@ -17,7 +17,7 @@ const notoSansJP = Noto_Sans_JP({
 const notoSerifJP = Noto_Serif_JP({
   weight: ['400', '500', '700'],
   style: ['normal'],
-  subsets: ['latin'],
+  preload: false,
   display: 'swap',
   variable: '--font-noto-serif-jp',
 });

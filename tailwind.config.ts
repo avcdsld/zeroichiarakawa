@@ -13,6 +13,11 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-noto-serif-jp)', 'serif'],
+        serif: ['var(--font-noto-serif-jp)', 'serif'],
+        mono: ['var(--font-roboto-mono)', 'monospace'],
+      },
       // https://vercel.com/design/color
       colors: {
         gray: colors.zinc,

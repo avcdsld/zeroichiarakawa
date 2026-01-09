@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="[color-scheme:dark]">
+    <html lang="en" className={`[color-scheme:dark] ${notoSerifJP.variable}`}>
       <body
         className={`${notoSerifJP.className} bg-gray-1100 overflow-y-scroll pb-36`}
       >
