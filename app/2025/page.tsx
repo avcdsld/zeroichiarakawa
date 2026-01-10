@@ -547,27 +547,29 @@ function Omikuji() {
 
 export default function Page() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen px-6 py-16 md:px-12 md:py-24">
       <ScrollProgress />
-      <Header />
+      <div className="mx-auto max-w-4xl">
+        <Header />
 
-      <div className="space-y-16">
-        {activities.map((activity, index) => (
-          <ActivityItem key={activity.id} activity={activity} index={index} />
-        ))}
+        <div className="space-y-16">
+          {activities.map((activity, index) => (
+            <ActivityItem key={activity.id} activity={activity} index={index} />
+          ))}
+        </div>
+
+        <Omikuji />
+
+        <footer className="mt-20 pt-8">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 text-xs text-white/30 transition-colors duration-200 hover:text-white/60"
+          >
+            <span>←</span>
+            <span>Back</span>
+          </Link>
+        </footer>
       </div>
-
-      <Omikuji />
-
-      <footer className="mt-20 pt-8">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-xs text-white/30 transition-colors duration-200 hover:text-white/60"
-        >
-          <span>←</span>
-          <span>Back</span>
-        </Link>
-      </footer>
     </div>
   );
 }

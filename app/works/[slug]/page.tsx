@@ -1,9 +1,13 @@
+'use client';
+
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { menuData } from '#/lib/menu-data';
-import { notoSerifJP } from '#/font/font';
+import { FadeLink } from '#/ui/fade-link';
+import { useLanguage } from '#/lib/language-context';
 
 export default function Page({ params }: { params: { slug: string } }) {
+  const { t, lang } = useLanguage();
   const menuItem = menuData
     .map((section) => section.items)
     .flat()
@@ -12,49 +16,65 @@ export default function Page({ params }: { params: { slug: string } }) {
     notFound();
   }
 
+  const title = menuItem.nameJa && lang === 'ja' ? menuItem.nameJa : menuItem.name;
+  const description = menuItem.descriptionJa && lang === 'ja' ? menuItem.descriptionJa : menuItem.description;
+
   return (
-    <div className="prose prose-sm prose-invert max-w-none text-gray-200">
-      <div className="flex justify-center">
-        <h1 className={`${notoSerifJP.className} text-2xl font-normal`}>
-          {menuItem.name}
-        </h1>
-      </div>
+    <div className="min-h-screen">
+      {/* Back link */}
+      <FadeLink
+        href="/#works"
+        className="fixed left-6 top-6 text-xs text-gray-500 transition-opacity hover:opacity-50 md:left-12 md:top-12"
+      >
+        {t('← back', '← 戻る')}
+      </FadeLink>
 
-      <div className="flex justify-center">
-        <Image
-          src={`/images/${params.slug}.jpg`}
-          alt={`${params.slug}`}
-          width={800}
-          height={700}
-          sizes="100vw"
-          priority={false}
-          style={{
-            width: '100%',
-            height: 'auto',
-          }}
-        />
-      </div>
+      {/* Content */}
+      <div className="mx-auto max-w-3xl px-6 py-24 md:px-12">
+        <header className="mb-16">
+          <h1 className="text-xl text-white">{title}</h1>
+          {menuItem.year && (
+            <p className="mt-2 text-sm text-gray-600">{menuItem.year}</p>
+          )}
+        </header>
 
-      <div className="flex justify-center">
-        <p>{menuItem.description}</p>
-      </div>
+        <div className="mb-16">
+          <Image
+            src={`/images/${params.slug}.jpg`}
+            alt={title}
+            width={800}
+            height={600}
+            sizes="100vw"
+            priority
+            className="w-full"
+            style={{ height: 'auto' }}
+          />
+        </div>
 
-      {menuItem.externalUrls &&
-        menuItem.externalUrls.length > 0 &&
-        menuItem.externalUrls.map((url: string) =>
-          url ? (
-            <p key={url}>
-              <a
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: 'none' }}
-              >
-                {url}
-              </a>
-            </p>
-          ) : null,
+        {description && (
+          <p className="mb-16 whitespace-pre-wrap text-sm leading-loose text-gray-400">
+            {description}
+          </p>
         )}
+
+        {menuItem.externalUrls && menuItem.externalUrls.length > 0 && (
+          <div className="space-y-3 border-t border-gray-800 pt-8">
+            {menuItem.externalUrls.map((url: string) =>
+              url ? (
+                <a
+                  key={url}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-sm text-gray-500 transition-opacity hover:opacity-50"
+                >
+                  {url}
+                </a>
+              ) : null,
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
