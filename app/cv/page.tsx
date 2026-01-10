@@ -186,9 +186,9 @@ function WorkItem({ title, href, desc }: { title: string; href?: string; desc: s
   return (
     <div className="text-sm">
       {href ? (
-        <a href={href} className="text-gray-300 transition-opacity hover:opacity-50">{title}</a>
+        <a href={href} className="text-gray-400 transition-opacity hover:opacity-50">{title}</a>
       ) : (
-        <span className="text-gray-300">{title}</span>
+        <span className="text-gray-400">{title}</span>
       )}
       <span className="text-gray-600"> — {desc}</span>
     </div>
@@ -200,7 +200,7 @@ function CVItemLink({ year, text, venue, works, href }: { year: string; text: st
     <div className="flex gap-4 text-sm">
       <span className="w-16 flex-shrink-0 text-gray-600">{year}</span>
       <span className="text-gray-400">
-        <a href={href} target="_blank" rel="noreferrer" className="text-gray-300 transition-opacity hover:opacity-50">
+        <a href={href} target="_blank" rel="noreferrer" className="transition-opacity hover:opacity-50">
           {text}
         </a>
         <span className="text-gray-600">（{venue}）</span>
@@ -215,7 +215,7 @@ function CVItemWithLink({ year, linkText, href, desc }: { year: string; linkText
     <div className="flex gap-4 text-sm">
       <span className="w-16 flex-shrink-0 text-gray-600">{year}</span>
       <span className="text-gray-400">
-        <a href={href} target="_blank" rel="noreferrer" className="text-gray-300 transition-opacity hover:opacity-50">
+        <a href={href} target="_blank" rel="noreferrer" className="transition-opacity hover:opacity-50">
           {linkText}
         </a>
         {desc && <span className="text-gray-500">　{desc}</span>}
