@@ -1,13 +1,13 @@
 'use client';
 
-import { notFound } from 'next/navigation';
+import { notFound, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { menuData } from '#/lib/menu-data';
-import { FadeLink } from '#/ui/fade-link';
 import { useLanguage } from '#/lib/language-context';
 
 export default function Page({ params }: { params: { slug: string } }) {
   const { t, lang } = useLanguage();
+  const router = useRouter();
   const menuItem = menuData
     .map((section) => section.items)
     .flat()
@@ -22,12 +22,12 @@ export default function Page({ params }: { params: { slug: string } }) {
   return (
     <div className="min-h-screen">
       {/* Back link */}
-      <FadeLink
-        href="/#works"
+      <button
+        onClick={() => router.back()}
         className="fixed left-6 top-6 text-xs text-gray-500 transition-opacity hover:opacity-50 md:left-12 md:top-12"
       >
         {t('← back', '← 戻る')}
-      </FadeLink>
+      </button>
 
       {/* Content */}
       <div className="mx-auto max-w-3xl px-6 py-24 md:px-12">
