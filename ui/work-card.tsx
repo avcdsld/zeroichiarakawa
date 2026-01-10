@@ -1,44 +1,38 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { notoSerifJP } from '#/font/font';
 
 export const WorkCard = ({ item, href }: { item: any; href: string }) => {
-  const slug = item.slug.replace('works/', '');
-  const image = item.image || `/images/${slug}.jpg`;
-  const imageBlur = `/images/${slug}.jpg`; // TODO:
-  return (
-    <Link href={href} className="group block">
-      <div className="space-y-2">
-        <div className="relative h-full w-full pt-8">
-          <div
-            style={{
-              width: '100%',
-              height: '0',
-              paddingBottom: '100%',
-              position: 'relative',
-              boxShadow: '0px 0px 1px rgba(255, 255, 255, 0.5)',
-            }}
-          >
-            <Image
-              src={image}
-              layout="fill"
-              className="rounded-sm object-cover group-hover:opacity-80"
-              alt={item.name}
-              placeholder="blur"
-              blurDataURL={imageBlur}
-            />
-          </div>
-        </div>
+  const isExternal = !item.slug;
+  const slug = item.slug?.replace('works/', '') || '';
+  const image = item.image || (slug ? `/images/${slug}.jpg` : null);
 
-        <div className="group-hover:text-vercel-cyan truncate text-sm font-medium text-white">
+  const content = (
+    <div className="group block py-4 transition-all">
+      {image && (
+        <div className="mb-3 aspect-video w-full overflow-hidden rounded-lg opacity-90 transition-all group-hover:opacity-100 group-hover:shadow-lg">
+          <Image
+            src={image}
+            alt={item.name}
+            width={640}
+            height={360}
+            className="h-full w-full object-cover transition-transform group-hover:scale-105"
+          />
+        </div>
+      )}
+      <div className="flex items-baseline justify-between">
+        <span className="text-base text-gray-300 transition-opacity group-hover:opacity-70">
           {item.name}
-        </div>
-        <div
-          className={`${notoSerifJP.className} group-hover:text-vercel-cyan truncate text-xs text-gray-200`}
-        >
-          {item.year}
-        </div>
+        </span>
+        <span className="text-sm text-gray-600">{item.year}</span>
       </div>
-    </Link>
+    </div>
+  );
+
+  return isExternal ? (
+    <a href={href} target="_blank" rel="noreferrer">
+      {content}
+    </a>
+  ) : (
+    <Link href={href}>{content}</Link>
   );
 };
