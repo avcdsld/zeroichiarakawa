@@ -14,6 +14,17 @@ export const menuData: any[] = [
     name: 'Works',
     items: [
       {
+        name: 'no extension',
+        slug: 'works/no-extension',
+        description:
+          'These are Bitcoin transactions confirmed on mainnet. They are also files—HTML, PDF, ZIP. No conversion. No extraction. The bytes are the same.\n\nThis work cannot be read passively. To encounter it is to verify it—to inspect the bytes, to confirm that the same sequence is simultaneously a valid transaction and a valid file. The poetic moment is not in opening the file. It is in the act of confirmation itself.',
+        descriptionJa:
+          'これらはメインネットで承認された Bitcoin トランザクションである。同時に HTML、PDF、ZIP ファイルでもある。変換も抽出も不要。バイト列はそのまま同じである。\n\nこの作品は受動的に鑑賞することができない。この作品に出会うことは、それを検証することである——バイト列を調べ、同じシーケンスが有効なトランザクションであると同時に有効なファイルであることを確認すること。詩的な瞬間はファイルを開くことにあるのではない。確認という行為そのものにある。',
+        image: '/images/no-extension.gif',
+        externalUrls: ['https://no-extension.poesy.run'],
+        year: '2026',
+      },
+      {
         name: 'Code Poetry on X ↗',
         slug: '',
         externalUrls: [
