@@ -4,17 +4,17 @@ import { notoSerifJP } from '#/font/font';
 import { LayoutWrapper } from '#/ui/layout-wrapper';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('http://localhost:3000'),
+  metadataBase: new URL('https://zeroichiarakawa.com'),
   title: {
     default: 'Zeroichi Arakawa',
     template: '%s | Zeroichi Arakawa',
   },
   description:
-    'A smart contract engineer and code poet who started developing blockchain and decentralized applications in 2017. In 2019, developed miime, an NFT marketplace on Ethereum. Since 2021, has been working at Mercari Inc., developing NFT-related products. From 2022, they have been intensifying their artistic endeavors, exploring the structural and poetic beauty of code through the use of blockchain and smart contracts.',
+    'Code poet exploring program code as a medium that is read, tested, and executed. PhD candidate at IAMAS, Japan.',
   openGraph: {
     title: 'Zeroichi Arakawa',
     description:
-      'A smart contract engineer and code poet who started developing blockchain and decentralized applications in 2017. In 2019, developed miime, an NFT marketplace on Ethereum. Since 2021, has been working at Mercari Inc., developing NFT-related products. From 2022, they have been intensifying their artistic endeavors, exploring the structural and poetic beauty of code through the use of blockchain and smart contracts.',
+      'Code poet exploring program code as a medium that is read, tested, and executed. PhD candidate at IAMAS, Japan.',
     // images: [`/api/og?title=Zeroichi Arakawa`],
     images: [`https://zeroichiarakawa.com/images/og.jpg`],
   },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Zeroichi Arakawa',
     description:
-      'A smart contract engineer and code poet who started developing blockchain and decentralized applications in 2017. In 2019, developed miime, an NFT marketplace on Ethereum. Since 2021, has been working at Mercari Inc., developing NFT-related products. From 2022, they have been intensifying their artistic endeavors, exploring the structural and poetic beauty of code through the use of blockchain and smart contracts.',
+      'Code poet exploring program code as a medium that is read, tested, and executed. PhD candidate at IAMAS, Japan.',
     // images: [`/api/og?title=Zeroichi Arakawa`],
     images: [`https://zeroichiarakawa.com/images/og.jpg`],
   },
