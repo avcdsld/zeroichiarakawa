@@ -112,6 +112,8 @@ Conceptual in nature yet grounded in the real resource of the world computer, it
         externalUrls: [
           'https://github.com/avcdsld/deep_sea',
           'https://deepsea.poesy.run',
+          'https://www.youtube.com/watch?v=sbUEB13TdcY',
+          'https://generativeart.or.jp/generative-art-award/generative-art-award-winner-2024',
         ],
         year: '2024',
       },
@@ -125,6 +127,8 @@ Conceptual in nature yet grounded in the real resource of the world computer, it
         externalUrls: [
           'https://www.fxhash.xyz/generative/30729',
           'https://web.archive.org/web/20240721103006/https://www.atelierart.io/post/code-as-poetry-a-dialogue-with-ara-on-inside-window',
+          'https://www.youtube.com/watch?v=KOUrPfp-pdE',
+          'https://byod2025.web.app/inside-window/',
         ],
         year: '2024',
       },
