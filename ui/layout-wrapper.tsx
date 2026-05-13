@@ -2,7 +2,6 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect, Suspense } from 'react';
-import { GlobalNav } from './global-nav';
 import { LanguageProvider } from '#/lib/language-context';
 import { LanguageToggle } from './language-toggle';
 
@@ -23,7 +22,6 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      {!is2025Page && <GlobalNav />}
       {!is2025Page && <LanguageToggle />}
       <div className={needsWrapper ? 'mx-auto max-w-2xl px-6 py-24 lg:px-8' : ''}>
         {children}

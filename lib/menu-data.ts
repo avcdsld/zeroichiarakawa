@@ -9,7 +9,12 @@ export type Item = {
   year?: string;
 };
 
-export const menuData: any[] = [
+export type Section = {
+  name: string;
+  items: Item[];
+};
+
+export const menuData: Section[] = [
   {
     name: 'Works',
     items: [
