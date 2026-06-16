@@ -69,6 +69,16 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Diary Section */}
+      <section className="mx-auto max-w-5xl px-6 pb-32">
+        <FadeLink
+          href="/diary"
+          className="text-xs tracking-[0.3em] text-gray-600 transition-opacity hover:opacity-50"
+        >
+          {t('DIARY →', '日記 →')}
+        </FadeLink>
+      </section>
+
       {/* Bio Section */}
       <section className="mx-auto max-w-2xl px-6 pb-32">
         <h2 className="mb-12 text-xs tracking-[0.3em] text-gray-600">
@@ -77,13 +87,13 @@ export default function Page() {
         <p className="text-sm leading-loose text-gray-400">
           {t(
             'Zeroichi Arakawa explores program code as a medium that is read, tested, and executed. His practice examines the literary and structural beauty of code while foregrounding the experiences produced through verification and runtime environments.',
-            'プログラムコードを「読まれ、テストされ、実行される」媒体として捉え、その文学的・構造的な美しさと、検証や実行環境が生む経験を主題に探索と実験を続けている。'
+            'プログラムコードを「読まれ、テストされ、実行される」媒体として捉え、その文学的・構造的な美しさと、検証や実行環境が生む経験を主題に探索と実験を続けている。',
           )}
         </p>
         <p className="mt-6 text-sm leading-loose text-gray-400">
           {t(
             'PhD candidate at IAMAS (Institute of Advanced Media Arts and Sciences), Japan.',
-            '情報科学芸術大学院大学（IAMAS）博士後期課程在籍。'
+            '情報科学芸術大学院大学（IAMAS）博士後期課程在籍。',
           )}
         </p>
         <FadeLink
