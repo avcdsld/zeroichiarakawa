@@ -208,6 +208,26 @@
       #restart:hover {
         opacity: 0.95;
       }
+      html[lang='en'] body {
+        font-family: 'Iowan Old Style', 'Hoefler Text', 'Palatino Linotype',
+          Georgia, 'Times New Roman', serif;
+      }
+      html[lang='en'] .center h1 {
+        letter-spacing: 0.045em;
+      }
+      html[lang='en'] .words .cap {
+        letter-spacing: 0.015em;
+      }
+      html[lang='en'] .words .narr,
+      html[lang='en'] .center .prose {
+        letter-spacing: 0.008em;
+      }
+      html[lang='en'] #restart {
+        letter-spacing: 0.18em;
+      }
+      html[lang='en'] .center .colophon {
+        letter-spacing: 0.2em;
+      }
       .page.is-active .scrim {
         opacity: 1;
       }
@@ -416,13 +436,6 @@
         if (p.kind === 'art') {
           const vit = document.createElement('div');
           vit.className = 'vitrine';
-          const f = document.createElement('iframe');
-          f.setAttribute('scrolling', 'no');
-          f.setAttribute('title', p.cap || '');
-          const blob = new Blob([b64html(ART[p.art])], { type: 'text/html' });
-          f.src = URL.createObjectURL(blob);
-          f.addEventListener('load', () => URL.revokeObjectURL(f.src));
-          vit.appendChild(f);
           const sc = document.createElement('div');
           sc.className = 'scrim';
           vit.appendChild(sc);
@@ -434,6 +447,9 @@
           w.innerHTML = html;
           vit.appendChild(w);
           page.appendChild(vit);
+          page._art = p.art;
+          page._cap = p.cap || '';
+          page._vit = vit; // iframe mounted on demand
         } else {
           const c = document.createElement('div');
           c.className = 'center';
@@ -453,6 +469,29 @@
         return cache.get(i) || buildNode(i);
       }
 
+      // Only the active art keeps a live WebGL context; offscreen scenes are torn
+      // down (and rebuilt on revisit) so the GPU never runs all of them at once.
+      function mountArt(page) {
+        if (!page || !page._art || page._frame) return;
+        const f = document.createElement('iframe');
+        f.setAttribute('scrolling', 'no');
+        f.setAttribute('title', page._cap);
+        const blob = new Blob([b64html(ART[page._art])], { type: 'text/html' });
+        f.src = URL.createObjectURL(blob);
+        f.addEventListener('load', () => URL.revokeObjectURL(f.src));
+        page._vit.insertBefore(f, page._vit.firstChild);
+        page._frame = f;
+      }
+      function unmountArt(page) {
+        if (page && page._frame) {
+          try {
+            page._frame.src = 'about:blank';
+          } catch (e) {}
+          page._frame.remove();
+          page._frame = null;
+        }
+      }
+
       function arrows() {
         const last = idx >= PAGES.length - 1;
         prevB.style.display = idx <= 0 ? 'none' : '';
@@ -466,6 +505,7 @@
         busy = true;
         const prevNode = idx >= 0 ? cache.get(idx) : null;
         const nextNode = nodeFor(ni);
+        mountArt(nextNode);
         nextNode.style.display = 'block';
         nextNode.classList.remove('is-active');
         void nextNode.offsetHeight;
@@ -480,8 +520,10 @@
           }),
         );
         setTimeout(() => {
-          if (prevNode && prevNode !== nextNode)
+          if (prevNode && prevNode !== nextNode) {
             prevNode.style.display = 'none';
+            unmountArt(prevNode);
+          }
           busy = false;
         }, FADE);
       }
@@ -489,6 +531,8 @@
       prevB.onclick = () => go(idx - 1);
       nextB.onclick = () => go(idx + 1);
       restartB.onclick = () => go(0);
+      restartB.textContent =
+        document.documentElement.lang === 'en' ? 'Begin again' : 'はじめに戻る';
       window.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown') {
           e.preventDefault();
