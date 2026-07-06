@@ -51,7 +51,7 @@ export const menuData: Section[] = [
         descriptionJa:
           'X（旧Twitter）上で #CodePoetry のハッシュタグとともに投稿し続けているコード詩の連作。各詩は一つのポストに収まる短さで、さまざまなプログラミング言語で書かれている。タイムラインは開かれたノートとして機能し、詩は日々の投稿のあいだに現れ、読まれ、引用され、ときに読者によって実行される。この連作は、他の作品の土台となる日々の実践である。',
         externalUrls: [
-          'https://twitter.com/search?q=from%3Aarandoros%20%23CodePoetry&src=typed_query&f=live',
+          'https://x.com/search?q=from%3Aarandoros%20%23CodePoetry&src=typed_query&f=live',
         ],
         year: '2023―',
       },
@@ -194,9 +194,7 @@ Conceptual in nature yet grounded in the real resource of the world computer, it
         slug: 'works/replicable',
         description: `This is a special smart contract code that, when executed, replicates a smart contract of the same code as itself. These kinds of programs are known as 'Quines'. This represents one of the earliest Quines written as a smart contract, and is also a work of concrete poetry. Experience a new form of poetry that blends tangible beauty with conceptual elegance.`,
         descriptionJa: `これは、実行されると自分自身と同じコードのスマートコントラクトを複製する特別なスマートコントラクトコードである。この種のプログラムは「クワイン」として知られている。これはスマートコントラクトとして書かれた最初期のクワインの一つであり、同時にコンクリートポエトリー（具体詩）の作品でもある。具象的な美しさと概念的な優雅さを融合させた、新しい形の詩を体験してほしい。`,
-        externalUrls: [
-          'https://twitter.com/flowverse_/status/1696877694007509466',
-        ],
+        externalUrls: ['https://x.com/flowverse_/status/1696877694007509466'],
         year: '2023',
       },
       {
@@ -274,7 +272,7 @@ Conceptual in nature yet grounded in the real resource of the world computer, it
       {
         name: 'X',
         slug: '',
-        externalUrls: ['https://twitter.com/arandoros'],
+        externalUrls: ['https://x.com/arandoros'],
       },
       {
         name: 'GitHub',
