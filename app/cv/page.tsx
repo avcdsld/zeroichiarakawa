@@ -91,6 +91,16 @@ export default function Page() {
         {/* Exhibitions */}
         <Section title={t('Exhibitions', '展示')}>
           <CVItemLink
+            year="2026.2"
+            text="The Latency Ledger"
+            venue={t(
+              'international mail-art relay across five continents',
+              '五大陸を巡る国際メールアート・リレー',
+            )}
+            works="[Still Alive, Or Not]"
+            href="https://aethercavendish.substack.com/p/the-latency-ledger-part-i"
+          />
+          <CVItemLink
             year="2025.9"
             text={t(
               'Computational Poetry Exhibition',

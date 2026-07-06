@@ -30,6 +30,20 @@ export const menuData: Section[] = [
         year: '2026',
       },
       {
+        name: 'Still Alive, Or Not',
+        slug: 'works/still-alive-or-not',
+        description:
+          '"Still Alive, Or Not" was made for The Latency Ledger, an analog mail-art relay initiated by Æther Cavendish that links twelve artists across five continents, with the Tezos blockchain as its witness.\n\nThe work exists in three simultaneous forms: a poem handwritten in ink on paper, the same poem rendered on an ePaper display, and the same poem deployed on Tezos as a smart contract. The code is valid Michelson, and its comments form an English poem.\n```\nparameter string /* from the living */ ;\nstorage (pair timestamp string)/* remains */ ;\ncode { CAR/*ved into the word */ ;\n       NOW /* is not mine */ ;\n       PAIR/*ed with time */ ;\n       NIL operation /* changes nothing */ ;\n       PAIR }/* or not. */\n```\nAnyone can call the contract with a string. The words are stored with the block\'s consensus time, and the previous record is overwritten. Your message becomes what remains. Its first inscription reads "still alive."\n```\noctez-client transfer 0 from <your_wallet> to KT1DTdeD27wygvkjBCqEi1K5gVLKYXeE3VRh \\\n    --arg \'"your message"\' --burn-cap 0.1\n```\nThe paper may decay. The ePaper will ghost. The chain depends on its protocol. Which survives longest is indeterminate.\n\nI rewrote the poem on paper again and again until my hand ached, then sent the letter and the ePaper piece by post from Japan to the Postmaster\'s Desk in Oakland, California.\n\nOn Kawara proved his existence with telegrams reading "I AM STILL ALIVE." Today a block timestamp proves existence more precisely than any handwriting; the person who receives the letter has no way to verify that the hand was mine. Writing by hand should be the more human act, yet even that is now doubtful. Two weeks after the package left the post office, the contract\'s storage changed: "Still Alive in the Californian sunlight. The hand tires, the ledger remains." The mail had arrived, and its arrival wrote itself back into the ledger.',
+        descriptionJa:
+          "「Still Alive, Or Not」は、Æther Cavendish の主宰する「The Latency Ledger」のために制作した作品である。The Latency Ledger は、五大陸の12人のアーティストをつなぐアナログなメールアート・リレーであり、Tezos ブロックチェーンをその証人とするプロジェクトである。\n\nこの作品は、同時に存在する三つの形態を持つ。インクで紙に手書きされた詩。同じ詩を表示する電子ペーパー。そして同じ詩を Tezos 上にスマートコントラクトとしてデプロイしたもの。コードは有効な Michelson 言語であり、そのコメントが英語の詩を形づくる。\n```\nparameter string /* from the living */ ;\nstorage (pair timestamp string)/* remains */ ;\ncode { CAR/*ved into the word */ ;\n       NOW /* is not mine */ ;\n       PAIR/*ed with time */ ;\n       NIL operation /* changes nothing */ ;\n       PAIR }/* or not. */\n```\nこのコントラクトは誰でも文字列を送って呼び出すことができる。言葉はブロックの合意時刻とともに保存され、前の記録は上書きされる。あなたのメッセージが「残るもの」になる。最初の記録は「still alive」。\n```\noctez-client transfer 0 from <your_wallet> to KT1DTdeD27wygvkjBCqEi1K5gVLKYXeE3VRh \\\n    --arg '\"your message\"' --burn-cap 0.1\n```\n紙は朽ちるかもしれない。電子ペーパーにはゴーストが残る。チェーンはプロトコルに依存する。どれが最も長く生き残るかは、決定不能である。\n\n手書きの詩は納得のいくまで何度も書き直し、手が痛くなった。その手紙と電子ペーパーを、日本の郵便局からカリフォルニア州オークランドの「Postmaster's Desk」へ郵送した。\n\n河原温は「I AM STILL ALIVE」という電報で生存を証明した。いまやブロックのタイムスタンプはどんな筆跡よりも正確に存在を証明する。受け取った人には、この筆跡が私のものだと確かめようがないのだから。手で書くほうがよほど人間的なはずなのに、いまの時代はそれすらも疑わしい。郵便物が郵便局を発って二週間後、コントラクトのストレージが書き換わった。「Still Alive in the Californian sunlight. The hand tires, the ledger remains.」郵便は届き、その到着は台帳に書き戻されたのだった。",
+        externalUrls: [
+          'https://aethercavendish.substack.com/p/the-latency-ledger-part-i',
+          'https://tzkt.io/KT1DTdeD27wygvkjBCqEi1K5gVLKYXeE3VRh',
+          'https://x.com/search?q=%23LatencyLedger&src=typed_query&f=live',
+        ],
+        year: '2026',
+      },
+      {
         name: 'Code Poetry on X',
         slug: 'works/code-poetry-on-x',
         description:

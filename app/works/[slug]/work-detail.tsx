@@ -14,6 +14,32 @@ function linkLabel(url: string) {
   }
 }
 
+// Text between ``` fences is rendered as a code block, the rest as prose.
+function Description({ text }: { text: string }) {
+  const parts = text.split('```');
+  return (
+    <div className="mb-16">
+      {parts.map((part, i) =>
+        i % 2 === 1 ? (
+          <pre
+            key={i}
+            className="my-8 overflow-x-auto border-l border-gray-800 pl-6 font-mono text-xs leading-loose text-gray-300"
+          >
+            {part.replace(/^\n/, '').replace(/\n$/, '')}
+          </pre>
+        ) : (
+          <p
+            key={i}
+            className="whitespace-pre-wrap text-sm leading-loose text-gray-400"
+          >
+            {part.replace(/^\n/, '').replace(/\n$/, '')}
+          </p>
+        ),
+      )}
+    </div>
+  );
+}
+
 export function WorkDetail({ slug }: { slug: string }) {
   const { t, lang } = useLanguage();
   const menuItem = menuData
@@ -64,11 +90,7 @@ export function WorkDetail({ slug }: { slug: string }) {
           />
         </div>
 
-        {description && (
-          <p className="mb-16 whitespace-pre-wrap text-sm leading-loose text-gray-400">
-            {description}
-          </p>
-        )}
+        {description && <Description text={description} />}
 
         {menuItem.externalUrls && menuItem.externalUrls.length > 0 && (
           <div className="space-y-3 border-t border-gray-800 pt-8">
