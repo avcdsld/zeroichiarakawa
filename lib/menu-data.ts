@@ -47,9 +47,9 @@ export const menuData: Section[] = [
         name: 'Code Poetry on X',
         slug: 'works/code-poetry-on-x',
         description:
-          'An ongoing series of code poems posted on X (formerly Twitter) with the hashtag #CodePoetry. Each poem is short enough to fit in a single post and is written in a variety of programming languages. The timeline works as an open notebook: poems appear between everyday posts, are read, quoted, and sometimes executed by readers. This series is the daily practice that underlies the other works.',
+          'An ongoing series of code poems posted on X with the hashtag #CodePoetry. Each poem is short enough to fit in a single post and is written in a variety of programming languages. The timeline works as an open notebook: poems appear between everyday posts, are read, quoted, and sometimes executed by readers. This series is the daily practice that underlies the other works.',
         descriptionJa:
-          'X（旧Twitter）上で #CodePoetry のハッシュタグとともに投稿し続けているコード詩の連作。各詩は一つのポストに収まる短さで、さまざまなプログラミング言語で書かれている。タイムラインは開かれたノートとして機能し、詩は日々の投稿のあいだに現れ、読まれ、引用され、ときに読者によって実行される。この連作は、他の作品の土台となる日々の実践である。',
+          'X上で #CodePoetry のハッシュタグとともに投稿し続けているコード詩の連作。各詩は一つのポストに収まる短さで、さまざまなプログラミング言語で書かれている。タイムラインは開かれたノートとして機能し、詩は日々の投稿のあいだに現れ、読まれ、引用され、ときに読者によって実行される。この連作は、他の作品の土台となる日々の実践である。',
         externalUrls: [
           'https://x.com/search?q=from%3Aarandoros%20%23CodePoetry&src=typed_query&f=live',
         ],
