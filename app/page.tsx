@@ -13,18 +13,24 @@ export default function Page() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="flex min-h-screen flex-col items-center justify-center px-6">
+      <section className="relative flex min-h-screen flex-col items-center justify-center px-6">
         <h1 className="text-2xl tracking-wide text-white/90 md:text-3xl">
           {t('Zeroichi Arakawa', '荒川 零一')}
         </h1>
-        <p className="mt-6 text-sm tracking-[0.3em] text-gray-600">
+        <p className="mt-6 text-sm tracking-[0.3em] text-gray-500">
           {t('code poet', 'コード詩人')}
         </p>
+        <span
+          aria-hidden
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-pulse text-xs text-gray-500"
+        >
+          ↓
+        </span>
       </section>
 
       {/* Works Section */}
       <section id="works" className="mx-auto max-w-5xl px-6 pb-32">
-        <h2 className="mb-12 text-xs tracking-[0.3em] text-gray-600">
+        <h2 className="mb-12 text-xs tracking-[0.3em] text-gray-500">
           {t('WORKS', '作品')}
         </h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -51,7 +57,7 @@ export default function Page() {
                   <span className="text-base text-gray-300 transition-opacity group-hover:opacity-70">
                     {item.nameJa ? t(item.name, item.nameJa) : item.name}
                   </span>
-                  <span className="text-sm text-gray-600">{item.year}</span>
+                  <span className="text-sm text-gray-500">{item.year}</span>
                 </div>
               </div>
             );
@@ -73,7 +79,7 @@ export default function Page() {
       <section className="mx-auto max-w-5xl px-6 pb-32">
         <FadeLink
           href="/diary"
-          className="text-xs tracking-[0.3em] text-gray-600 transition-opacity hover:opacity-50"
+          className="text-xs tracking-[0.3em] text-gray-500 transition-opacity hover:opacity-50"
         >
           {t('DIARY →', '日記 →')}
         </FadeLink>
@@ -81,7 +87,7 @@ export default function Page() {
 
       {/* Bio Section */}
       <section className="mx-auto max-w-2xl px-6 pb-32">
-        <h2 className="mb-12 text-xs tracking-[0.3em] text-gray-600">
+        <h2 className="mb-12 text-xs tracking-[0.3em] text-gray-500">
           {t('BIO', 'BIO')}
         </h2>
         <p className="text-sm leading-loose text-gray-400">
@@ -92,8 +98,8 @@ export default function Page() {
         </p>
         <p className="mt-6 text-sm leading-loose text-gray-400">
           {t(
-            'PhD candidate at IAMAS (Institute of Advanced Media Arts and Sciences), Japan.',
-            '情報科学芸術大学院大学（IAMAS）博士後期課程在籍。',
+            'PhD candidate at IAMAS (Institute of Advanced Media Arts and Sciences), Japan. Alongside his artistic practice, he writes on code and reading; his peer-reviewed work has appeared in electronic book review.',
+            '情報科学芸術大学院大学（IAMAS）博士後期課程在籍。制作と並行して研究・執筆を行い、論文を electronic book review 誌などに発表している。',
           )}
         </p>
         <FadeLink
@@ -106,7 +112,7 @@ export default function Page() {
 
       {/* Links Section */}
       <section className="mx-auto max-w-2xl px-6 pb-32">
-        <h2 className="mb-12 text-xs tracking-[0.3em] text-gray-600">LINKS</h2>
+        <h2 className="mb-12 text-xs tracking-[0.3em] text-gray-500">LINKS</h2>
         <div className="flex gap-8">
           {links.map((item: any) => (
             <a

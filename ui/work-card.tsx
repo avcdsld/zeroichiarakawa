@@ -23,7 +23,7 @@ export const WorkCard = ({ item, href }: { item: any; href: string }) => {
         <span className="text-base text-gray-300 transition-opacity group-hover:opacity-70">
           {item.name}
         </span>
-        <span className="text-sm text-gray-600">{item.year}</span>
+        <span className="text-sm text-gray-500">{item.year}</span>
       </div>
     </div>
   );

@@ -3,7 +3,10 @@ import React from 'react';
 const title = 'Works';
 
 export const metadata = {
-  title,
+  title: {
+    template: '%s | Zeroichi Arakawa',
+    default: 'Works',
+  },
   openGraph: {
     title,
     // images: [`/api/og?title=${title}`],

@@ -17,6 +17,7 @@ export function DiaryIndex({ entries }: { entries: DiaryEntry[] }) {
     <div className="min-h-screen">
       <FadeLink
         href="/"
+        back
         className="fixed left-6 top-6 text-xs text-gray-500 transition-opacity hover:opacity-50 md:left-12 md:top-12"
       >
         {t('← back', '← 戻る')}

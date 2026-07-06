@@ -8,9 +8,12 @@ type FadeLinkProps = {
   href: string;
   children: ReactNode;
   className?: string;
+  back?: boolean;
 };
 
-export function FadeLink({ href, children, className }: FadeLinkProps) {
+const NAV_FLAG = 'fade-link-navigated';
+
+export function FadeLink({ href, children, className, back }: FadeLinkProps) {
   const router = useRouter();
 
   const handleClick = (e: React.MouseEvent) => {
@@ -20,7 +23,14 @@ export function FadeLink({ href, children, className }: FadeLinkProps) {
     document.body.classList.add('fade-out');
 
     setTimeout(() => {
-      router.push(href);
+      // Going back through history restores the scroll position;
+      // fall back to push when the page was opened directly.
+      if (back && sessionStorage.getItem(NAV_FLAG) === '1') {
+        router.back();
+      } else {
+        sessionStorage.setItem(NAV_FLAG, '1');
+        router.push(href);
+      }
     }, 300);
   };
 

@@ -30,12 +30,15 @@ export const menuData: Section[] = [
         year: '2026',
       },
       {
-        name: 'Code Poetry on X ↗',
-        slug: '',
+        name: 'Code Poetry on X',
+        slug: 'works/code-poetry-on-x',
+        description:
+          'An ongoing series of code poems posted on X (formerly Twitter) with the hashtag #CodePoetry. Each poem is short enough to fit in a single post and is written in a variety of programming languages. The timeline works as an open notebook: poems appear between everyday posts, are read, quoted, and sometimes executed by readers. This series is the daily practice that underlies the other works.',
+        descriptionJa:
+          'X（旧Twitter）上で #CodePoetry のハッシュタグとともに投稿し続けているコード詩の連作。各詩は一つのポストに収まる短さで、さまざまなプログラミング言語で書かれている。タイムラインは開かれたノートとして機能し、詩は日々の投稿のあいだに現れ、読まれ、引用され、ときに読者によって実行される。この連作は、他の作品の土台となる日々の実践である。',
         externalUrls: [
           'https://twitter.com/search?q=from%3Aarandoros%20%23CodePoetry&src=typed_query&f=live',
         ],
-        image: '/images/code-poetry-on-x.png',
         year: '2023―',
       },
       {
@@ -119,6 +122,7 @@ Conceptual in nature yet grounded in the real resource of the world computer, it
           'https://deepsea.poesy.run',
           'https://www.youtube.com/watch?v=sbUEB13TdcY',
           'https://generativeart.or.jp/generative-art-award/generative-art-award-winner-2024',
+          'https://electronicbookreview.com/publications/verificational-reading-code-beyond-interpretation/',
         ],
         year: '2024',
       },
@@ -128,7 +132,7 @@ Conceptual in nature yet grounded in the real resource of the world computer, it
         description:
           "'inside window' is part of the 'Visual Poetry' group show curated by Atelier. This work merges code poetry and generative art. When executed, it searches for all the functions within the browser's 'window' object, selects one, and calls it. The return from this function call reveals words of an error message that lie deep within the code, unveiling an unimaginably vast horizon. This is an introspective piece where generative art reflects upon itself, representing a completely new form of generative poetry.",
         descriptionJa:
-          "「inside window」は、Atelierがキュレーションした「Visual Poetry」グループ展の一部として制作された作品である。この作品はコード詩とジェネラティブアートを融合させている。実行されると、ブラウザの「window」オブジェクト内のすべての関数を検索し、その中から一つを選んで呼び出す。その関数呼び出しの戻り値は、コードの奥深くに眠るエラーメッセージの言葉を明らかにし、想像を超えた広大な地平を開示する。これはジェネラティブアートが自らを内省する作品であり、まったく新しい形のジェネラティブポエトリーを表現している。",
+          '「inside window」は、Atelierがキュレーションした「Visual Poetry」グループ展の一部として制作された作品である。この作品はコード詩とジェネラティブアートを融合させている。実行されると、ブラウザの「window」オブジェクト内のすべての関数を検索し、その中から一つを選んで呼び出す。その関数呼び出しの戻り値は、コードの奥深くに眠るエラーメッセージの言葉を明らかにし、想像を超えた広大な地平を開示する。これはジェネラティブアートが自らを内省する作品であり、まったく新しい形のジェネラティブポエトリーを表現している。',
         externalUrls: [
           'https://www.fxhash.xyz/generative/30729',
           'https://web.archive.org/web/20240721103006/https://www.atelierart.io/post/code-as-poetry-a-dialogue-with-ara-on-inside-window',
