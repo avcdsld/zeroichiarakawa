@@ -38,8 +38,8 @@ export default function Page() {
           </p>
           <p className="mt-4 text-sm leading-loose text-gray-400">
             {t(
-              'PhD candidate at IAMAS, Japan. Alongside his artistic practice, he writes on code and reading; his peer-reviewed work has appeared in electronic book review.',
-              '情報科学芸術大学院大学（IAMAS）博士後期課程在籍。制作と並行して研究・執筆を行い、論文を electronic book review 誌などに発表している。',
+              'PhD candidate at IAMAS, Japan. Alongside his artistic practice, he researches and writes on the reading of code.',
+              '情報科学芸術大学院大学（IAMAS）博士後期課程在籍。制作と並行して、コードを読むことをめぐる研究・執筆を行っている。',
             )}
           </p>
         </Section>
