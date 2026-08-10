@@ -4,6 +4,7 @@ import { menuData } from '#/lib/menu-data';
 import { useLanguage } from '#/lib/language-context';
 import Image from 'next/image';
 import { FadeLink } from '#/ui/fade-link';
+import { CopyleftMark } from '#/ui/copyleft-mark';
 
 export default function Page() {
   const { t } = useLanguage();
@@ -139,7 +140,7 @@ export default function Page() {
           >
             Copyleft
           </a>{' '}
-          © {new Date().getFullYear()} Zeroichi Arakawa.
+          <CopyleftMark /> {new Date().getFullYear()} Zeroichi Arakawa.
         </p>
       </footer>
     </div>
