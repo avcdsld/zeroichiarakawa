@@ -1,4 +1,4 @@
-import { Roboto_Mono, Noto_Sans_JP, Noto_Serif_JP } from 'next/font/google';
+import { Roboto_Mono, Noto_Serif_JP } from 'next/font/google';
 
 const robotoMono = Roboto_Mono({
   subsets: ['latin'],
@@ -6,20 +6,16 @@ const robotoMono = Roboto_Mono({
   variable: '--font-roboto-mono',
 });
 
-const notoSansJP = Noto_Sans_JP({
-  weight: ['400', '500', '700'],
+// Only the regular weight is used; the Japanese subsets are split into ~100
+// files per weight, so every extra weight is a large build/CDN cost.
+// preload is off because those subsets cannot meaningfully be preloaded.
+const notoSerifJP = Noto_Serif_JP({
+  weight: ['400'],
   style: ['normal'],
   subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-noto-sans-jp',
-});
-
-const notoSerifJP = Noto_Serif_JP({
-  weight: ['400', '500', '700'],
-  style: ['normal'],
   preload: false,
   display: 'swap',
   variable: '--font-noto-serif-jp',
 });
 
-export { robotoMono, notoSansJP, notoSerifJP };
+export { robotoMono, notoSerifJP };

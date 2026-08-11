@@ -10,16 +10,16 @@ export function LanguageToggle() {
       <button
         onClick={() => setLang('en')}
         className={`transition-opacity ${
-          lang === 'en' ? 'text-gray-300' : 'text-gray-500 hover:opacity-70'
+          lang === 'en' ? 'text-white/90' : 'text-gray-400 hover:opacity-70'
         }`}
       >
         EN
       </button>
-      <span className="text-gray-500">/</span>
+      <span className="text-gray-400">/</span>
       <button
         onClick={() => setLang('ja')}
         className={`transition-opacity ${
-          lang === 'ja' ? 'text-gray-300' : 'text-gray-500 hover:opacity-70'
+          lang === 'ja' ? 'text-white/90' : 'text-gray-400 hover:opacity-70'
         }`}
       >
         JA

@@ -1,10 +1,11 @@
 'use client';
 
-import { menuData } from '#/lib/menu-data';
+import { menuData, type Item } from '#/lib/menu-data';
 import { useLanguage } from '#/lib/language-context';
 import Image from 'next/image';
 import { FadeLink } from '#/ui/fade-link';
 import { CopyleftMark } from '#/ui/copyleft-mark';
+import { workCardImage, WORK_CARD_SIZES } from '#/lib/work-image';
 
 export default function Page() {
   const { t } = useLanguage();
@@ -14,43 +15,44 @@ export default function Page() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative flex min-h-screen flex-col items-center justify-center px-6">
+      <section className="relative flex min-h-[100svh] flex-col items-center justify-center px-6">
         <h1 className="text-2xl tracking-wide text-white/90 md:text-3xl">
           {t('Zeroichi Arakawa', '荒川 零一')}
         </h1>
-        <p className="mt-6 text-sm tracking-[0.3em] text-gray-500">
+        <p className="mt-6 text-sm tracking-[0.3em] text-gray-400">
           {t('code poet', 'コード詩人')}
         </p>
-        <span
-          aria-hidden
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-pulse text-xs text-gray-500"
+        <a
+          href="#works"
+          aria-label={t('Go to works', '作品へ')}
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-pulse p-4 text-xs text-gray-400 transition-opacity hover:opacity-50"
         >
           ↓
-        </span>
+        </a>
       </section>
 
       {/* Works Section */}
       <section id="works" className="mx-auto max-w-5xl px-6 pb-32">
-        <h2 className="mb-12 text-xs tracking-[0.3em] text-gray-500">
+        <h2 className="mb-12 text-xs tracking-[0.3em] text-gray-400">
           {t('WORKS', '作品')}
         </h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {works.map((item: any, idx: number) => {
-            const slug = item.slug?.replace('works/', '') || '';
-            const image = item.image || (slug ? `/images/${slug}.jpg` : null);
+          {works.map((item: Item, idx: number) => {
+            const image = workCardImage(item);
             const href = item.slug ? `/${item.slug}` : item.externalUrls?.[0];
             const isExternal = !item.slug;
 
             const content = (
-              <div className="group block w-full py-6 text-left transition-all">
+              <div className="group block w-full py-6 text-left">
                 {image && (
-                  <div className="mb-4 aspect-video w-full overflow-hidden rounded-lg opacity-90 transition-all group-hover:opacity-100 group-hover:shadow-lg">
+                  <div className="bg-gray-1000 mb-4 aspect-video w-full overflow-hidden rounded-lg opacity-90 transition-opacity group-hover:opacity-100">
                     <Image
                       src={image}
                       alt={item.name}
                       width={640}
                       height={360}
-                      className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                      sizes={WORK_CARD_SIZES}
+                      className="h-full w-full object-cover"
                     />
                   </div>
                 )}
@@ -58,17 +60,17 @@ export default function Page() {
                   <span className="text-base text-gray-300 transition-opacity group-hover:opacity-70">
                     {item.nameJa ? t(item.name, item.nameJa) : item.name}
                   </span>
-                  <span className="text-sm text-gray-500">{item.year}</span>
+                  <span className="text-sm text-gray-400">{item.year}</span>
                 </div>
               </div>
             );
 
-            return isExternal ? (
+            return isExternal && href ? (
               <a key={idx} href={href} target="_blank" rel="noreferrer">
                 {content}
               </a>
             ) : (
-              <FadeLink key={idx} href={href}>
+              <FadeLink key={idx} href={href ?? '/'}>
                 {content}
               </FadeLink>
             );
@@ -80,7 +82,7 @@ export default function Page() {
       <section className="mx-auto max-w-5xl px-6 pb-32">
         <FadeLink
           href="/diary"
-          className="text-xs tracking-[0.3em] text-gray-500 transition-opacity hover:opacity-50"
+          className="text-xs tracking-[0.3em] text-gray-400 transition-opacity hover:opacity-50"
         >
           {t('DIARY →', '日記 →')}
         </FadeLink>
@@ -88,7 +90,7 @@ export default function Page() {
 
       {/* Bio Section */}
       <section className="mx-auto max-w-2xl px-6 pb-32">
-        <h2 className="mb-12 text-xs tracking-[0.3em] text-gray-500">
+        <h2 className="mb-12 text-xs tracking-[0.3em] text-gray-400">
           {t('BIO', 'BIO')}
         </h2>
         <p className="text-sm leading-loose text-gray-400">
@@ -105,7 +107,7 @@ export default function Page() {
         </p>
         <FadeLink
           href="/cv"
-          className="mt-8 inline-block text-sm text-gray-500 transition-opacity hover:opacity-50"
+          className="mt-8 inline-block text-sm text-gray-400 transition-opacity hover:opacity-50"
         >
           {t('Full CV →', 'Full CV →')}
         </FadeLink>
@@ -113,15 +115,15 @@ export default function Page() {
 
       {/* Links Section */}
       <section className="mx-auto max-w-2xl px-6 pb-32">
-        <h2 className="mb-12 text-xs tracking-[0.3em] text-gray-500">LINKS</h2>
+        <h2 className="mb-12 text-xs tracking-[0.3em] text-gray-400">LINKS</h2>
         <div className="flex flex-wrap gap-x-8 gap-y-4">
-          {links.map((item: any) => (
+          {links.map((item: Item) => (
             <a
               key={item.name}
               href={item.externalUrls?.[0]}
               target="_blank"
               rel="noreferrer"
-              className="text-sm text-gray-500 transition-opacity hover:opacity-50"
+              className="text-sm text-gray-400 transition-opacity hover:opacity-50"
             >
               {item.name}
             </a>
@@ -131,7 +133,7 @@ export default function Page() {
 
       {/* Footer */}
       <footer className="py-16 text-center">
-        <p className="text-xs text-gray-500">
+        <p className="text-xs text-gray-400">
           <a
             href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"
             target="_blank"

@@ -4,32 +4,25 @@ import { usePathname } from 'next/navigation';
 import { useEffect, Suspense } from 'react';
 import { LanguageProvider } from '#/lib/language-context';
 import { LanguageToggle } from './language-toggle';
-import { useScrollRestoration } from './use-scroll-restoration';
+import { useNavigation } from './use-navigation';
 
 function LayoutContent({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  useScrollRestoration();
   const is2025Page = pathname === '/2025';
-  const isHomePage = pathname === '/';
-  const isWorksPage = pathname.startsWith('/works/');
-  const isCVPage = pathname === '/cv';
+
+  useNavigation();
 
   // Remove fade-out class when page changes
   useEffect(() => {
     document.body.classList.remove('fade-out');
   }, [pathname]);
 
-  // These pages have their own layout
-  const needsWrapper = !isHomePage && !isWorksPage && !is2025Page && !isCVPage;
-
+  // Every page owns its own container, so this wrapper only adds the chrome
+  // that sits on top of them.
   return (
     <>
       {!is2025Page && <LanguageToggle />}
-      <div
-        className={needsWrapper ? 'mx-auto max-w-2xl px-6 py-24 lg:px-8' : ''}
-      >
-        {children}
-      </div>
+      {children}
     </>
   );
 }

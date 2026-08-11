@@ -1,6 +1,6 @@
 import '#/styles/globals.css';
 import { Metadata } from 'next';
-import { notoSerifJP } from '#/font/font';
+import { notoSerifJP, robotoMono } from '#/font/font';
 import { LayoutWrapper } from '#/ui/layout-wrapper';
 
 export const metadata: Metadata = {
@@ -34,9 +34,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`[color-scheme:dark] ${notoSerifJP.variable}`}>
+    <html
+      lang="en"
+      className={`[color-scheme:dark] ${notoSerifJP.variable} ${robotoMono.variable}`}
+    >
       <body
-        className={`${notoSerifJP.className} bg-gray-1100 overflow-y-scroll pb-36`}
+        className={`${notoSerifJP.className} bg-gray-1100 overflow-y-scroll`}
       >
         <LayoutWrapper>{children}</LayoutWrapper>
       </body>

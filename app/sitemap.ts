@@ -18,12 +18,10 @@ function diarySlugs(): string[] {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ['', '/works', '/activities', '/cv', '/diary'];
+  const staticPages = ['', '/cv', '/diary'];
 
   const itemPages = menuData
-    .filter(
-      (section) => section.name === 'Works' || section.name === 'Activities',
-    )
+    .filter((section) => section.name === 'Works')
     .flatMap((section) => section.items)
     .filter((item) => item.slug)
     .map((item) => `/${item.slug}`);

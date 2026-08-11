@@ -1,7 +1,7 @@
 'use client';
 
 import { useLanguage } from '#/lib/language-context';
-import { FadeLink } from '#/ui/fade-link';
+import { BackLink } from '#/ui/back-link';
 
 export type DiaryEntry = {
   slug: string;
@@ -14,20 +14,14 @@ export function DiaryIndex({ entries }: { entries: DiaryEntry[] }) {
   const { t, lang } = useLanguage();
 
   return (
-    <div className="min-h-screen">
-      <FadeLink
-        href="/"
-        back
-        className="fixed left-6 top-6 text-xs text-gray-500 transition-opacity hover:opacity-50 md:left-12 md:top-12"
-      >
-        {t('← back', '← 戻る')}
-      </FadeLink>
+    <div className="min-h-[100svh]">
+      <BackLink />
 
       <div className="mx-auto max-w-2xl px-6 py-24 md:px-12">
         <h1 className="mb-16 text-xl text-white">{t('Diary', '日記')}</h1>
 
         {entries.length === 0 ? (
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-400">
             {t('Nothing yet.', 'まだ何もありません。')}
           </p>
         ) : (

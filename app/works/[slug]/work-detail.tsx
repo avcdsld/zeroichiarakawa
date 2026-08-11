@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { menuData } from '#/lib/menu-data';
 import { useLanguage } from '#/lib/language-context';
+import { WORK_DETAIL_SIZES } from '#/lib/work-image';
+import { BackLink } from '#/ui/back-link';
 import { FadeLink } from '#/ui/fade-link';
 
 function linkLabel(url: string) {
@@ -40,15 +42,28 @@ function Description({ text }: { text: string }) {
   );
 }
 
-export function WorkDetail({ slug }: { slug: string }) {
+// Only works with their own page take part in the prev/next walk; the external
+// ones would drop the reader out of the site.
+const works = (menuData.find((s) => s.name === 'Works')?.items ?? []).filter(
+  (item) => item.slug,
+);
+
+export function WorkDetail({
+  slug,
+  image,
+}: {
+  slug: string;
+  image: string | null;
+}) {
   const { t, lang } = useLanguage();
-  const menuItem = menuData
-    .map((section) => section.items)
-    .flat()
-    .find((item) => item.slug === 'works/' + slug);
+  const index = works.findIndex((item) => item.slug === 'works/' + slug);
+  const menuItem = works[index];
   if (!menuItem) {
     notFound();
   }
+
+  const previous = works[index - 1];
+  const next = works[index + 1];
 
   const title =
     menuItem.nameJa && lang === 'ja' ? menuItem.nameJa : menuItem.name;
@@ -58,37 +73,32 @@ export function WorkDetail({ slug }: { slug: string }) {
       : menuItem.description;
 
   return (
-    <div className="min-h-screen">
-      {/* Back link */}
-      <FadeLink
-        href="/"
-        back
-        className="fixed left-6 top-6 text-xs text-gray-500 transition-opacity hover:opacity-50 md:left-12 md:top-12"
-      >
-        {t('← back', '← 戻る')}
-      </FadeLink>
+    <div className="min-h-[100svh]">
+      <BackLink />
 
       {/* Content */}
       <div className="mx-auto max-w-3xl px-6 py-24 md:px-12">
         <header className="mb-16">
           <h1 className="text-xl text-white">{title}</h1>
           {menuItem.year && (
-            <p className="mt-2 text-sm text-gray-500">{menuItem.year}</p>
+            <p className="mt-2 text-sm text-gray-400">{menuItem.year}</p>
           )}
         </header>
 
-        <div className="mb-16">
-          <Image
-            src={`/images/${slug}.jpg`}
-            alt={title}
-            width={800}
-            height={600}
-            sizes="100vw"
-            priority
-            className="w-full"
-            style={{ height: 'auto' }}
-          />
-        </div>
+        {image && (
+          <div className="bg-gray-1000 mb-16">
+            <Image
+              src={image}
+              alt={title}
+              width={800}
+              height={600}
+              sizes={WORK_DETAIL_SIZES}
+              priority
+              className="w-full"
+              style={{ height: 'auto' }}
+            />
+          </div>
+        )}
 
         {description && <Description text={description} />}
 
@@ -102,13 +112,39 @@ export function WorkDetail({ slug }: { slug: string }) {
                   title={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-sm text-gray-500 transition-opacity hover:opacity-50"
+                  className="block text-sm text-gray-400 transition-opacity hover:opacity-50"
                 >
                   {linkLabel(url)} ↗
                 </a>
               ) : null,
             )}
           </div>
+        )}
+
+        {(previous || next) && (
+          <nav className="mt-24 flex justify-between gap-6 border-t border-gray-800 pt-8 text-sm">
+            {previous ? (
+              <FadeLink
+                href={`/${previous.slug}`}
+                className="text-gray-400 transition-opacity hover:opacity-50"
+              >
+                ←{' '}
+                {previous.nameJa && lang === 'ja'
+                  ? previous.nameJa
+                  : previous.name}
+              </FadeLink>
+            ) : (
+              <span />
+            )}
+            {next && (
+              <FadeLink
+                href={`/${next.slug}`}
+                className="text-right text-gray-400 transition-opacity hover:opacity-50"
+              >
+                {next.nameJa && lang === 'ja' ? next.nameJa : next.name} →
+              </FadeLink>
+            )}
+          </nav>
         )}
       </div>
     </div>

@@ -18,16 +18,7 @@
   }
 }
 
-/* Page transitions */
-body {
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-body.fade-out {
-  opacity: 0;
-}
-
+/* Page transitions. The duration is mirrored by FADE_MS in ui/fade-link.tsx. */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -38,5 +29,27 @@ body.fade-out {
 }
 
 body {
-  animation: fadeIn 0.3s ease;
+  opacity: 1;
+  transition: opacity 0.18s ease;
+  animation: fadeIn 0.18s ease;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

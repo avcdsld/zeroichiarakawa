@@ -547,7 +547,7 @@ function Omikuji() {
 
 export default function Page() {
   return (
-    <div className="min-h-screen px-6 py-16 md:px-12 md:py-24">
+    <div className="min-h-[100svh] px-6 py-16 md:px-12 md:py-24">
       <ScrollProgress />
       <div className="mx-auto max-w-4xl">
         <Header />

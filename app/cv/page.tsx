@@ -1,21 +1,14 @@
 'use client';
 
-import { FadeLink } from '#/ui/fade-link';
 import { useLanguage } from '#/lib/language-context';
+import { BackLink } from '#/ui/back-link';
 
 export default function Page() {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen">
-      {/* Back link */}
-      <FadeLink
-        href="/"
-        back
-        className="fixed left-6 top-6 text-xs text-gray-500 transition-opacity hover:opacity-50 md:left-12 md:top-12"
-      >
-        {t('← back', '← 戻る')}
-      </FadeLink>
+    <div className="min-h-[100svh]">
+      <BackLink />
 
       <div className="mx-auto max-w-2xl px-6 py-24 md:px-8">
         {/* Header */}
@@ -23,7 +16,7 @@ export default function Page() {
           <h1 className="text-xl text-white">
             {t('Zeroichi Arakawa', '荒川 零一')}
           </h1>
-          <p className="mt-2 text-sm text-gray-500">
+          <p className="mt-2 text-sm text-gray-400">
             {t('code poet', 'コード詩人')}
           </p>
         </header>
@@ -268,7 +261,7 @@ export default function Page() {
 
         {/* Contact */}
         <section className="mt-24 border-t border-gray-800 pt-8">
-          <div className="flex flex-wrap gap-6 text-sm text-gray-500">
+          <div className="flex flex-wrap gap-6 text-sm text-gray-400">
             <a
               href="mailto:codeartstudies@gmail.com"
               className="transition-opacity hover:opacity-50"
@@ -315,7 +308,7 @@ function Section({
 }) {
   return (
     <section className="mb-16">
-      <h2 className="mb-6 text-xs tracking-[0.3em] text-gray-500">
+      <h2 className="mb-6 text-xs tracking-[0.3em] text-gray-400">
         {title.toUpperCase()}
       </h2>
       <div className="space-y-3">{children}</div>
@@ -326,8 +319,8 @@ function Section({
 function CVItem({ year, text }: { year: string; text: string }) {
   return (
     <div className="flex gap-4 text-sm">
-      <span className="w-16 flex-shrink-0 text-gray-500">{year}</span>
-      <span className="text-gray-400">{text}</span>
+      <span className="w-16 flex-shrink-0 text-gray-400">{year}</span>
+      <span className="text-gray-300">{text}</span>
     </div>
   );
 }
@@ -346,14 +339,14 @@ function WorkItem({
       {href ? (
         <a
           href={href}
-          className="text-gray-400 transition-opacity hover:opacity-50"
+          className="text-gray-300 transition-opacity hover:opacity-50"
         >
           {title}
         </a>
       ) : (
-        <span className="text-gray-400">{title}</span>
+        <span className="text-gray-300">{title}</span>
       )}
-      <span className="text-gray-500"> — {desc}</span>
+      <span className="text-gray-400"> — {desc}</span>
     </div>
   );
 }
@@ -373,8 +366,8 @@ function CVItemLink({
 }) {
   return (
     <div className="flex gap-4 text-sm">
-      <span className="w-16 flex-shrink-0 text-gray-500">{year}</span>
-      <span className="text-gray-400">
+      <span className="w-16 flex-shrink-0 text-gray-400">{year}</span>
+      <span className="text-gray-300">
         <a
           href={href}
           target="_blank"
@@ -383,8 +376,8 @@ function CVItemLink({
         >
           {text}
         </a>
-        <span className="text-gray-500">（{venue}）</span>
-        <span className="text-gray-500"> {works}</span>
+        <span className="text-gray-400">（{venue}）</span>
+        <span className="text-gray-400"> {works}</span>
       </span>
     </div>
   );
@@ -405,8 +398,8 @@ function PublicationItem({
 }) {
   return (
     <div className="flex gap-4 text-sm">
-      <span className="w-16 flex-shrink-0 text-gray-500">{year}</span>
-      <span className="text-gray-400">
+      <span className="w-16 flex-shrink-0 text-gray-400">{year}</span>
+      <span className="text-gray-300">
         <a
           href={href}
           target="_blank"
@@ -415,7 +408,7 @@ function PublicationItem({
         >
           {title}
         </a>
-        <span className="text-gray-500">　{venue}</span>
+        <span className="text-gray-400">　{venue}</span>
         {doi && (
           <>
             {' '}
@@ -423,7 +416,7 @@ function PublicationItem({
               href={`https://doi.org/${doi}`}
               target="_blank"
               rel="noreferrer"
-              className="text-gray-500 transition-opacity hover:opacity-50"
+              className="text-gray-400 transition-opacity hover:opacity-50"
             >
               doi:{doi}
             </a>
@@ -447,8 +440,8 @@ function CVItemWithLink({
 }) {
   return (
     <div className="flex gap-4 text-sm">
-      <span className="w-16 flex-shrink-0 text-gray-500">{year}</span>
-      <span className="text-gray-400">
+      <span className="w-16 flex-shrink-0 text-gray-400">{year}</span>
+      <span className="text-gray-300">
         <a
           href={href}
           target="_blank"
@@ -457,7 +450,7 @@ function CVItemWithLink({
         >
           {linkText}
         </a>
-        {desc && <span className="text-gray-500">　{desc}</span>}
+        {desc && <span className="text-gray-400">　{desc}</span>}
       </span>
     </div>
   );
