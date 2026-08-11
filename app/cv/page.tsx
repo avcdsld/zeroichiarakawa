@@ -2,6 +2,7 @@
 
 import { useLanguage } from '#/lib/language-context';
 import { BackLink } from '#/ui/back-link';
+import { FadeLink } from '#/ui/fade-link';
 
 export default function Page() {
   const { t } = useLanguage();
@@ -337,12 +338,14 @@ function WorkItem({
   return (
     <div className="text-sm">
       {href ? (
-        <a
+        // A work page reached from here should return here, which needs a
+        // client navigation rather than a fresh document.
+        <FadeLink
           href={href}
           className="text-gray-300 transition-opacity hover:opacity-50"
         >
           {title}
-        </a>
+        </FadeLink>
       ) : (
         <span className="text-gray-300">{title}</span>
       )}

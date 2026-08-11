@@ -32,6 +32,11 @@ body {
   opacity: 1;
   transition: opacity 0.18s ease;
   animation: fadeIn 0.18s ease;
+
+  /* Scroll anchoring keeps the reader in place when content above them changes,
+     which is the opposite of what a route change wants: swapping the whole page
+     would carry the previous page's scroll offset over to the new one. */
+  overflow-anchor: none;
 }
 
 body.fade-out {

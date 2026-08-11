@@ -11,11 +11,14 @@ const KEY = 'scroll-positions';
 // "has the user ever navigated" flag.
 const IN_APP = '__inAppNavigation';
 
-// Mobile browsers often finish the back navigation before the restored page has
-// reached its full height, so the built-in restoration clamps to the top.
-// Remember the scroll position per path ourselves and re-apply it over the next
-// few frames, once the page is tall enough to hold it.
+// Restoring is retried across frames because a page rarely has its final height
+// on the first one: images resolve, and the language only switches to Japanese
+// after mount, which reflows every block of text. Restoring once would land the
+// reader next to where they were, so the position is held until the page has
+// stopped growing (or the cap is reached, ~1s at 60fps).
 const MAX_RESTORE_FRAMES = 60;
+const STABLE_FRAMES = 6;
+const SAVE_THROTTLE_MS = 100;
 
 export function arrivedFromInsideSite() {
   return Boolean(
@@ -41,6 +44,24 @@ function writePosition(path: string, y: number) {
   }
 }
 
+function navigationType() {
+  const [entry] = performance.getEntriesByType(
+    'navigation',
+  ) as PerformanceNavigationTiming[];
+  return entry?.type;
+}
+
+/**
+ * Owns scroll position across navigations: a new page starts at the top, back
+ * and forward return to where the reader was.
+ *
+ * Next's own scroll handling skips the reset whenever the new segment's top
+ * edge happens to be on screen, so every push is scrolled explicitly here
+ * instead. The browser's own restoration is left enabled: it is a reasonable
+ * baseline when this code cannot run, and where it gets things wrong (mobile
+ * back navigation, and the reflow when the language switches after mount) the
+ * restore below runs afterwards and wins.
+ */
 export function useNavigation() {
   const pathname = usePathname();
   const pathnameRef = useRef(pathname);
@@ -49,57 +70,82 @@ export function useNavigation() {
   const firstRenderRef = useRef(true);
   const savingRef = useRef(true);
 
-  pathnameRef.current = pathname;
-
   // popstate fires after the URL has changed, so the target path is already known.
   useEffect(() => {
     const onPopState = () => {
       poppedRef.current = true;
-      const saved = readPositions()[window.location.pathname];
-      if (typeof saved === 'number') {
-        // Stop recording until the restore finishes, or the scroll-to-top that
-        // happens while the new page mounts would overwrite the saved position.
-        savingRef.current = false;
-        pendingRef.current = saved;
-      }
+      // Stop recording until the restore finishes, or the scroll-to-top that
+      // happens while the new page mounts would overwrite the saved position.
+      savingRef.current = false;
+      pendingRef.current = readPositions()[window.location.pathname] ?? 0;
     };
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);
   }, []);
 
   useEffect(() => {
-    let frame = 0;
-    const onScroll = () => {
-      if (!savingRef.current || frame) {
+    // Throttled with a timer rather than a frame: a tab that is never painted
+    // (opened in the background) gets no frames, and recording the position
+    // must not depend on that. The trailing write matters most — it is the one
+    // that captures where the reader actually came to rest.
+    let timer = 0;
+    let scrolled = false;
+    const flush = () => {
+      timer = 0;
+      if (!scrolled) {
         return;
       }
-      frame = requestAnimationFrame(() => {
-        frame = 0;
-        writePosition(pathnameRef.current, window.scrollY);
-      });
+      scrolled = false;
+      writePosition(pathnameRef.current, window.scrollY);
+      // Keep the window open so a scroll that ends inside it is still recorded.
+      timer = window.setTimeout(flush, SAVE_THROTTLE_MS);
+    };
+    const onScroll = () => {
+      if (!savingRef.current) {
+        return;
+      }
+      scrolled = true;
+      if (!timer) {
+        timer = window.setTimeout(flush, SAVE_THROTTLE_MS);
+      }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => {
       window.removeEventListener('scroll', onScroll);
-      if (frame) {
-        cancelAnimationFrame(frame);
-      }
+      clearTimeout(timer);
     };
   }, []);
 
   useEffect(() => {
+    // Updated on commit, not during render: a navigation renders the next page
+    // while the current one is still on screen and scrollable, so writing this
+    // any earlier could file that scroll under the page being navigated to.
+    pathnameRef.current = pathname;
+
     const popped = poppedRef.current;
     poppedRef.current = false;
-
-    // A fresh document load and a back/forward both land on an entry whose flag
-    // is already correct; only a push creates an entry that needs marking.
-    const isPush = !popped && !firstRenderRef.current;
+    const isFirstRender = firstRenderRef.current;
     firstRenderRef.current = false;
-    if (isPush) {
+
+    if (isFirstRender) {
+      // A reload or a back/forward into a fresh document is where the browser's
+      // own restoration is least reliable, so it is handled here too.
+      const type = navigationType();
+      if (type === 'reload' || type === 'back_forward') {
+        const saved = readPositions()[pathname];
+        if (typeof saved === 'number' && saved > 0) {
+          savingRef.current = false;
+          pendingRef.current = saved;
+        }
+      }
+    } else if (!popped) {
+      // A push: this entry was reached from inside the site, and it starts at
+      // the top like a freshly opened page.
       window.history.replaceState(
         { ...window.history.state, [IN_APP]: true },
         '',
       );
+      window.scrollTo(0, 0);
     }
 
     const target = pendingRef.current;
@@ -109,15 +155,29 @@ export function useNavigation() {
 
     let frame = 0;
     let frames = 0;
-    const tick = () => {
-      const max = Math.max(
-        document.documentElement.scrollHeight - window.innerHeight,
-        0,
+    let stableFrames = 0;
+    let lastHeight = -1;
+
+    const apply = () => {
+      const height = document.documentElement.scrollHeight;
+      const reachable = Math.min(
+        target,
+        Math.max(height - window.innerHeight, 0),
       );
-      window.scrollTo(0, Math.min(target, max));
+      window.scrollTo(0, reachable);
+      stableFrames = height === lastHeight ? stableFrames + 1 : 0;
+      lastHeight = height;
+      return Math.abs(window.scrollY - reachable) <= 1;
+    };
+
+    // Position the page right away, then keep it there while it settles.
+    apply();
+
+    const tick = () => {
+      const atTarget = apply();
       frames += 1;
       if (
-        Math.abs(window.scrollY - target) > 1 &&
+        (!atTarget || stableFrames < STABLE_FRAMES) &&
         frames < MAX_RESTORE_FRAMES
       ) {
         frame = requestAnimationFrame(tick);
