@@ -1,3 +1,13 @@
+// Further views of a work: other angles, and installation shots. Dimensions are
+// recorded so the page reserves the right space before the file arrives.
+export type Photo = {
+  src: string;
+  width: number;
+  height: number;
+  caption?: string;
+  captionJa?: string;
+};
+
 export type Item = {
   name: string;
   nameJa?: string;
@@ -6,6 +16,7 @@ export type Item = {
   descriptionJa?: string;
   externalUrls?: string[];
   image?: string;
+  photos?: Photo[];
   year?: string;
 };
 
@@ -86,6 +97,15 @@ export const menuData: Section[] = [
         descriptionJa:
           '「Executed Poetry」は、コード詩を実行し、その儚い痕跡を表示するデバイスである。\n\nボタンを押すと、マイクロコントローラ内でPythonで書かれた短い詩が実行される。電子ペーパーディスプレイには、実行された詩とともに、実行回数、処理時間、そしてマイクロコントローラ固有の公開鍵と署名が表示される。これらは、その詩が確かにその機械で実行されたことの暗号学的証明として機能する。\n\n収録された詩は、Pythonの原始的な機能を用いて、存在、永遠、無といった哲学的テーマを探求する。ある詩は無限ループを始めながら即座にそれを終わらせ、別の詩は真に存在することのないクラスを定義して削除し、また別の詩は自らを返しながら同時に自らを否定する。わずか数行のコードが、計算と哲学の境界で揺れ動く。\n\n詩はもはや単に読まれるだけではない——実行されるのだ。私たちが目撃するのは、実行の痕跡、機械自身が刻んだ墓碑銘である。\n\n展覧会「計算する詩」（NEORT++ギャラリー、東京、2025年）にて展示',
         image: '/images/executed-poetry.jpg',
+        photos: [
+          {
+            src: '/images/computational-poetry-exhibition.jpg',
+            width: 960,
+            height: 720,
+            caption: '"Computational Poetry", NEORT++, Tokyo, 2025',
+            captionJa: '展覧会「計算する詩」NEORT++、東京、2025年',
+          },
+        ],
         externalUrls: ['https://executed-poetry.poesy.run'],
         year: '2025',
       },
@@ -186,6 +206,20 @@ Conceptual in nature yet grounded in the real resource of the world computer, it
         slug: 'works/digital-native-art',
         description: `Code is executable literature. Blockchain creates a completely new digital world where code exists and continues to run. We can create digital-native entities that exist only in this environment. "Digital Native Art" is a smart contract designed with a resource-oriented approach to generate such entities. Anyone can interact with this code and create and destroy things called "art" in the digital world. Please try tapping the button displayed on the tablet. After a few seconds, the state of the digital world will change. While everyone can create art, this artwork also demonstrates the fragility of the connection between the physical and digital worlds by making it difficult to prove who the operator is. The stainless steel plate bears the code of this smart contract. The adjacent monitor displays the real-time duration of the code's execution in the digital world and the number of artworks created or destroyed as a result. The stainless steel plate and the monitor serve as physical replicas of "Digital Native Art". How many years will the stainless steel plate last? How many years have passed since the code was engraved? How many people have been influenced by it? Please experience the differences between the nature of the digital and physical worlds.`,
         descriptionJa: `コードは実行可能な文学である。ブロックチェーンは、コードが存在し動き続ける全く新しいデジタル世界を創り出す。私たちはこの環境にのみ存在するデジタルネイティブな存在を創造することができる。「Digital Native Art」は、そのような存在を生成するためにリソース指向のアプローチで設計されたスマートコントラクトである。誰でもこのコードとインタラクトし、デジタル世界で「アート」と呼ばれるものを創造したり破壊したりすることができる。タブレットに表示されたボタンをタップしてみてほしい。数秒後、デジタル世界の状態が変化する。誰もがアートを創造できる一方で、この作品は操作者が誰であるかを証明することを困難にすることで、物理世界とデジタル世界の接続の脆さも示している。ステンレスの板にはこのスマートコントラクトのコードが刻まれている。隣のモニターには、デジタル世界でのコードの実行時間と、その結果として創造または破壊されたアートワークの数がリアルタイムで表示される。ステンレスの板とモニターは「Digital Native Art」の物理的なレプリカとして機能している。ステンレスの板は何年持つだろうか？コードが刻まれてから何年が経過しただろうか？何人の人々がそれに影響を受けただろうか？デジタル世界と物理世界の性質の違いを体験してほしい。`,
+        photos: [
+          {
+            src: '/images/digital-native-art2.jpg',
+            width: 1800,
+            height: 1200,
+          },
+          {
+            src: '/images/proof-of-x-exhibition.jpg',
+            width: 1800,
+            height: 1200,
+            caption: 'Proof of X, 2023',
+            captionJa: 'Proof of X、2023年',
+          },
+        ],
         externalUrls: ['https://proofofx.art/2023/works/ara'],
         year: '2023',
       },
@@ -212,6 +246,22 @@ Conceptual in nature yet grounded in the real resource of the world computer, it
           'The world is full of letters and data that can no longer be deciphered, and these are growing in number. The same is true in the digital world. In this work, by loading my original font into p5.js, I expressed the lost language wandering in the digital space.',
         descriptionJa:
           '世界は解読できなくなった文字やデータで溢れており、その数は増え続けている。デジタル世界においても同様である。この作品では、自作のフォントをp5.jsに読み込むことで、デジタル空間を彷徨う失われた言語を表現した。',
+        photos: [
+          {
+            src: '/images/lost-language2.jpg',
+            width: 1920,
+            height: 1080,
+          },
+          {
+            src: '/images/cawa-tokyo-2022-exhibition.jpg',
+            width: 2500,
+            height: 1875,
+            caption:
+              'Crypto Art Week Asia Tokyo 2022, DMM Azabu Satellite, Tokyo',
+            captionJa:
+              'Crypto Art Week Asia Tokyo 2022、DMM麻布サテライト、東京',
+          },
+        ],
         externalUrls: ['https://lost-language.poesy.run'],
         year: '2022',
       },
@@ -221,6 +271,22 @@ Conceptual in nature yet grounded in the real resource of the world computer, it
         slug: 'works/sakutaro-poems-nfts',
         description: `Thirty-nine poems from Sakutaro Hagiwara's late self-selected collection "Shukumei" have been inscribed on the blockchain as full-on-chain NFTs. These NFTs have a little mysterious property in that their contents change depending on the owner. These NFTs will be issued on multiple blockchains. NFTs can be issued on chains such as Ethereum, Polygon, BSC, Arbitrum, Optimism, Shiden, Avalanche C-Chain, Flow, Tezos, Sui, Aptos, etc. Up to 39 NFTs can be issued for each chain. I like the literary works of Sakutaro Hagiwara. What can we do to add value to this and keep it in the digital space for a long time? How enduring are the NFT standards and SVG data? Which chains should be used to ensure that they remain in place for a long time? This is an experiment that will be conducted many years into the future.`,
         descriptionJa: `萩原朔太郎の晩年の自選詩集『宿命』から39篇の詩を、フルオンチェーンNFTとしてブロックチェーンに刻んだ。これらのNFTは、所有者によって内容が変化するという少し不思議な性質を持っている。これらのNFTは複数のブロックチェーンで発行される。Ethereum、Polygon、BSC、Arbitrum、Optimism、Shiden、Avalanche C-Chain、Flow、Tezos、Sui、Aptosなどのチェーンで発行可能である。各チェーンで最大39個のNFTを発行できる。私は萩原朔太郎の文学作品が好きである。これに価値を付加し、長くデジタル空間に残すために何ができるだろうか？NFT規格やSVGデータはどれほど永続するのか？長く残すためにはどのチェーンを使うべきか？これは何年も先の未来に向けて行われる実験である。`,
+        photos: [
+          {
+            src: '/images/crypto-art-fes-2022-exhibition.jpg',
+            width: 2048,
+            height: 1536,
+            caption: 'Crypto Art Fes 2022, Shibuya Space Edge, Tokyo',
+            captionJa: 'Crypto Art Fes 2022、渋谷SPACE EDGE、東京',
+          },
+          {
+            src: '/images/crypto-art-fes-2022-exhibition2.jpg',
+            width: 1536,
+            height: 2048,
+            caption: 'Crypto Art Fes 2022, Shibuya Space Edge, Tokyo',
+            captionJa: 'Crypto Art Fes 2022、渋谷SPACE EDGE、東京',
+          },
+        ],
         externalUrls: ['https://sakutaro.poesy.run'],
         year: '2022',
       },

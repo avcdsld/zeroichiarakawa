@@ -3,7 +3,7 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { menuData } from '#/lib/menu-data';
-import { useLanguage } from '#/lib/language-context';
+import { t, TBlock } from '#/lib/i18n';
 import { WORK_DETAIL_SIZES } from '#/lib/work-image';
 import { BackLink } from '#/ui/back-link';
 import { FadeLink } from '#/ui/fade-link';
@@ -55,7 +55,6 @@ export function WorkDetail({
   slug: string;
   image: string | null;
 }) {
-  const { t, lang } = useLanguage();
   const index = works.findIndex((item) => item.slug === 'works/' + slug);
   const menuItem = works[index];
   if (!menuItem) {
@@ -64,13 +63,9 @@ export function WorkDetail({
 
   const previous = works[index - 1];
   const next = works[index + 1];
-
-  const title =
-    menuItem.nameJa && lang === 'ja' ? menuItem.nameJa : menuItem.name;
-  const description =
-    menuItem.descriptionJa && lang === 'ja'
-      ? menuItem.descriptionJa
-      : menuItem.description;
+  const title = menuItem.nameJa
+    ? t(menuItem.name, menuItem.nameJa)
+    : menuItem.name;
 
   return (
     <div className="min-h-[100svh]">
@@ -89,7 +84,7 @@ export function WorkDetail({
           <div className="bg-gray-1000 mb-16">
             <Image
               src={image}
-              alt={title}
+              alt={menuItem.name}
               width={800}
               height={600}
               sizes={WORK_DETAIL_SIZES}
@@ -100,7 +95,37 @@ export function WorkDetail({
           </div>
         )}
 
-        {description && <Description text={description} />}
+        {menuItem.photos?.map((photo) => (
+          <figure key={photo.src} className="mb-16">
+            <div className="bg-gray-1000">
+              <Image
+                src={photo.src}
+                alt={menuItem.name}
+                width={photo.width}
+                height={photo.height}
+                sizes={WORK_DETAIL_SIZES}
+                className="w-full"
+                style={{ height: 'auto' }}
+              />
+            </div>
+            {photo.caption && (
+              <figcaption className="mt-3 text-xs text-gray-400">
+                {t(photo.caption, photo.captionJa ?? photo.caption)}
+              </figcaption>
+            )}
+          </figure>
+        ))}
+
+        {menuItem.description && (
+          <TBlock
+            en={<Description text={menuItem.description} />}
+            ja={
+              <Description
+                text={menuItem.descriptionJa ?? menuItem.description}
+              />
+            }
+          />
+        )}
 
         {menuItem.externalUrls && menuItem.externalUrls.length > 0 && (
           <div className="space-y-3 border-t border-gray-800 pt-8">
@@ -129,8 +154,8 @@ export function WorkDetail({
                 className="text-gray-400 transition-opacity hover:opacity-50"
               >
                 ←{' '}
-                {previous.nameJa && lang === 'ja'
-                  ? previous.nameJa
+                {previous.nameJa
+                  ? t(previous.name, previous.nameJa)
                   : previous.name}
               </FadeLink>
             ) : (
@@ -141,7 +166,7 @@ export function WorkDetail({
                 href={`/${next.slug}`}
                 className="text-right text-gray-400 transition-opacity hover:opacity-50"
               >
-                {next.nameJa && lang === 'ja' ? next.nameJa : next.name} →
+                {next.nameJa ? t(next.name, next.nameJa) : next.name} →
               </FadeLink>
             )}
           </nav>

@@ -1,6 +1,7 @@
 import '#/styles/globals.css';
 import { Metadata } from 'next';
 import { notoSerifJP, robotoMono } from '#/font/font';
+import { LANGUAGE_INIT_SCRIPT } from '#/lib/language';
 import { LayoutWrapper } from '#/ui/layout-wrapper';
 
 export const metadata: Metadata = {
@@ -41,6 +42,9 @@ export default function RootLayout({
       <body
         className={`${notoSerifJP.className} bg-gray-1100 overflow-y-scroll`}
       >
+        {/* First thing in the body: the language has to be settled before any
+            of the page below is painted. */}
+        <script dangerouslySetInnerHTML={{ __html: LANGUAGE_INIT_SCRIPT }} />
         <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>

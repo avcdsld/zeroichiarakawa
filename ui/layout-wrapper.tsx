@@ -1,12 +1,11 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { useEffect, Suspense } from 'react';
-import { LanguageProvider } from '#/lib/language-context';
+import { useEffect } from 'react';
 import { LanguageToggle } from './language-toggle';
 import { useNavigation } from './use-navigation';
 
-function LayoutContent({ children }: { children: React.ReactNode }) {
+export function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const is2025Page = pathname === '/2025';
 
@@ -24,15 +23,5 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
       {!is2025Page && <LanguageToggle />}
       {children}
     </>
-  );
-}
-
-export function LayoutWrapper({ children }: { children: React.ReactNode }) {
-  return (
-    <Suspense fallback={<div>{children}</div>}>
-      <LanguageProvider>
-        <LayoutContent>{children}</LayoutContent>
-      </LanguageProvider>
-    </Suspense>
   );
 }

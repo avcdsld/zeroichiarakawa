@@ -1,14 +1,13 @@
 'use client';
 
 import { menuData, type Item } from '#/lib/menu-data';
-import { useLanguage } from '#/lib/language-context';
+import { t } from '#/lib/i18n';
 import Image from 'next/image';
 import { FadeLink } from '#/ui/fade-link';
 import { CopyleftMark } from '#/ui/copyleft-mark';
 import { workCardImage, WORK_CARD_SIZES } from '#/lib/work-image';
 
 export default function Page() {
-  const { t } = useLanguage();
   const links = menuData.find((s) => s.name === 'Links')?.items || [];
   const works = menuData.find((s) => s.name === 'Works')?.items || [];
 
@@ -24,7 +23,7 @@ export default function Page() {
         </p>
         <a
           href="#works"
-          aria-label={t('Go to works', '作品へ')}
+          aria-label="Go to works"
           className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-pulse p-4 text-xs text-gray-400 transition-opacity hover:opacity-50"
         >
           ↓

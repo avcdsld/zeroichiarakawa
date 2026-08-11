@@ -269,6 +269,8 @@ function Header() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // A mount flag for the fade-in; there is nothing to read before hydration.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 

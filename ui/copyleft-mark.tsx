@@ -26,6 +26,8 @@ export function CopyleftMark() {
 
     const width = ctx.measureText(COPYLEFT).width;
     if (!width || width === ctx.measureText(NOTDEF).width) {
+      // Reading font metrics is only possible once, on the client.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setMark(FALLBACK);
     }
   }, []);

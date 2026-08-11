@@ -1,12 +1,11 @@
 'use client';
 
-import { useLanguage } from '#/lib/language-context';
+import type { ReactNode } from 'react';
+import { t } from '#/lib/i18n';
 import { BackLink } from '#/ui/back-link';
 import { FadeLink } from '#/ui/fade-link';
 
 export default function Page() {
-  const { t } = useLanguage();
-
   return (
     <div className="min-h-[100svh]">
       <BackLink />
@@ -23,7 +22,7 @@ export default function Page() {
         </header>
 
         {/* Bio */}
-        <Section title={t('Bio', '略歴')}>
+        <Section title={t('BIO', '略歴')}>
           <p className="text-sm leading-loose text-gray-400">
             {t(
               'Zeroichi Arakawa explores program code as a medium that is read, tested, and executed. His practice examines the literary and structural beauty of code while foregrounding the experiences produced through verification and runtime environments.',
@@ -39,7 +38,7 @@ export default function Page() {
         </Section>
 
         {/* Selected Works */}
-        <Section title={t('Selected Works', '主要作品')}>
+        <Section title={t('SELECTED WORKS', '主要作品')}>
           <WorkItem
             title="BUGCAT"
             href="/works/bugcat"
@@ -83,7 +82,7 @@ export default function Page() {
         </Section>
 
         {/* Exhibitions */}
-        <Section title={t('Exhibitions', '展示')}>
+        <Section title={t('EXHIBITIONS', '展示')}>
           <CVItemLink
             year="2026.2"
             text="The Latency Ledger"
@@ -172,7 +171,7 @@ export default function Page() {
         </Section>
 
         {/* Publications */}
-        <Section title={t('Publications', '論文')}>
+        <Section title={t('PUBLICATIONS', '論文')}>
           <PublicationItem
             year="2026.6"
             title={t(
@@ -189,7 +188,7 @@ export default function Page() {
         </Section>
 
         {/* Presentations */}
-        <Section title={t('Presentations', '発表')}>
+        <Section title={t('PRESENTATIONS', '発表')}>
           <CVItemWithLink
             year="2025.9"
             linkText={t(
@@ -217,7 +216,7 @@ export default function Page() {
         </Section>
 
         {/* Awards */}
-        <Section title={t('Awards', '受賞')}>
+        <Section title={t('AWARDS', '受賞')}>
           <CVItemWithLink
             year="2024.9"
             linkText={t(
@@ -229,7 +228,7 @@ export default function Page() {
         </Section>
 
         {/* Education */}
-        <Section title={t('Education', '学歴')}>
+        <Section title={t('EDUCATION', '学歴')}>
           <CVItem
             year="2024–"
             text={t(
@@ -304,20 +303,18 @@ function Section({
   title,
   children,
 }: {
-  title: string;
-  children: React.ReactNode;
+  title: ReactNode;
+  children: ReactNode;
 }) {
   return (
     <section className="mb-16">
-      <h2 className="mb-6 text-xs tracking-[0.3em] text-gray-400">
-        {title.toUpperCase()}
-      </h2>
+      <h2 className="mb-6 text-xs tracking-[0.3em] text-gray-400">{title}</h2>
       <div className="space-y-3">{children}</div>
     </section>
   );
 }
 
-function CVItem({ year, text }: { year: string; text: string }) {
+function CVItem({ year, text }: { year: string; text: ReactNode }) {
   return (
     <div className="flex gap-4 text-sm">
       <span className="w-16 flex-shrink-0 text-gray-400">{year}</span>
@@ -331,9 +328,9 @@ function WorkItem({
   href,
   desc,
 }: {
-  title: string;
+  title: ReactNode;
   href?: string;
-  desc: string;
+  desc: ReactNode;
 }) {
   return (
     <div className="text-sm">
@@ -362,9 +359,9 @@ function CVItemLink({
   href,
 }: {
   year: string;
-  text: string;
-  venue: string;
-  works: string;
+  text: ReactNode;
+  venue: ReactNode;
+  works: ReactNode;
   href: string;
 }) {
   return (
@@ -394,9 +391,9 @@ function PublicationItem({
   doi,
 }: {
   year: string;
-  title: string;
+  title: ReactNode;
   href: string;
-  venue: string;
+  venue: ReactNode;
   doi?: string;
 }) {
   return (
@@ -437,9 +434,9 @@ function CVItemWithLink({
   desc,
 }: {
   year: string;
-  linkText: string;
+  linkText: ReactNode;
   href: string;
-  desc?: string;
+  desc?: ReactNode;
 }) {
   return (
     <div className="flex gap-4 text-sm">

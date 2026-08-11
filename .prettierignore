@@ -1,2 +1,6 @@
 .next
 pnpm-lock.yaml
+
+# Rewritten by `next build`, so formatting them only causes churn.
+next-env.d.ts
+tsconfig.json

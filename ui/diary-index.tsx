@@ -1,6 +1,6 @@
 'use client';
 
-import { useLanguage } from '#/lib/language-context';
+import { t } from '#/lib/i18n';
 import { BackLink } from '#/ui/back-link';
 
 export type DiaryEntry = {
@@ -11,8 +11,6 @@ export type DiaryEntry = {
 };
 
 export function DiaryIndex({ entries }: { entries: DiaryEntry[] }) {
-  const { t, lang } = useLanguage();
-
   return (
     <div className="min-h-[100svh]">
       <BackLink />
@@ -27,21 +25,27 @@ export function DiaryIndex({ entries }: { entries: DiaryEntry[] }) {
         ) : (
           <ul className="space-y-6">
             {entries.map((e) => {
-              // Static HTML served via rewrite — use a plain <a> (full nav),
-              // not next/link. Fall back to the JP edition when no EN exists.
-              const href =
-                lang === 'ja' || !e.hasEn
-                  ? `/diary/${e.slug}`
-                  : `/diary/${e.slug}-en`;
-              const title = lang === 'ja' ? e.titleJa : e.titleEn;
+              // Static HTML served via rewrite — plain <a> (full navigation),
+              // not next/link. Each edition gets its own link so that the one
+              // on screen always points at the matching language; the Japanese
+              // edition stands in when there is no English one.
+              const className =
+                'text-base text-gray-300 transition-opacity hover:opacity-70';
               return (
                 <li key={e.slug}>
-                  <a
-                    href={href}
-                    className="text-base text-gray-300 transition-opacity hover:opacity-70"
-                  >
-                    {title}
-                  </a>
+                  {t(
+                    <a
+                      href={
+                        e.hasEn ? `/diary/${e.slug}-en` : `/diary/${e.slug}`
+                      }
+                      className={className}
+                    >
+                      {e.titleEn}
+                    </a>,
+                    <a href={`/diary/${e.slug}`} className={className}>
+                      {e.titleJa}
+                    </a>,
+                  )}
                 </li>
               );
             })}

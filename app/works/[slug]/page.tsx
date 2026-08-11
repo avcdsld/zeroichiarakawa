@@ -31,12 +31,12 @@ export function generateStaticParams() {
     .map((item) => ({ slug: item.slug.replace('works/', '') }));
 }
 
-export function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Metadata {
-  const item = findWork(params.slug);
+// Route params are a promise as of Next 15.
+type Params = { params: Promise<{ slug: string }> };
+
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params;
+  const item = findWork(slug);
   if (!item) {
     return {};
   }
@@ -45,7 +45,7 @@ export function generateMetadata({
   const description = item.description
     ? item.description.replace(/\s+/g, ' ').slice(0, 160)
     : undefined;
-  const image = resolveImage(params.slug);
+  const image = resolveImage(slug);
   const images = image ? [image] : undefined;
 
   return {
@@ -65,6 +65,7 @@ export function generateMetadata({
   };
 }
 
-export default function Page({ params }: { params: { slug: string } }) {
-  return <WorkDetail slug={params.slug} image={resolveImage(params.slug)} />;
+export default async function Page({ params }: Params) {
+  const { slug } = await params;
+  return <WorkDetail slug={slug} image={resolveImage(slug)} />;
 }

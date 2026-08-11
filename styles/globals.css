@@ -18,6 +18,20 @@
   }
 }
 
+/* Both languages are in the HTML; only one is shown. English is the default,
+   so a reader without JavaScript — and a crawler that does not run it — gets a
+   coherent page while still having the Japanese in the markup. */
+:root:not([data-lang='ja']) [data-t='ja'],
+:root[data-lang='ja'] [data-t='en'] {
+  display: none;
+}
+
+/* Same idea for the toggle: the active language is styled, not re-rendered. */
+:root:not([data-lang='ja']) [data-lang-button='en'],
+:root[data-lang='ja'] [data-lang-button='ja'] {
+  color: rgb(244 244 245); /* gray-100 */
+}
+
 /* Page transitions. The duration is mirrored by FADE_MS in ui/fade-link.tsx. */
 @keyframes fadeIn {
   from {
