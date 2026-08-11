@@ -66,13 +66,16 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const t = (en: string, ja: string) => (lang === 'ja' ? ja : en);
 
-  // Prevent hydration mismatch
-  if (!mounted) {
-    return <>{children}</>;
-  }
+  // Before mount the stored language is unknown, so English is rendered — the
+  // same output as the server, which is what avoids a hydration mismatch. The
+  // provider itself stays in place either way: swapping it in later would
+  // change the element type and remount the entire tree below it.
+  const value = mounted
+    ? { lang, setLang, t }
+    : { lang: 'en' as Language, setLang, t: (en: string) => en };
 
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t }}>
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );

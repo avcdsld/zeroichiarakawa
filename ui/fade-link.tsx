@@ -3,7 +3,11 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { ReactNode } from 'react';
-import { arrivedFromInsideSite } from '#/ui/use-navigation';
+import {
+  arrivedFromInsideSite,
+  declarePush,
+  pauseScrollRecording,
+} from '#/ui/use-navigation';
 
 type FadeLinkProps = {
   href: string;
@@ -43,9 +47,13 @@ export function FadeLink({ href, children, className, back }: FadeLinkProps) {
     // Going back through history restores the scroll position; fall back to a
     // push when this page was opened directly (shared link, new tab, reload).
     const navigate = () => {
+      // From here the scroll position stops belonging to the reader: the
+      // browser clamps it to the next page's height as the two are swapped.
+      pauseScrollRecording();
       if (back && arrivedFromInsideSite()) {
         router.back();
       } else {
+        declarePush();
         router.push(href);
       }
     };

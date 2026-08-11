@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { FadeLink } from '#/ui/fade-link';
 
 export default function NotFound() {
   return (
@@ -7,12 +7,12 @@ export default function NotFound() {
       <p className="mt-4 text-sm text-gray-400">
         Could not find requested resource
       </p>
-      <Link
+      <FadeLink
         href="/"
         className="mt-8 text-sm text-gray-400 transition-opacity hover:opacity-50"
       >
         ← Home
-      </Link>
+      </FadeLink>
     </div>
   );
 }

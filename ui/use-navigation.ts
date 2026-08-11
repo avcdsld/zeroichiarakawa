@@ -19,11 +19,67 @@ const IN_APP = '__inAppNavigation';
 const MAX_RESTORE_FRAMES = 60;
 const STABLE_FRAMES = 6;
 const SAVE_THROTTLE_MS = 100;
+const FALLBACK_TICK_MS = 32;
+const RECORDING_WATCHDOG_MS = 2000;
+
+// Swapping pages moves the scroll position on its own: the browser clamps it to
+// the incoming page's height, and the code below scrolls deliberately. None of
+// that is the reader scrolling, so recording is switched off from the moment a
+// navigation starts until the new page has been positioned. Exactly one
+// instance of this hook is mounted (in the layout), so the switch lives here at
+// module scope, where the links can reach it too.
+let recording = true;
+let watchdog = 0;
+
+export function pauseScrollRecording() {
+  recording = false;
+  clearTimeout(watchdog);
+  // If the navigation never lands, recording still has to come back.
+  watchdog = window.setTimeout(resumeScrollRecording, RECORDING_WATCHDOG_MS);
+}
+
+// Whether the next page comes from a link (a push, which starts at the top) or
+// from the reader going back or forward (which returns them to where they were)
+// is declared by the link itself. The alternatives are not dependable: popstate
+// can be delivered after the render it caused, and history.state is Next's, who
+// replaces it wholesale as it takes over a freshly loaded document.
+let pushDeclared = false;
+let pushWatchdog = 0;
+
+export function declarePush() {
+  pushDeclared = true;
+  clearTimeout(pushWatchdog);
+  // A push that never lands must not be mistaken for the next navigation.
+  pushWatchdog = window.setTimeout(() => {
+    pushDeclared = false;
+  }, RECORDING_WATCHDOG_MS);
+}
+
+function takePushDeclaration() {
+  const declared = pushDeclared;
+  pushDeclared = false;
+  clearTimeout(pushWatchdog);
+  pushWatchdog = 0;
+  return declared;
+}
+
+function resumeScrollRecording() {
+  clearTimeout(watchdog);
+  watchdog = 0;
+  recording = true;
+}
 
 export function arrivedFromInsideSite() {
   return Boolean(
     (window.history.state as Record<string, unknown> | null)?.[IN_APP],
   );
+}
+
+function navigationType() {
+  const [entry] = performance.getEntriesByType(
+    'navigation',
+  ) as PerformanceNavigationTiming[];
+  return entry?.type;
 }
 
 function readPositions(): Record<string, number> {
@@ -44,13 +100,6 @@ function writePosition(path: string, y: number) {
   }
 }
 
-function navigationType() {
-  const [entry] = performance.getEntriesByType(
-    'navigation',
-  ) as PerformanceNavigationTiming[];
-  return entry?.type;
-}
-
 /**
  * Owns scroll position across navigations: a new page starts at the top, back
  * and forward return to where the reader was.
@@ -65,46 +114,41 @@ function navigationType() {
 export function useNavigation() {
   const pathname = usePathname();
   const pathnameRef = useRef(pathname);
-  const pendingRef = useRef<number | null>(null);
-  const poppedRef = useRef(false);
   const firstRenderRef = useRef(true);
-  const savingRef = useRef(true);
 
-  // popstate fires after the URL has changed, so the target path is already known.
+  // The swap itself moves the scroll position; stop recording as early as the
+  // browser lets us know one is coming. (The effect below pauses too, for when
+  // this arrives late.)
   useEffect(() => {
-    const onPopState = () => {
-      poppedRef.current = true;
-      // Stop recording until the restore finishes, or the scroll-to-top that
-      // happens while the new page mounts would overwrite the saved position.
-      savingRef.current = false;
-      pendingRef.current = readPositions()[window.location.pathname] ?? 0;
-    };
-    window.addEventListener('popstate', onPopState);
-    return () => window.removeEventListener('popstate', onPopState);
+    window.addEventListener('popstate', pauseScrollRecording);
+    return () => window.removeEventListener('popstate', pauseScrollRecording);
   }, []);
 
   useEffect(() => {
-    // Throttled with a timer rather than a frame: a tab that is never painted
-    // (opened in the background) gets no frames, and recording the position
-    // must not depend on that. The trailing write matters most — it is the one
-    // that captures where the reader actually came to rest.
+    // Where the reader is, is read when they scroll — not when the timer fires.
+    // A write that lands after a navigation has started must still describe the
+    // page it came from. The trailing write matters most: it is the one that
+    // captures where they came to rest.
+    // Throttled with a timer rather than a frame because a tab that is never
+    // painted (opened in the background) gets no frames.
     let timer = 0;
-    let scrolled = false;
+    let latest: { path: string; y: number } | null = null;
     const flush = () => {
       timer = 0;
-      if (!scrolled) {
+      if (!latest) {
         return;
       }
-      scrolled = false;
-      writePosition(pathnameRef.current, window.scrollY);
+      const { path, y } = latest;
+      latest = null;
+      writePosition(path, y);
       // Keep the window open so a scroll that ends inside it is still recorded.
       timer = window.setTimeout(flush, SAVE_THROTTLE_MS);
     };
     const onScroll = () => {
-      if (!savingRef.current) {
+      if (!recording) {
         return;
       }
-      scrolled = true;
+      latest = { path: pathnameRef.current, y: window.scrollY };
       if (!timer) {
         timer = window.setTimeout(flush, SAVE_THROTTLE_MS);
       }
@@ -121,39 +165,39 @@ export function useNavigation() {
     // while the current one is still on screen and scrollable, so writing this
     // any earlier could file that scroll under the page being navigated to.
     pathnameRef.current = pathname;
+    pauseScrollRecording();
 
-    const popped = poppedRef.current;
-    poppedRef.current = false;
     const isFirstRender = firstRenderRef.current;
     firstRenderRef.current = false;
+    const pushed = takePushDeclaration();
 
     if (isFirstRender) {
-      // A reload or a back/forward into a fresh document is where the browser's
-      // own restoration is least reliable, so it is handled here too.
+      // A freshly opened document. The browser positions a reload or a
+      // back/forward into a new document, but does it least reliably of all —
+      // so those are restored below; anything else stays where it opened.
       const type = navigationType();
-      if (type === 'reload' || type === 'back_forward') {
-        const saved = readPositions()[pathname];
-        if (typeof saved === 'number' && saved > 0) {
-          savingRef.current = false;
-          pendingRef.current = saved;
-        }
+      if (type !== 'reload' && type !== 'back_forward') {
+        resumeScrollRecording();
+        return;
       }
-    } else if (!popped) {
-      // A push: this entry was reached from inside the site, and it starts at
-      // the top like a freshly opened page.
+    } else if (pushed) {
+      // A push: a new page starts at the top, like a freshly opened one, and
+      // its entry is marked so a back link on it knows it can go back.
       window.history.replaceState(
-        { ...window.history.state, [IN_APP]: true },
+        { ...(window.history.state ?? {}), [IN_APP]: true },
         '',
       );
       window.scrollTo(0, 0);
-    }
-
-    const target = pendingRef.current;
-    if (target === null) {
+      resumeScrollRecording();
       return;
     }
 
+    // Back, forward, or a reload: the reader returns to where they were.
+    const target = readPositions()[pathname] ?? 0;
+
     let frame = 0;
+    let timer = 0;
+    let finished = false;
     let frames = 0;
     let stableFrames = 0;
     let lastHeight = -1;
@@ -173,25 +217,46 @@ export function useNavigation() {
     // Position the page right away, then keep it there while it settles.
     apply();
 
+    const clearScheduled = () => {
+      cancelAnimationFrame(frame);
+      clearTimeout(timer);
+    };
+
+    const done = () => {
+      finished = true;
+      clearScheduled();
+      resumeScrollRecording();
+    };
+
     const tick = () => {
+      if (finished) {
+        return;
+      }
+      clearScheduled();
       const atTarget = apply();
       frames += 1;
       if (
         (!atTarget || stableFrames < STABLE_FRAMES) &&
         frames < MAX_RESTORE_FRAMES
       ) {
-        frame = requestAnimationFrame(tick);
+        schedule();
       } else {
-        pendingRef.current = null;
-        savingRef.current = true;
+        done();
       }
     };
-    frame = requestAnimationFrame(tick);
+
+    function schedule() {
+      frame = requestAnimationFrame(tick);
+      // A tab that is not being painted gets no frames, and a page whose height
+      // is still settling would be left short. The timer keeps the retry alive
+      // there; when both fire, re-applying is harmless.
+      timer = window.setTimeout(tick, FALLBACK_TICK_MS);
+    }
+
+    schedule();
 
     return () => {
-      cancelAnimationFrame(frame);
-      pendingRef.current = null;
-      savingRef.current = true;
+      done();
     };
   }, [pathname]);
 }
