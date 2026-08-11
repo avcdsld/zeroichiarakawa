@@ -4,9 +4,11 @@ import { usePathname } from 'next/navigation';
 import { useEffect, Suspense } from 'react';
 import { LanguageProvider } from '#/lib/language-context';
 import { LanguageToggle } from './language-toggle';
+import { useScrollRestoration } from './use-scroll-restoration';
 
 function LayoutContent({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  useScrollRestoration();
   const is2025Page = pathname === '/2025';
   const isHomePage = pathname === '/';
   const isWorksPage = pathname.startsWith('/works/');
@@ -23,7 +25,9 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
   return (
     <>
       {!is2025Page && <LanguageToggle />}
-      <div className={needsWrapper ? 'mx-auto max-w-2xl px-6 py-24 lg:px-8' : ''}>
+      <div
+        className={needsWrapper ? 'mx-auto max-w-2xl px-6 py-24 lg:px-8' : ''}
+      >
         {children}
       </div>
     </>

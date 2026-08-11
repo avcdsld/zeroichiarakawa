@@ -114,7 +114,7 @@ export default function Page() {
       {/* Links Section */}
       <section className="mx-auto max-w-2xl px-6 pb-32">
         <h2 className="mb-12 text-xs tracking-[0.3em] text-gray-500">LINKS</h2>
-        <div className="flex gap-8">
+        <div className="flex flex-wrap gap-x-8 gap-y-4">
           {links.map((item: any) => (
             <a
               key={item.name}
