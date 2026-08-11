@@ -291,6 +291,14 @@ export default function Page() {
             >
               X
             </a>
+            <a
+              href="https://www.instagram.com/zeroichiarakawa"
+              target="_blank"
+              rel="noreferrer"
+              className="transition-opacity hover:opacity-50"
+            >
+              Instagram
+            </a>
           </div>
         </section>
       </div>

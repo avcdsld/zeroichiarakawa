@@ -275,6 +275,11 @@ Conceptual in nature yet grounded in the real resource of the world computer, it
         externalUrls: ['https://x.com/arandoros'],
       },
       {
+        name: 'Instagram',
+        slug: '',
+        externalUrls: ['https://www.instagram.com/zeroichiarakawa'],
+      },
+      {
         name: 'GitHub',
         slug: '',
         externalUrls: ['https://github.com/avcdsld'],
