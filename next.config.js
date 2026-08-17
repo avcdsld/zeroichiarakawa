@@ -1,12 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async rewrites() {
-    return [
+    return {
+      // beforeFiles runs ahead of the /works/[slug] dynamic route, so this
+      // self-contained page (public/works/…​.html) wins that path. Unlisted.
+      beforeFiles: [
+        {
+          source: '/works/executed-poetry-js-lounge',
+          destination: '/works/executed-poetry-js-lounge.html',
+        },
+      ],
       // Clean URLs for self-contained static HTML pieces in public/diary/.
       // The [^.]+ guard skips paths with an extension (e.g. .png) so co-located
       // assets like OG images are served directly.
-      { source: '/diary/:slug([^.]+)', destination: '/diary/:slug.html' },
-    ];
+      afterFiles: [
+        { source: '/diary/:slug([^.]+)', destination: '/diary/:slug.html' },
+      ],
+    };
   },
   async redirects() {
     return [
