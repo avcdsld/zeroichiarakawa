@@ -89,6 +89,18 @@ export const menuData: Section[] = [
         year: '2025',
       },
       {
+        name: 'Executed Poetry for JavaScript',
+        nameJa: 'Executed Poetry for JavaScript',
+        slug: 'works/executed-poetry-js-lounge',
+        description:
+          "Executed Poetry for JavaScript is a series of seven code poems that run. Each poem is held in a single self-contained HTML file, stored on Ethereum as a fully onchain token. The original exists only there. When a copy is opened in a browser, the poem runs on the reader's machine.\n\nEach poem pairs a short title in plain language with a few lines of code. The title speaks of human things: knowing yourself, being fine, remembering someone, making a promise. The computer takes the title at its word and executes it. Poetry arises in the gap between what is said and what is done.\n\nEach time the code is executed, a signature is displayed as the testimony of that run. The execution environment derives a key pair from its own particulars and signs the moment and context of the execution. The testimony remains. The event it pointed to does not return.\n\nIt is the online, onchain counterpart of the series Executed Poetry, which first ran as code-poems inside a physical device.\n\nPresented in EMERGENCE, an online exhibition curated by Kate Vass Galerie.",
+        descriptionJa:
+          '「Executed Poetry for JavaScript」は、実行される七篇のコード詩のシリーズである。各詩は単一の自己完結した HTML ファイルとして、Ethereum 上に完全にオンチェーンのトークンとして保存される。オリジナルはそこにしか存在しない。コピーがブラウザで開かれると、詩は読者の機械の上で実行される。\n\n各詩は、平易な言葉の短いタイトルと、数行のコードを組み合わせる。タイトルは人間的な事柄を語る——自分を知ること、大丈夫であること、誰かを思い出すこと、約束をすること。コンピュータはそのタイトルを言葉どおりに受け取り、実行する。詩は、語られたことと為されたことの隔たりに立ち現れる。\n\nコードが実行されるたび、その実行の証言として署名が表示される。実行環境は自らの particulars から鍵ペアを導出し、実行の瞬間と文脈に署名する。証言は残る。それが指し示した出来事は、もう返らない。\n\nこれは、かつて物理的なデバイスの中でコード詩として走ったシリーズ「Executed Poetry」の、オンライン／オンチェーン版である。\n\nKate Vass Galerie がキュレーションするオンライン展「EMERGENCE」にて発表。',
+        image: '/images/executed-poetry-js-lounge.jpg',
+        externalUrls: ['https://executed-poetry-js.poesy.run'],
+        year: '2026',
+      },
+      {
         name: 'Executed Poetry',
         nameJa: 'Executed Poetry',
         slug: 'works/executed-poetry',
