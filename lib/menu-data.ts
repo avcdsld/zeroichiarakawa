@@ -88,6 +88,8 @@ export const menuData: Section[] = [
         externalUrls: ['https://bugcat.org'],
         year: '2025',
       },
+      /* Hidden from the Works grid + sitemap; the standalone purchase page is
+         still served via the next.config.js rewrite. Uncomment to relist.
       {
         name: 'Executed Poetry for JavaScript',
         nameJa: 'Executed Poetry for JavaScript',
@@ -100,6 +102,7 @@ export const menuData: Section[] = [
         externalUrls: ['https://executed-poetry-js.poesy.run'],
         year: '2026',
       },
+      */
       {
         name: 'Executed Poetry',
         nameJa: 'Executed Poetry',
