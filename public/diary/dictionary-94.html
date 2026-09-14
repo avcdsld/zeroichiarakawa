@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>94語 英和辞典</title>
+    <title>A Small Dictionary of Ninety-Four Words</title>
     <meta name="date" content="2026-09-14T23:33" />
     <style>
       :root {
@@ -13,12 +13,9 @@
         --hair: #c8c4b9;
         --paper: #fbfaf4;
         --desk: #e5e1d8;
-        --latin: Charter, 'Bitstream Charter', 'Charter BT', 'Iowan Old Style',
+        --serif: Charter, 'Bitstream Charter', 'Charter BT', 'Iowan Old Style',
           Georgia, 'Times New Roman', serif;
-        --serif: 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho',
-          'Noto Serif CJK JP', 'Noto Serif JP', serif;
-        --sans: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'YuGothic',
-          'Helvetica Neue', Arial, sans-serif;
+        --sans: 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
       }
       * {
         box-sizing: border-box;
@@ -326,63 +323,6 @@
           color: inherit;
         }
       }
-
-      .jp-title {
-        margin: 0;
-        width: fit-content;
-        line-height: 1;
-      }
-      .jp-title-top {
-        display: flex;
-        align-items: flex-start;
-        gap: 18px;
-      }
-      .title-num {
-        font-family: var(--latin);
-        font-size: clamp(82px, 12vw, 132px);
-        font-weight: 400;
-        letter-spacing: -0.065em;
-        line-height: 0.84;
-      }
-      .title-ja {
-        font-family: var(--serif);
-        font-size: clamp(38px, 5.8vw, 58px);
-        font-weight: 500;
-        letter-spacing: -0.03em;
-        line-height: 1;
-        padding-top: 16px;
-      }
-      .jp-title-bottom {
-        margin-top: 26px;
-        margin-left: 2px;
-        font-family: var(--serif);
-        font-size: clamp(33px, 5vw, 52px);
-        font-weight: 500;
-        letter-spacing: 0.03em;
-        line-height: 1.12;
-      }
-      .headword,
-      .pron,
-      .letter-marker span,
-      .version-mark {
-        font-family: var(--latin);
-      }
-      @media print {
-        .title-num {
-          font-size: 58pt;
-        }
-        .title-ja {
-          font-size: 27pt;
-          padding-top: 4mm;
-        }
-        .jp-title-top {
-          gap: 5mm;
-        }
-        .jp-title-bottom {
-          font-size: 23pt;
-          margin-top: 7mm;
-        }
-      }
       .site-back {
         width: min(100%, 860px);
         margin: 0 auto;
@@ -407,33 +347,34 @@
     </style>
   </head>
   <body>
-    <nav class="site-back"><a href="/diary">← 日記</a></nav>
+    <nav class="site-back"><a href="/diary">← Diary</a></nav>
     <main class="book">
       <section class="cover">
-        <div class="jp-title">
-          <div class="jp-title-top">
-            <span class="title-num">94</span><span class="title-ja">語</span>
-          </div>
-          <div class="jp-title-bottom">英和辞典</div>
-        </div>
+        <h1>
+          <span class="title-line">A Small Dictionary</span
+          ><span class="title-line">of Ninety-Four Words</span>
+        </h1>
       </section>
       <section class="frontmatter">
         <div class="frontmatter-grid">
           <div>
-            <h2>編集方針</h2>
+            <h2>Editorial Note</h2>
             <p>
-              語義は、現代英語における一般的な用法を基準に配列した。複数の確立した意味を持つ語は、語義を分けて番号を付した。用例は通常の用法を示すために編集したものである。発音は簡略な表記による。
+              Definitions are arranged according to common contemporary usage.
+              Where a word has more than one established sense, senses are
+              numbered separately. Examples have been written to illustrate
+              ordinary use. Pronunciations are given in broad transcription.
             </p>
           </div>
           <div>
-            <h2>項目の見方</h2>
+            <h2>How to read an entry</h2>
             <ul class="legend">
-              <li><abbr>見出し</abbr> 定義する語</li>
-              <li><abbr>発音</abbr> 発音表記</li>
-              <li><abbr>品詞</abbr> 品詞</li>
-              <li><abbr>1, 2…</abbr> 語義</li>
-              <li><abbr>用例</abbr> 使用例</li>
-              <li><abbr>参照</abbr> 関連する項目</li>
+              <li><abbr>head</abbr> the word being defined</li>
+              <li><abbr>pron.</abbr> broad pronunciation</li>
+              <li><abbr>pos</abbr> part of speech</li>
+              <li><abbr>1, 2…</abbr> numbered senses</li>
+              <li><abbr>ital.</abbr> example of use</li>
+              <li><abbr>see</abbr> relation to another entry</li>
             </ul>
             <div class="index-strip">
               <a href="#letter-a">A</a><a href="#letter-b">B</a
@@ -457,19 +398,19 @@
             <h3 class="headword">abstract</h3>
             <span class="pron">/ˈæbstrækt/</span>
           </div>
-          <div class="pos">形容詞・名詞・動詞</div>
+          <div class="pos">adjective · noun · verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >具体物ではなく、観念・性質として存在する。抽象的な。</span
-              ><span class="example">議論は抽象的なままだった。</span>
+                >Existing as an idea or quality rather than as a concrete
+                thing.</span
+              ><span class="example">The argument remained abstract.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition"
-                >長い文章の内容を要約したもの。要旨。</span
-              ><span class="example">論文は abstract から始まる。</span>
+              ><span class="definition">A summary of a longer work.</span
+              ><span class="example">The paper begins with an abstract.</span>
             </div>
           </div>
         </article>
@@ -478,17 +419,19 @@
             <h3 class="headword">address</h3>
             <span class="pron">/əˈdres; ˈædres/</span>
           </div>
-          <div class="pos">動詞・名詞</div>
+          <div class="pos">verb · noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">人に直接話しかける、書き送る。</span
-              ><span class="example">彼女は聴衆に語りかけた。</span>
+              ><span class="definition"
+                >To speak or write to someone directly.</span
+              ><span class="example">She addressed the audience.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">人や場所の所在を示す情報。住所。</span
-              ><span class="example">住所を明瞭に書きなさい。</span>
+              ><span class="definition"
+                >The particulars of where a person or place may be found.</span
+              ><span class="example">Write the address clearly.</span>
             </div>
           </div>
         </article>
@@ -497,17 +440,18 @@
             <h3 class="headword">after</h3>
             <span class="pron">/ˈɑːftə/</span>
           </div>
-          <div class="pos">前置詞・接続詞・副詞</div>
+          <div class="pos">preposition · conjunction · adverb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">時間や順序において〜の後に。</span
-              ><span class="example">彼らは真夜中を過ぎてから出発した。</span>
+              ><span class="definition"
+                >Later than something in time or order.</span
+              ><span class="example">They left after midnight.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">後ろに、続いて。</span
-              ><span class="example">一枚のページの後に次が続いた。</span>
+              ><span class="definition">Behind or following.</span
+              ><span class="example">One page came after another.</span>
             </div>
           </div>
         </article>
@@ -516,18 +460,19 @@
             <h3 class="headword">alias</h3>
             <span class="pron">/ˈeɪliəs/</span>
           </div>
-          <div class="pos">名詞・副詞</div>
+          <div class="pos">noun · adverb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">人や物が用いる別名、偽名。</span
-              ><span class="example">彼は別名を使って旅をした。</span>
+              ><span class="definition"
+                >A false or alternative name used by a person or thing.</span
+              ><span class="example">He travelled under an alias.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">別名〜、またの名を〜。</span
+              ><span class="definition">Otherwise called; also known as.</span
               ><span class="example"
-                >その植物は別名 wild mint と呼ばれる。</span
+                >The plant, alias wild mint, grows nearby.</span
               >
             </div>
           </div>
@@ -537,19 +482,18 @@
             <h3 class="headword">anonymous</h3>
             <span class="pron">/əˈnɒnɪməs/</span>
           </div>
-          <div class="pos">形容詞</div>
+          <div class="pos">adjective</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition"
-                >名前や身元が明らかにされていない。匿名の。</span
-              ><span class="example">その手紙は匿名だった。</span>
+              ><span class="definition">Having no name disclosed or known.</span
+              ><span class="example">The letter was anonymous.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >作者や行為者の身元を示さずになされた。</span
-              ><span class="example">匿名の寄付者が費用を負担した。</span>
+                >Made or done by someone whose identity is not stated.</span
+              ><span class="example">An anonymous donor paid the cost.</span>
             </div>
           </div>
         </article>
@@ -558,22 +502,23 @@
             <h3 class="headword">apply</h3>
             <span class="pron">/əˈplaɪ/</span>
           </div>
-          <div class="pos">動詞</div>
+          <div class="pos">verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">規則や方法などを適用する。</span
-              ><span class="example">その規則を一貫して適用しなさい。</span>
+              ><span class="definition"
+                >To put something to use or into operation.</span
+              ><span class="example">Apply the rule consistently.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">正式に申し込む。</span
-              ><span class="example">彼女はその職に応募した。</span>
+              ><span class="definition">To make a formal request.</span
+              ><span class="example">She applied for the position.</span>
             </div>
             <div class="sense">
               <span class="sense-no">3</span
-              ><span class="definition">表面などに塗る、付ける。</span
-              ><span class="example">薄く塗料を塗りなさい。</span>
+              ><span class="definition">To place something on a surface.</span
+              ><span class="example">Apply a thin layer of paint.</span>
             </div>
           </div>
         </article>
@@ -582,17 +527,18 @@
             <h3 class="headword">as</h3>
             <span class="pron">/æz; əz/</span>
           </div>
-          <div class="pos">接続詞・前置詞・副詞</div>
+          <div class="pos">conjunction · preposition · adverb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">〜している間に、〜するとき。</span
-              ><span class="example">彼女は光が消えていくのを見ていた。</span>
+              ><span class="definition"
+                >While or when something is happening.</span
+              ><span class="example">She watched as the light faded.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">〜として、〜の役割で。</span
-              ><span class="example">彼は翻訳者として働いた。</span>
+              ><span class="definition">In the role or manner of.</span
+              ><span class="example">He worked as a translator.</span>
             </div>
           </div>
         </article>
@@ -601,18 +547,19 @@
             <h3 class="headword">assembly</h3>
             <span class="pron">/əˈsembli/</span>
           </div>
-          <div class="pos">名詞</div>
+          <div class="pos">noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >共通の目的のために集まった人々、集会。</span
-              ><span class="example">集会は正午に開かれた。</span>
+                >A group of people gathered together for a common purpose.</span
+              ><span class="example">The assembly met at noon.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">部品を組み立てる行為・工程。</span
-              ><span class="example">最終組立には一時間かかった。</span>
+              ><span class="definition"
+                >The act or process of putting parts together.</span
+              ><span class="example">Final assembly took an hour.</span>
             </div>
           </div>
         </article>
@@ -621,19 +568,21 @@
             <h3 class="headword">auto</h3>
             <span class="pron">/ˈɔːtəʊ/</span>
           </div>
-          <div class="pos">名詞・形容詞・接頭辞</div>
+          <div class="pos">noun · adjective · prefix</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">automobile の短縮形。自動車。</span
+              ><span class="definition">An automobile.</span
               ><span class="example"
-                >その収集品には初期の auto が含まれていた。</span
+                >The collection included an early auto.</span
               >
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">automatic の短縮形。自動の。</span
-              ><span class="example">装置は auto に設定された。</span>
+              ><span class="definition"
+                >Automatic; operating with little or no direct
+                intervention.</span
+              ><span class="example">The device was set to auto.</span>
             </div>
           </div>
         </article>
@@ -643,14 +592,14 @@
             <h3 class="headword">bool</h3>
             <span class="pron">/buːl/</span>
           </div>
-          <div class="pos">名詞・略語</div>
+          <div class="pos">noun · abbrev.</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >Boolean
-                に関連する短縮形。二つの論理状態のどちらかを取る値・式。</span
-              ><span class="example">結果は bool として保存された。</span>
+                >A shortened form associated with Boolean: a value or expression
+                having one of two logical states.</span
+              ><span class="example">The result was stored as a bool.</span>
             </div>
           </div>
         </article>
@@ -659,26 +608,27 @@
             <h3 class="headword">break</h3>
             <span class="pron">/breɪk/</span>
           </div>
-          <div class="pos">動詞・名詞</div>
+          <div class="pos">verb · noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">力や負荷で割る、壊す。</span
-              ><span class="example">枝は折れた。</span>
+              ><span class="definition"
+                >To separate into parts by force or strain.</span
+              ><span class="example">The branch broke.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">連続性を中断する。</span
-              ><span class="example">質問が沈黙を破った。</span>
+              ><span class="definition">To interrupt continuity.</span
+              ><span class="example">A question broke the silence.</span>
             </div>
             <div class="sense">
               <span class="sense-no">3</span
-              ><span class="definition">休止、中断。</span
-              ><span class="example">彼らは短い休憩を取った。</span>
+              ><span class="definition">A pause or interruption.</span
+              ><span class="example">They took a short break.</span>
             </div>
           </div>
           <div class="xrefs">
-            <span class="xref-label">参照</span>
+            <span class="xref-label">see also</span>
             <a href="#continue">continue</a>
           </div>
         </article>
@@ -687,13 +637,14 @@
             <h3 class="headword">byte</h3>
             <span class="pron">/baɪt/</span>
           </div>
-          <div class="pos">名詞</div>
+          <div class="pos">noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >デジタル情報の単位。通常は8ビットからなる。</span
-              ><span class="example">その値は1 byte を占める。</span>
+                >A unit of digital information, commonly consisting of eight
+                bits.</span
+              ><span class="example">The value occupies one byte.</span>
             </div>
           </div>
         </article>
@@ -702,15 +653,13 @@
             <h3 class="headword">bytes</h3>
             <span class="pron">/baɪts/</span>
           </div>
-          <div class="pos">名詞・複数形</div>
+          <div class="pos">noun plural</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >byte の複数形。デジタル情報の単位。</span
-              ><span class="example"
-                >そのファイルは数 bytes しか含まない。</span
-              >
+                >Plural of byte: units of digital information.</span
+              ><span class="example">The file contains only a few bytes.</span>
             </div>
           </div>
         </article>
@@ -720,15 +669,13 @@
             <h3 class="headword">calldata</h3>
             <span class="pron">/ˈkɔːl deɪtə/</span>
           </div>
-          <div class="pos">名詞</div>
+          <div class="pos">noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >呼び出しや要求とともに渡されるデータ。</span
-              ><span class="example"
-                >そのメッセージには calldata が含まれていた。</span
-              >
+                >Data supplied together with a call or request.</span
+              ><span class="example">The message included its calldata.</span>
             </div>
           </div>
         </article>
@@ -737,19 +684,21 @@
             <h3 class="headword">case</h3>
             <span class="pron">/keɪs/</span>
           </div>
-          <div class="pos">名詞</div>
+          <div class="pos">noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">ある状況の個別の例。</span
-              ><span class="example">この場合、返答は必要なかった。</span>
+              ><span class="definition"
+                >A particular instance or situation.</span
+              ><span class="example"
+                >In this case, no answer was required.</span
+              >
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">検討や判断を要する一連の事情。</span
-              ><span class="example"
-                >事実関係は難しい問題を形づくっていた。</span
-              >
+              ><span class="definition"
+                >A set of circumstances requiring consideration.</span
+              ><span class="example">The facts made a difficult case.</span>
             </div>
           </div>
         </article>
@@ -758,19 +707,19 @@
             <h3 class="headword">catch</h3>
             <span class="pron">/kætʃ/</span>
           </div>
-          <div class="pos">動詞・名詞</div>
+          <div class="pos">verb · noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >動いているものを受け止める、つかむ。</span
-              ><span class="example">彼女は落ちるグラスを受け止めた。</span>
+                >To stop and hold something in motion.</span
+              ><span class="example">She caught the falling glass.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >短く見逃しやすいものに気づく、聞き取る。</span
-              ><span class="example">最後の言葉を聞き取れなかった。</span>
+                >To notice or understand something easily missed.</span
+              ><span class="example">I did not catch the last word.</span>
             </div>
           </div>
         </article>
@@ -779,17 +728,19 @@
             <h3 class="headword">constant</h3>
             <span class="pron">/ˈkɒnstənt/</span>
           </div>
-          <div class="pos">形容詞・名詞</div>
+          <div class="pos">adjective · noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">時間がたっても変わらない。一定の。</span
-              ><span class="example">圧力は一定のままだった。</span>
+              ><span class="definition"
+                >Remaining the same over time; unchanging.</span
+              ><span class="example">The pressure remained constant.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">変化しない量や条件。定数。</span
-              ><span class="example">一つの値は constant として扱われた。</span>
+              ><span class="definition"
+                >A quantity or condition that does not change.</span
+              ><span class="example">One value was treated as a constant.</span>
             </div>
           </div>
         </article>
@@ -798,13 +749,14 @@
             <h3 class="headword">constructor</h3>
             <span class="pron">/kənˈstrʌktə/</span>
           </div>
-          <div class="pos">名詞</div>
+          <div class="pos">noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">何かを建設、構築する人やもの。</span
+              ><span class="definition"
+                >A person or thing that constructs or builds.</span
               ><span class="example"
-                >橋の constructor は詳細な記録を残した。</span
+                >The bridge&#x27;s constructor kept detailed records.</span
               >
             </div>
           </div>
@@ -814,21 +766,23 @@
             <h3 class="headword">continue</h3>
             <span class="pron">/kənˈtɪnjuː/</span>
           </div>
-          <div class="pos">動詞</div>
+          <div class="pos">verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">止まらずに進行し続ける。</span
-              ><span class="example">雨は降り続いた。</span>
+              ><span class="definition"
+                >To remain in progress without stopping.</span
+              ><span class="example">The rain continued.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">中断の後で再び始める。</span
-              ><span class="example">少し間を置いて、彼女は続けた。</span>
+              ><span class="definition"
+                >To begin again after an interruption.</span
+              ><span class="example">After a pause, she continued.</span>
             </div>
           </div>
           <div class="xrefs">
-            <span class="xref-label">参照</span> <a href="#break">break</a>
+            <span class="xref-label">see also</span> <a href="#break">break</a>
           </div>
         </article>
         <article class="entry" id="contract">
@@ -836,22 +790,25 @@
             <h3 class="headword">contract</h3>
             <span class="pron">noun /ˈkɒntrækt/ · verb /kənˈtrækt/</span>
           </div>
-          <div class="pos">名詞・動詞</div>
+          <div class="pos">noun · verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">当事者間の正式な合意、契約。</span
-              ><span class="example">彼らは contract に署名した。</span>
+              ><span class="definition"
+                >A formal agreement between parties.</span
+              ><span class="example">They signed the contract.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">縮む、小さくなる。</span
-              ><span class="example">金属は冷えると収縮する。</span>
+              ><span class="definition">To become smaller or shorter.</span
+              ><span class="example">Metal contracts as it cools.</span>
             </div>
             <div class="sense">
               <span class="sense-no">3</span
-              ><span class="definition">正式な契約を結ぶ。</span
-              ><span class="example">会社は作業を供給する契約を結んだ。</span>
+              ><span class="definition">To enter into a formal agreement.</span
+              ><span class="example"
+                >The company contracted to supply the work.</span
+              >
             </div>
           </div>
         </article>
@@ -860,13 +817,14 @@
             <h3 class="headword">copyof</h3>
             <span class="pron">/ˈkɒpi əv/</span>
           </div>
-          <div class="pos">複合名詞</div>
+          <div class="pos">compound noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">copy of。何かの複製、写し。</span
+              ><span class="definition"
+                >Copy of: a reproduction or duplicate of something.</span
               ><span class="example"
-                >資料庫には原記録の copyof が保管されていた。</span
+                >The archive held a copyof the original record.</span
               >
             </div>
           </div>
@@ -877,18 +835,19 @@
             <h3 class="headword">default</h3>
             <span class="pron">/dɪˈfɔːlt/</span>
           </div>
-          <div class="pos">名詞・動詞</div>
+          <div class="pos">noun · verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >別の指定がないときに適用される状態や選択。</span
-              ><span class="example">沈黙が default になった。</span>
+                >A condition or choice that applies when no alternative is
+                specified.</span
+              ><span class="example">Silence became the default.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">義務を履行しないこと。</span
-              ><span class="example">その融資は債務不履行となった。</span>
+              ><span class="definition">Failure to fulfil an obligation.</span
+              ><span class="example">The loan fell into default.</span>
             </div>
           </div>
         </article>
@@ -897,18 +856,19 @@
             <h3 class="headword">define</h3>
             <span class="pron">/dɪˈfaɪn/</span>
           </div>
-          <div class="pos">動詞</div>
+          <div class="pos">verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >何かの意味、性質、範囲を正確に定める。</span
-              ><span class="example">用語は慎重に定義された。</span>
+                >To state the exact nature, meaning, or limits of
+                something.</span
+              ><span class="example">The terms were carefully defined.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">境界を定める。</span
-              ><span class="example">川が国境を形づくる。</span>
+              ><span class="definition">To mark or establish a boundary.</span
+              ><span class="example">The river defines the border.</span>
             </div>
           </div>
         </article>
@@ -917,13 +877,13 @@
             <h3 class="headword">delete</h3>
             <span class="pron">/dɪˈliːt/</span>
           </div>
-          <div class="pos">動詞</div>
+          <div class="pos">verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >書かれたもの、記録されたもの、保存されたものを取り除く。</span
-              ><span class="example">彼女は最後の一文を削除した。</span>
+                >To remove written, recorded, or stored material.</span
+              ><span class="example">She deleted the final sentence.</span>
             </div>
           </div>
         </article>
@@ -932,17 +892,17 @@
             <h3 class="headword">do</h3>
             <span class="pron">/duː/</span>
           </div>
-          <div class="pos">動詞</div>
+          <div class="pos">verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">行為を行う、実行する。</span
-              ><span class="example">必要なことをしなさい。</span>
+              ><span class="definition">To perform or carry out an action.</span
+              ><span class="example">Do what is necessary.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">仕事や課題を完了する、処理する。</span
-              ><span class="example">仕事は正午までに終わった。</span>
+              ><span class="definition">To complete or deal with a task.</span
+              ><span class="example">The work was done by noon.</span>
             </div>
           </div>
         </article>
@@ -952,22 +912,23 @@
             <h3 class="headword">else</h3>
             <span class="pron">/els/</span>
           </div>
-          <div class="pos">副詞・形容詞</div>
+          <div class="pos">adverb · adjective</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >すでに述べたもの以外に、またはその代わりに。</span
-              ><span class="example">ほかに何が言えただろう。</span>
+                >In addition to, or instead of, what has already been
+                mentioned.</span
+              ><span class="example">What else could be said?</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">別の、ほかの。</span
-              ><span class="example">別の誰かが到着していた。</span>
+              ><span class="definition">Different; other.</span
+              ><span class="example">Someone else had arrived.</span>
             </div>
           </div>
           <div class="xrefs">
-            <span class="xref-label">参照</span> <a href="#if">if</a>
+            <span class="xref-label">see also</span> <a href="#if">if</a>
           </div>
         </article>
         <article class="entry" id="emit">
@@ -975,12 +936,14 @@
             <h3 class="headword">emit</h3>
             <span class="pron">/ɪˈmɪt/</span>
           </div>
-          <div class="pos">動詞</div>
+          <div class="pos">verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">光、音、熱、信号などを外へ放つ。</span
-              ><span class="example">そのランプはかすかな光を放つ。</span>
+              ><span class="definition"
+                >To send out or give off something such as light, sound, heat,
+                or a signal.</span
+              ><span class="example">The lamp emits a faint light.</span>
             </div>
           </div>
         </article>
@@ -989,13 +952,16 @@
             <h3 class="headword">enum</h3>
             <span class="pron">/ˈiːnʌm/</span>
           </div>
-          <div class="pos">名詞・略語</div>
+          <div class="pos">noun · abbrev.</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >enumeration の略。区別された可能性を順に列挙したもの。</span
-              ><span class="example">その目録は形の enum のように読めた。</span>
+                >A shortened form of enumeration: an ordered listing of distinct
+                possibilities.</span
+              ><span class="example"
+                >The catalogue read like an enum of forms.</span
+              >
             </div>
           </div>
         </article>
@@ -1004,18 +970,20 @@
             <h3 class="headword">event</h3>
             <span class="pron">/ɪˈvent/</span>
           </div>
-          <div class="pos">名詞</div>
+          <div class="pos">noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >起こること、特に注目すべき出来事や催し。</span
-              ><span class="example">event は夕暮れに始まった。</span>
+                >Something that happens, especially something notable or
+                planned.</span
+              ><span class="example">The event began at dusk.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">個別の発生事象。</span
-              ><span class="example">各 event は別々に記録された。</span>
+              ><span class="definition"
+                >A particular occurrence or outcome.</span
+              ><span class="example">Each event was recorded separately.</span>
             </div>
           </div>
         </article>
@@ -1024,17 +992,19 @@
             <h3 class="headword">external</h3>
             <span class="pron">/ɪkˈstɜːnəl/</span>
           </div>
-          <div class="pos">形容詞・名詞</div>
+          <div class="pos">adjective · noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">外部に位置する、外部から生じる。</span
-              ><span class="example">損傷は external だった。</span>
+              ><span class="definition"
+                >Situated, originating, or operating outside something.</span
+              ><span class="example">The damage was external.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">内部ではなく外部から来る。</span
-              ><span class="example">彼らは外部の助言を求めた。</span>
+              ><span class="definition"
+                >Coming from outside rather than from within.</span
+              ><span class="example">They sought external advice.</span>
             </div>
           </div>
         </article>
@@ -1044,18 +1014,20 @@
             <h3 class="headword">fallback</h3>
             <span class="pron">/ˈfɔːlbæk/</span>
           </div>
-          <div class="pos">名詞・形容詞</div>
+          <div class="pos">noun · adjective</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >第一の方法が失敗したときに用いる代替策。</span
-              ><span class="example">彼らは fallback を用意した。</span>
+                >A course of action used when a preferred option fails or is
+                unavailable.</span
+              ><span class="example">They prepared a fallback.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">予備の、代替となる。</span
-              ><span class="example">fallback plan が準備されていた。</span>
+              ><span class="definition"
+                >Serving as a secondary or reserve option.</span
+              ><span class="example">A fallback plan was ready.</span>
             </div>
           </div>
         </article>
@@ -1064,21 +1036,22 @@
             <h3 class="headword">false</h3>
             <span class="pron">/fɔːls/</span>
           </div>
-          <div class="pos">形容詞</div>
+          <div class="pos">adjective</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">事実や現実に合っていない。</span
-              ><span class="example">その報告は誤りだと判明した。</span>
+              ><span class="definition"
+                >Not in accordance with fact or reality.</span
+              ><span class="example">The report proved false.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">本物に見せかけた、偽の。</span
-              ><span class="example">彼は偽名を使った。</span>
+              ><span class="definition">Not genuine; made to appear true.</span
+              ><span class="example">He used a false name.</span>
             </div>
           </div>
           <div class="xrefs">
-            <span class="xref-label">反対語</span> <a href="#true">true</a>
+            <span class="xref-label">opposite</span> <a href="#true">true</a>
           </div>
         </article>
         <article class="entry reserved-future" id="final">
@@ -1086,18 +1059,19 @@
             <h3 class="headword">final</h3>
             <span class="pron">/ˈfaɪnəl/</span>
           </div>
-          <div class="pos">形容詞・名詞</div>
+          <div class="pos">adjective · noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">一連の過程の最後に来る。最終の。</span
-              ><span class="example">最後の問いが残った。</span>
+              ><span class="definition"
+                >Coming at the end of a series or process.</span
+              ><span class="example">The final question remained.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >変更や再検討を意図しない。最終的な。</span
-              ><span class="example">その決定は final だ。</span>
+                >Conclusive; not intended to be changed.</span
+              ><span class="example">The decision is final.</span>
             </div>
           </div>
         </article>
@@ -1106,21 +1080,23 @@
             <h3 class="headword">fixed</h3>
             <span class="pron">/fɪkst/</span>
           </div>
-          <div class="pos">形容詞</div>
+          <div class="pos">adjective</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">しっかりと固定された。</span
-              ><span class="example">棚は壁に固定されている。</span>
+              ><span class="definition">Fastened securely in position.</span
+              ><span class="example">The shelf is fixed to the wall.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">変化しない、変更できない。</span
-              ><span class="example">価格は fixed のままだった。</span>
+              ><span class="definition"
+                >Not changing or able to be changed.</span
+              ><span class="example">The price remained fixed.</span>
             </div>
           </div>
           <div class="xrefs">
-            <span class="xref-label">比較</span> <a href="#mutable">mutable</a>
+            <span class="xref-label">compare</span>
+            <a href="#mutable">mutable</a>
           </div>
         </article>
         <article class="entry" id="for">
@@ -1128,18 +1104,19 @@
             <h3 class="headword">for</h3>
             <span class="pron">/fɔː; fə/</span>
           </div>
-          <div class="pos">前置詞・接続詞</div>
+          <div class="pos">preposition · conjunction</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >誰か・何かに属する、利益を与える、関係する。</span
-              ><span class="example">この手紙はあなた宛てです。</span>
+                >Intended to belong to, benefit, or concern someone or
+                something.</span
+              ><span class="example">This letter is for you.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">一定の期間にわたって。</span
-              ><span class="example">彼らは三時間待った。</span>
+              ><span class="definition">During a specified period.</span
+              ><span class="example">They waited for three hours.</span>
             </div>
           </div>
         </article>
@@ -1148,18 +1125,20 @@
             <h3 class="headword">function</h3>
             <span class="pron">/ˈfʌŋkʃən/</span>
           </div>
-          <div class="pos">名詞・動詞</div>
+          <div class="pos">noun · verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">人や物が果たす目的、役割、働き。</span
-              ><span class="example">鍵の function は錠を開けることだ。</span>
+              ><span class="definition"
+                >The purpose or characteristic activity of something.</span
+              ><span class="example"
+                >The function of the key is to open the lock.</span
+              >
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition"
-                >正常または意図された通りに作動する。</span
-              ><span class="example">装置は動作し続けた。</span>
+              ><span class="definition">To work or operate.</span
+              ><span class="example">The device continued to function.</span>
             </div>
           </div>
         </article>
@@ -1169,19 +1148,19 @@
             <h3 class="headword">hex</h3>
             <span class="pron">/heks/</span>
           </div>
-          <div class="pos">名詞・形容詞・略語</div>
+          <div class="pos">noun · adjective · abbrev.</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >hexadecimal
-                に関連する短縮形。16種類の値を基数とする表記。</span
-              ><span class="example">その数は hex で書かれた。</span>
+                >A shortened form associated with hexadecimal: a system based on
+                sixteen distinct values.</span
+              ><span class="example">The number was written in hex.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">呪文、呪い。</span
-              ><span class="example">彼らは古い hex を恐れた。</span>
+              ><span class="definition">A spell or curse.</span
+              ><span class="example">They feared an old hex.</span>
             </div>
           </div>
         </article>
@@ -1191,22 +1170,22 @@
             <h3 class="headword">if</h3>
             <span class="pron">/ɪf/</span>
           </div>
-          <div class="pos">接続詞・名詞</div>
+          <div class="pos">conjunction · noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >ある条件が成り立つことを前提として。</span
-              ><span class="example">雨なら、私たちは中にいる。</span>
+                >On the condition or supposition that.</span
+              ><span class="example">If it rains, we will remain inside.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">条件や但し書き。</span
-              ><span class="example">条件が多すぎた。</span>
+              ><span class="definition">A condition or qualification.</span
+              ><span class="example">There were too many ifs.</span>
             </div>
           </div>
           <div class="xrefs">
-            <span class="xref-label">参照</span> <a href="#else">else</a>
+            <span class="xref-label">see also</span> <a href="#else">else</a>
           </div>
         </article>
         <article class="entry" id="immutable">
@@ -1214,19 +1193,18 @@
             <h3 class="headword">immutable</h3>
             <span class="pron">/ɪˈmjuːtəbəl/</span>
           </div>
-          <div class="pos">形容詞</div>
+          <div class="pos">adjective</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >変更できない、または変更されることを意図しない。</span
-              ><span class="example"
-                >その記録は immutable として扱われた。</span
-              >
+                >Unable or not intended to be changed.</span
+              ><span class="example">The record was treated as immutable.</span>
             </div>
           </div>
           <div class="xrefs">
-            <span class="xref-label">比較</span> <a href="#mutable">mutable</a>
+            <span class="xref-label">compare</span>
+            <a href="#mutable">mutable</a>
           </div>
         </article>
         <article class="entry reserved-future" id="implements">
@@ -1234,12 +1212,13 @@
             <h3 class="headword">implements</h3>
             <span class="pron">/ˈɪmplɪments/</span>
           </div>
-          <div class="pos">動詞</div>
+          <div class="pos">verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">決定、計画、制度などを実行に移す。</span
-              ><span class="example">その政策は合意を実施する。</span>
+              ><span class="definition"
+                >Puts a decision, plan, or system into practical effect.</span
+              ><span class="example">The policy implements the agreement.</span>
             </div>
           </div>
         </article>
@@ -1248,17 +1227,20 @@
             <h3 class="headword">import</h3>
             <span class="pron">verb /ɪmˈpɔːt/ · noun /ˈɪmpɔːt/</span>
           </div>
-          <div class="pos">動詞・名詞</div>
+          <div class="pos">verb · noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">外部から何かを取り入れる。</span
-              ><span class="example">その国は燃料を輸入している。</span>
+              ><span class="definition"
+                >To bring something in from elsewhere.</span
+              ><span class="example">The country imports fuel.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">意味、重要性、重大さ。</span
-              ><span class="example">彼らはその決定の重大さを理解した。</span>
+              ><span class="definition">Meaning or significance.</span
+              ><span class="example"
+                >They understood the import of the decision.</span
+              >
             </div>
           </div>
         </article>
@@ -1267,17 +1249,18 @@
             <h3 class="headword">in</h3>
             <span class="pron">/ɪn/</span>
           </div>
-          <div class="pos">前置詞・副詞</div>
+          <div class="pos">preposition · adverb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">何かの内部、範囲、状態のうちに。</span
-              ><span class="example">部屋の中に明かりがついていた。</span>
+              ><span class="definition"
+                >Within the limits or interior of something.</span
+              ><span class="example">A light was on in the room.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">参加している、含まれている。</span
-              ><span class="example">あなたも参加する？</span>
+              ><span class="definition">Included or taking part.</span
+              ><span class="example">Are you in?</span>
             </div>
           </div>
         </article>
@@ -1286,18 +1269,22 @@
             <h3 class="headword">indexed</h3>
             <span class="pron">/ˈɪndekst/</span>
           </div>
-          <div class="pos">形容詞・動詞</div>
+          <div class="pos">adjective · verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >索引を付けられた、索引によって整理された。</span
-              ><span class="example">その巻は完全に indexed されている。</span>
+                >Arranged or provided with an index.</span
+              ><span class="example">The volume is fully indexed.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">指標や基準値に連動させられた。</span
-              ><span class="example">支払いは物価に連動していた。</span>
+              ><span class="definition"
+                >Linked or adjusted according to an index or reference
+                value.</span
+              ><span class="example"
+                >The payment was indexed to inflation.</span
+              >
             </div>
           </div>
         </article>
@@ -1306,17 +1293,19 @@
             <h3 class="headword">inline</h3>
             <span class="pron">/ˈɪnlaɪn/</span>
           </div>
-          <div class="pos">形容詞・副詞</div>
+          <div class="pos">adjective · adverb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">一つの連続した線や列の中にある。</span
-              ><span class="example">部品は inline に配置された。</span>
+              ><span class="definition"
+                >Situated or occurring in a continuous line or sequence.</span
+              ><span class="example">The components were arranged inline.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">周囲の内容の中へ直接挿入された。</span
-              ><span class="example">注記は inline に現れた。</span>
+              ><span class="definition"
+                >Inserted directly within surrounding material.</span
+              ><span class="example">The note appeared inline.</span>
             </div>
           </div>
         </article>
@@ -1325,13 +1314,14 @@
             <h3 class="headword">int</h3>
             <span class="pron">/ɪnt/</span>
           </div>
-          <div class="pos">名詞・略語</div>
+          <div class="pos">noun · abbrev.</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >integer に関連する短縮形。小数部分を持たない整数。</span
-              ><span class="example">値は int として記録された。</span>
+                >A shortened form associated with integer: a whole number
+                without a fractional part.</span
+              ><span class="example">The value was recorded as an int.</span>
             </div>
           </div>
         </article>
@@ -1340,19 +1330,22 @@
             <h3 class="headword">interface</h3>
             <span class="pron">/ˈɪntəfeɪs/</span>
           </div>
-          <div class="pos">名詞・動詞</div>
+          <div class="pos">noun · verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >異なる二つのものが接し、影響し合う境界。</span
-              ><span class="example">海岸線は interface をなす。</span>
+                >A boundary at which two things meet and affect one
+                another.</span
+              ><span class="example">The shoreline forms an interface.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >二つの主体や体系がやり取りするための接点。</span
-              ><span class="example">言語が両者の interface になった。</span>
+                >A means by which two parties or systems communicate.</span
+              ><span class="example"
+                >Language became the interface between them.</span
+              >
             </div>
           </div>
         </article>
@@ -1361,17 +1354,20 @@
             <h3 class="headword">internal</h3>
             <span class="pron">/ɪnˈtɜːnəl/</span>
           </div>
-          <div class="pos">形容詞</div>
+          <div class="pos">adjective</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">何かの内部にある、内部で起こる。</span
-              ><span class="example">損傷は internal だった。</span>
+              ><span class="definition"
+                >Situated or occurring within something.</span
+              ><span class="example">The damage was internal.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">組織や体系の内側の働きに関する。</span
-              ><span class="example">その報告は内部利用向けだった。</span>
+              ><span class="definition"
+                >Relating to the inner workings or affairs of an organization or
+                system.</span
+              ><span class="example">The report was for internal use.</span>
             </div>
           </div>
         </article>
@@ -1380,13 +1376,14 @@
             <h3 class="headword">is</h3>
             <span class="pron">/ɪz/</span>
           </div>
-          <div class="pos">動詞</div>
+          <div class="pos">verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >be の三人称単数現在形。存在する、ある性質や同一性を持つ。</span
-              ><span class="example">答えは単純だ。</span>
+                >Third-person singular present of be: exists or has a specified
+                identity or quality.</span
+              ><span class="example">The answer is simple.</span>
             </div>
           </div>
         </article>
@@ -1396,18 +1393,19 @@
             <h3 class="headword">let</h3>
             <span class="pron">/let/</span>
           </div>
-          <div class="pos">動詞・名詞</div>
+          <div class="pos">verb · noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">何かが起こることを許す。</span
-              ><span class="example">その件はそのままにしておきなさい。</span>
+              ><span class="definition"
+                >To allow or permit something to happen.</span
+              ><span class="example">Let the matter rest.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >人や物が動く、行動することを可能にする。</span
-              ><span class="example">彼女は鳥を放した。</span>
+                >To cause or enable something to move or act.</span
+              ><span class="example">She let the bird go.</span>
             </div>
           </div>
         </article>
@@ -1416,18 +1414,20 @@
             <h3 class="headword">library</h3>
             <span class="pron">/ˈlaɪbrəri/</span>
           </div>
-          <div class="pos">名詞</div>
+          <div class="pos">noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >読書・参照のために整理された書籍や資料の集合。</span
-              ><span class="example">その写本は library に入った。</span>
+                >A collection of books or other materials arranged for reading
+                or reference.</span
+              ><span class="example">The manuscript entered the library.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">再利用できる資料や資源の集合。</span
-              ><span class="example">資料群は小さな library を形成した。</span>
+              ><span class="definition"
+                >A collection of reusable materials or resources.</span
+              ><span class="example">The archive formed a small library.</span>
             </div>
           </div>
         </article>
@@ -1437,19 +1437,22 @@
             <h3 class="headword">macro</h3>
             <span class="pron">/ˈmækrəʊ/</span>
           </div>
-          <div class="pos">名詞・形容詞</div>
+          <div class="pos">noun · adjective</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >大きな規模で働く、または大きな規模に関するもの。</span
-              ><span class="example">分析は micro から macro へ移った。</span>
+                >Something operating on or concerned with a large scale.</span
+              ><span class="example"
+                >The analysis moved from micro to macro.</span
+              >
             </div>
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >複数の命令を一つの操作として保存したもの。</span
-              ><span class="example">彼女は macro を記録した。</span>
+                >A stored sequence of instructions invoked as a single
+                action.</span
+              ><span class="example">She recorded a macro.</span>
             </div>
           </div>
         </article>
@@ -1458,19 +1461,24 @@
             <h3 class="headword">mapping</h3>
             <span class="pron">/ˈmæpɪŋ/</span>
           </div>
-          <div class="pos">名詞</div>
+          <div class="pos">noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >地図を作ること、または対応関係を定めること。</span
-              ><span class="example">mapping によって明瞭な模様が見えた。</span>
+                >The act or process of making a map or establishing
+                correspondences.</span
+              ><span class="example"
+                >The mapping revealed a clear pattern.</span
+              >
             </div>
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >一つの集合と別の集合の要素間の対応。</span
-              ><span class="example">mapping は各名称を番号と結びつけた。</span>
+                >A correspondence between members of one set and another.</span
+              ><span class="example"
+                >The mapping paired each name with a number.</span
+              >
             </div>
           </div>
         </article>
@@ -1479,17 +1487,19 @@
             <h3 class="headword">match</h3>
             <span class="pron">/mætʃ/</span>
           </div>
-          <div class="pos">名詞・動詞</div>
+          <div class="pos">noun · verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">他のものと等しい、対応する人や物。</span
-              ><span class="example">二つの試料はよく一致していた。</span>
+              ><span class="definition"
+                >A person or thing equal or corresponding to another.</span
+              ><span class="example">The samples were a close match.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">重要な点で対応する、一致する。</span
-              ><span class="example">色が合っている。</span>
+              ><span class="definition"
+                >To correspond or be equal in an important respect.</span
+              ><span class="example">The colours match.</span>
             </div>
           </div>
         </article>
@@ -1498,18 +1508,20 @@
             <h3 class="headword">memory</h3>
             <span class="pron">/ˈmeməri/</span>
           </div>
-          <div class="pos">名詞</div>
+          <div class="pos">noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >情報や経験を保持し想起する能力。記憶。</span
-              ><span class="example">その細部は記憶に残った。</span>
+                >The faculty by which information or experience is retained and
+                recalled.</span
+              ><span class="example">The detail remained in her memory.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">情報を保存する場所や容量。</span
-              ><span class="example">その装置の memory は限られている。</span>
+              ><span class="definition"
+                >A place or capacity for storing information.</span
+              ><span class="example">The device has limited memory.</span>
             </div>
           </div>
         </article>
@@ -1518,13 +1530,14 @@
             <h3 class="headword">modifier</h3>
             <span class="pron">/ˈmɒdɪfaɪə/</span>
           </div>
-          <div class="pos">名詞</div>
+          <div class="pos">noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >何かを変更、限定、修飾する人やもの。</span
-              ><span class="example">その形容詞は modifier として働く。</span>
+                >A person or thing that changes, qualifies, or limits
+                something.</span
+              ><span class="example">The adjective acts as a modifier.</span>
             </div>
           </div>
         </article>
@@ -1533,12 +1546,12 @@
             <h3 class="headword">mutable</h3>
             <span class="pron">/ˈmjuːtəbəl/</span>
           </div>
-          <div class="pos">形容詞</div>
+          <div class="pos">adjective</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">変化または変更することができる。</span
-              ><span class="example">その配置は mutable のままだった。</span>
+              ><span class="definition">Capable of change or alteration.</span
+              ><span class="example">The arrangement remained mutable.</span>
             </div>
           </div>
         </article>
@@ -1548,19 +1561,19 @@
             <h3 class="headword">new</h3>
             <span class="pron">/njuː/</span>
           </div>
-          <div class="pos">形容詞・副詞</div>
+          <div class="pos">adjective · adverb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >以前は存在しなかった、新しく作られた。</span
-              ><span class="example">彼らは新しい道を開いた。</span>
+                >Not existing before; recently made, discovered, or begun.</span
+              ><span class="example">They opened a new road.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >その人にとって未経験、なじみがない。</span
-              ><span class="example">その町は彼女には初めてだった。</span>
+                >Unfamiliar or not previously experienced.</span
+              ><span class="example">The city was new to her.</span>
             </div>
           </div>
         </article>
@@ -1569,17 +1582,20 @@
             <h3 class="headword">null</h3>
             <span class="pron">/nʌl/</span>
           </div>
-          <div class="pos">形容詞・名詞・動詞</div>
+          <div class="pos">adjective · noun · verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">法的な効力や拘束力がない。</span
-              ><span class="example">その合意は無効とされた。</span>
+              ><span class="definition">Having no legal or binding force.</span
+              ><span class="example">The agreement was declared null.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">何もない、効果がない、空である。</span
-              ><span class="example">実験は null result に終わった。</span>
+              ><span class="definition"
+                >Amounting to nothing; empty or without effect.</span
+              ><span class="example"
+                >The experiment produced a null result.</span
+              >
             </div>
           </div>
         </article>
@@ -1589,13 +1605,14 @@
             <h3 class="headword">of</h3>
             <span class="pron">/əv; ɒv/</span>
           </div>
-          <div class="pos">前置詞</div>
+          <div class="pos">preposition</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >部分と全体、所有、由来、関連などの関係を表す。</span
-              ><span class="example">テーブルの端は擦り減っていた。</span>
+                >Expressing a relation between a part and a whole, possession,
+                origin, or association.</span
+              ><span class="example">The edge of the table was worn.</span>
             </div>
           </div>
         </article>
@@ -1604,19 +1621,20 @@
             <h3 class="headword">override</h3>
             <span class="pron">verb /ˌəʊvəˈraɪd/ · noun /ˈəʊvəraɪd/</span>
           </div>
-          <div class="pos">動詞・名詞</div>
+          <div class="pos">verb · noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >権限によって決定や規則を覆す、無効にする。</span
-              ><span class="example">裁判所はその決定を覆すことができる。</span>
+                >To use authority to reject, cancel, or set aside a decision or
+                rule.</span
+              ><span class="example">The court may override the decision.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >通常の動作を上書きする操作や仕組み。</span
-              ><span class="example">その装置には手動 override がある。</span>
+                >An action or mechanism that supersedes normal operation.</span
+              ><span class="example">The system has a manual override.</span>
             </div>
           </div>
         </article>
@@ -1626,17 +1644,21 @@
             <h3 class="headword">partial</h3>
             <span class="pron">/ˈpɑːʃəl/</span>
           </div>
-          <div class="pos">形容詞</div>
+          <div class="pos">adjective</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">一部分だけの、不完全な。</span
-              ><span class="example">記録は一部しか残らなかった。</span>
+              ><span class="definition"
+                >Existing or taking place only in part; incomplete.</span
+              ><span class="example">Only a partial record survived.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">一方に偏った。</span
-              ><span class="example">その説明は完全には公平でなかった。</span>
+              ><span class="definition"
+                >Biased in favour of one side or person.</span
+              ><span class="example"
+                >The account was not entirely impartial.</span
+              >
             </div>
           </div>
         </article>
@@ -1645,18 +1667,19 @@
             <h3 class="headword">payable</h3>
             <span class="pron">/ˈpeɪəbəl/</span>
           </div>
-          <div class="pos">形容詞</div>
+          <div class="pos">adjective</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition"
-                >支払われるべき、または支払い可能な。</span
-              ><span class="example">その金額は請求時に payable である。</span>
+              ><span class="definition">Required or able to be paid.</span
+              ><span class="example">The amount is payable on demand.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">支払いを受けることができる。</span
-              ><span class="example">その口座は銀行経由で payable だ。</span>
+              ><span class="definition">Capable of receiving payment.</span
+              ><span class="example"
+                >The account is payable through the bank.</span
+              >
             </div>
           </div>
         </article>
@@ -1665,13 +1688,14 @@
             <h3 class="headword">pragma</h3>
             <span class="pron">/ˈpræɡmə/</span>
           </div>
-          <div class="pos">名詞</div>
+          <div class="pos">noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >資料をどう解釈・処理すべきかについて情報を与える指示文。</span
-              ><span class="example">ファイルは pragma から始まる。</span>
+                >A directive or statement that conveys information about how
+                material should be interpreted or handled.</span
+              ><span class="example">The file begins with a pragma.</span>
             </div>
           </div>
         </article>
@@ -1680,22 +1704,24 @@
             <h3 class="headword">private</h3>
             <span class="pron">/ˈpraɪvət/</span>
           </div>
-          <div class="pos">形容詞・名詞</div>
+          <div class="pos">adjective · noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">一人または限られた集団に属する。</span
-              ><span class="example">彼らは private room で会った。</span>
+              ><span class="definition"
+                >Belonging to or intended for one person or a restricted
+                group.</span
+              ><span class="example">They met in a private room.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >公に知られたりアクセスされたりしない。</span
-              ><span class="example">その書簡は private のままだった。</span>
+                >Not open to public knowledge or access.</span
+              ><span class="example">The correspondence remained private.</span>
             </div>
           </div>
           <div class="xrefs">
-            <span class="xref-label">比較</span> <a href="#public">public</a>
+            <span class="xref-label">compare</span> <a href="#public">public</a>
           </div>
         </article>
         <article class="entry reserved-future" id="promise">
@@ -1703,18 +1729,20 @@
             <h3 class="headword">promise</h3>
             <span class="pron">/ˈprɒmɪs/</span>
           </div>
-          <div class="pos">名詞・動詞</div>
+          <div class="pos">noun · verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >何かをする、しないと保証すること。約束。</span
-              ><span class="example">彼女は promise をした。</span>
+                >A declaration or assurance that something will or will not be
+                done.</span
+              ><span class="example">She made a promise.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">何かが起こると保証する。</span
-              ><span class="example">彼は戻ると約束した。</span>
+              ><span class="definition"
+                >To assure someone that something will happen.</span
+              ><span class="example">He promised to return.</span>
             </div>
           </div>
         </article>
@@ -1723,21 +1751,24 @@
             <h3 class="headword">public</h3>
             <span class="pron">/ˈpʌblɪk/</span>
           </div>
-          <div class="pos">形容詞・名詞</div>
+          <div class="pos">adjective · noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">人々一般に開かれた、関係する。</span
-              ><span class="example">その資料庫は public に開かれている。</span>
+              ><span class="definition"
+                >Open or accessible to people generally.</span
+              ><span class="example">The archive is open to the public.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">他者が見聞きできる状態にする。</span
-              ><span class="example">その声明は public になった。</span>
+              ><span class="definition"
+                >Done or known where others may observe it.</span
+              ><span class="example">The statement was made public.</span>
             </div>
           </div>
           <div class="xrefs">
-            <span class="xref-label">比較</span> <a href="#private">private</a>
+            <span class="xref-label">compare</span>
+            <a href="#private">private</a>
           </div>
         </article>
         <article class="entry" id="pure">
@@ -1745,17 +1776,19 @@
             <h3 class="headword">pure</h3>
             <span class="pron">/pjʊə/</span>
           </div>
-          <div class="pos">形容詞</div>
+          <div class="pos">adjective</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">他の物質が混じっていない。純粋な。</span
-              ><span class="example">試料は pure だった。</span>
+              ><span class="definition"
+                >Not mixed or contaminated with another substance.</span
+              ><span class="example">The sample was pure.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">余分なものや損なう要素を含まない。</span
-              ><span class="example">形は pure に保たれた。</span>
+              ><span class="definition"
+                >Free from extraneous or corrupting elements.</span
+              ><span class="example">The form was kept pure.</span>
             </div>
           </div>
         </article>
@@ -1765,22 +1798,23 @@
             <h3 class="headword">receive</h3>
             <span class="pron">/rɪˈsiːv/</span>
           </div>
-          <div class="pos">動詞</div>
+          <div class="pos">verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >与えられたり送られたりしたものを受け取る。</span
-              ><span class="example">彼女は手紙を受け取った。</span>
+                >To be given, sent, or presented with something.</span
+              ><span class="example">She received a letter.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">外部から到来するものを受信する。</span
-              ><span class="example">局は信号を receive する。</span>
+              ><span class="definition"
+                >To accept or take in something arriving from elsewhere.</span
+              ><span class="example">The station receives the signal.</span>
             </div>
           </div>
           <div class="xrefs">
-            <span class="xref-label">比較</span> <a href="#return">return</a>
+            <span class="xref-label">compare</span> <a href="#return">return</a>
           </div>
         </article>
         <article class="entry reserved-future" id="reference">
@@ -1788,26 +1822,26 @@
             <h3 class="headword">reference</h3>
             <span class="pron">/ˈrefərəns/</span>
           </div>
-          <div class="pos">名詞・動詞</div>
+          <div class="pos">noun · verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">何かへの言及、参照。</span
+              ><span class="definition"
+                >A mention of or allusion to something.</span
               ><span class="example"
-                >本文にはその出来事への reference がある。</span
+                >The text contains a reference to the event.</span
               >
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">調べるための情報源。</span
-              ><span class="example">manual を reference 用に残した。</span>
+              ><span class="definition"
+                >A source of information used for consultation.</span
+              ><span class="example">Keep the manual for reference.</span>
             </div>
             <div class="sense">
               <span class="sense-no">3</span
-              ><span class="definition">何かを引用、参照する。</span
-              ><span class="example"
-                >報告書は以前の研究を reference している。</span
-              >
+              ><span class="definition">To cite or refer to something.</span
+              ><span class="example">The report references earlier work.</span>
             </div>
           </div>
         </article>
@@ -1816,13 +1850,14 @@
             <h3 class="headword">relocatable</h3>
             <span class="pron">/ˌriːləʊˈkeɪtəbəl/</span>
           </div>
-          <div class="pos">形容詞</div>
+          <div class="pos">adjective</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >別の場所へ移動、設置することができる。</span
-              ><span class="example">その構造物は relocatable である。</span>
+                >Capable of being moved or established in a different
+                place.</span
+              ><span class="example">The structure is relocatable.</span>
             </div>
           </div>
         </article>
@@ -1831,21 +1866,23 @@
             <h3 class="headword">return</h3>
             <span class="pron">/rɪˈtɜːn/</span>
           </div>
-          <div class="pos">動詞・名詞</div>
+          <div class="pos">verb · noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">以前の場所、状態、活動へ戻る。</span
-              ><span class="example">彼女は暗くなる前に戻った。</span>
+              ><span class="definition"
+                >To come or go back to a place, state, or activity.</span
+              ><span class="example">She returned before dark.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">何かを返す、戻す。</span
-              ><span class="example">本を返してください。</span>
+              ><span class="definition">To give or put something back.</span
+              ><span class="example">Please return the book.</span>
             </div>
           </div>
           <div class="xrefs">
-            <span class="xref-label">比較</span> <a href="#receive">receive</a>
+            <span class="xref-label">compare</span>
+            <a href="#receive">receive</a>
           </div>
         </article>
         <article class="entry" id="returns">
@@ -1853,18 +1890,21 @@
             <h3 class="headword">returns</h3>
             <span class="pron">/rɪˈtɜːnz/</span>
           </div>
-          <div class="pos">動詞・名詞・複数形</div>
+          <div class="pos">verb · noun plural</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">return の三人称単数現在形。戻る。</span
-              ><span class="example">潮は毎夕 returns する。</span>
+              ><span class="definition"
+                >Third-person singular of return: comes or goes back.</span
+              ><span class="example">The tide returns each evening.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >return の複数形。利益、成果、返却物など。</span
-              ><span class="example">投資は小さな returns を生んだ。</span>
+                >Plural of return: results, profits, or things given back.</span
+              ><span class="example"
+                >The investment produced modest returns.</span
+              >
             </div>
           </div>
         </article>
@@ -1874,18 +1914,18 @@
             <h3 class="headword">sealed</h3>
             <span class="pron">/siːld/</span>
           </div>
-          <div class="pos">形容詞・動詞</div>
+          <div class="pos">adjective · verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >中にアクセスできないよう確実に閉じられた。</span
-              ><span class="example">封筒は sealed されていた。</span>
+                >Closed securely so that access is prevented or evident.</span
+              ><span class="example">The envelope was sealed.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">確定された、決着した。</span
-              ><span class="example">合意は sealed された。</span>
+              ><span class="definition">Confirmed or made final.</span
+              ><span class="example">The agreement was sealed.</span>
             </div>
           </div>
         </article>
@@ -1894,13 +1934,14 @@
             <h3 class="headword">sizeof</h3>
             <span class="pron">/ˈsaɪz əv/</span>
           </div>
-          <div class="pos">複合名詞</div>
+          <div class="pos">compound noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >size of。何かの大きさ、占める範囲。</span
-              ><span class="example">彼らは対象の sizeof を測った。</span>
+                >Size of: the amount of space, extent, or magnitude belonging to
+                something.</span
+              ><span class="example">They measured the sizeof the object.</span>
             </div>
           </div>
         </article>
@@ -1909,19 +1950,19 @@
             <h3 class="headword">static</h3>
             <span class="pron">/ˈstætɪk/</span>
           </div>
-          <div class="pos">形容詞・名詞</div>
+          <div class="pos">adjective · noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition"
-                >同じ場所や状態にとどまり、動かない、変化しない。</span
-              ><span class="example">画像は static のままだった。</span>
+              ><span class="definition">Remaining still or unchanged.</span
+              ><span class="example">The image remained static.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">無線や電気信号に入る雑音。</span
+              ><span class="definition"
+                >Crackling interference in a radio or electrical signal.</span
               ><span class="example"
-                >スピーカーからは static しか聞こえなかった。</span
+                >Only static came through the speaker.</span
               >
             </div>
           </div>
@@ -1931,18 +1972,22 @@
             <h3 class="headword">storage</h3>
             <span class="pron">/ˈstɔːrɪdʒ/</span>
           </div>
-          <div class="pos">名詞</div>
+          <div class="pos">noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >将来の利用のために何かを保管すること。</span
-              ><span class="example">書類は storage に置かれた。</span>
+                >The action or method of keeping something for future use.</span
+              ><span class="example">The papers were placed in storage.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">物や情報を保存する場所や容量。</span
-              ><span class="example">その装置は追加 storage を備える。</span>
+              ><span class="definition"
+                >Space or capacity in which information or objects are
+                kept.</span
+              ><span class="example"
+                >The device provides additional storage.</span
+              >
             </div>
           </div>
         </article>
@@ -1951,19 +1996,19 @@
             <h3 class="headword">string</h3>
             <span class="pron">/strɪŋ/</span>
           </div>
-          <div class="pos">名詞・動詞</div>
+          <div class="pos">noun · verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">細いひも、糸。</span
-              ><span class="example">荷物は string で結ばれていた。</span>
+              ><span class="definition">A thin cord or thread.</span
+              ><span class="example">The parcel was tied with string.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">連続して並ぶ一連のもの。</span
-              ><span class="example"
-                >部屋を string of lights が横切っていた。</span
-              >
+              ><span class="definition"
+                >A series of things arranged or occurring one after
+                another.</span
+              ><span class="example">A string of lights crossed the room.</span>
             </div>
           </div>
         </article>
@@ -1972,14 +2017,15 @@
             <h3 class="headword">struct</h3>
             <span class="pron">/strʌkt/</span>
           </div>
-          <div class="pos">名詞・略語</div>
+          <div class="pos">noun · abbrev.</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >structure の略。複数の部分を一つの全体として見た構成。</span
+                >A shortened form of structure: an arrangement of parts
+                considered as a whole.</span
               ><span class="example"
-                >その記録は小さな struct として保存された。</span
+                >The record was stored as a compact struct.</span
               >
             </div>
           </div>
@@ -1989,17 +2035,19 @@
             <h3 class="headword">supports</h3>
             <span class="pron">/səˈpɔːts/</span>
           </div>
-          <div class="pos">動詞</div>
+          <div class="pos">verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">何かを支え、その重さを受ける。</span
-              ><span class="example">柱が屋根を支える。</span>
+              ><span class="definition"
+                >Holds up or bears the weight of something.</span
+              ><span class="example">The column supports the roof.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">援助、賛同、根拠を与える。</span
-              ><span class="example">証拠はその主張を supports する。</span>
+              ><span class="definition"
+                >Gives assistance, approval, or evidence to something.</span
+              ><span class="example">The evidence supports the claim.</span>
             </div>
           </div>
         </article>
@@ -2008,18 +2056,20 @@
             <h3 class="headword">switch</h3>
             <span class="pron">/swɪtʃ/</span>
           </div>
-          <div class="pos">動詞・名詞</div>
+          <div class="pos">verb · noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >一つの状態やものから別のものへ切り替える。</span
-              ><span class="example">彼らは席を入れ替えた。</span>
+                >To change from one thing, position, or condition to
+                another.</span
+              ><span class="example">They switched seats.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">接続を入切する装置。</span
-              ><span class="example">彼は switch に手を伸ばした。</span>
+              ><span class="definition"
+                >A device for making or breaking a connection.</span
+              ><span class="example">He reached for the switch.</span>
             </div>
           </div>
         </article>
@@ -2029,21 +2079,22 @@
             <h3 class="headword">true</h3>
             <span class="pron">/truː/</span>
           </div>
-          <div class="pos">形容詞・副詞</div>
+          <div class="pos">adjective · adverb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">事実や現実に合っている。</span
-              ><span class="example">その話は本当だ。</span>
+              ><span class="definition"
+                >In accordance with fact or reality.</span
+              ><span class="example">The story is true.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">誠実な、忠実な、一貫した。</span
-              ><span class="example">彼女は自分の言葉に忠実だった。</span>
+              ><span class="definition">Faithful, loyal, or consistent.</span
+              ><span class="example">She remained true to her word.</span>
             </div>
           </div>
           <div class="xrefs">
-            <span class="xref-label">反対語</span> <a href="#false">false</a>
+            <span class="xref-label">opposite</span> <a href="#false">false</a>
           </div>
         </article>
         <article class="entry" id="try">
@@ -2051,17 +2102,18 @@
             <h3 class="headword">try</h3>
             <span class="pron">/traɪ/</span>
           </div>
-          <div class="pos">動詞・名詞</div>
+          <div class="pos">verb · noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">何かをしようと試みる。</span
-              ><span class="example">もう一度やってみなさい。</span>
+              ><span class="definition">To make an attempt or effort.</span
+              ><span class="example">Try again.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">品質や適性を確かめるために試す。</span
-              ><span class="example">彼女はその鍵を錠に試した。</span>
+              ><span class="definition"
+                >To test something for suitability or effect.</span
+              ><span class="example">She tried the key in the lock.</span>
             </div>
           </div>
         </article>
@@ -2070,21 +2122,24 @@
             <h3 class="headword">type</h3>
             <span class="pron">/taɪp/</span>
           </div>
-          <div class="pos">名詞・動詞</div>
+          <div class="pos">noun · verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">共通する特徴を持つ人や物の類、型。</span
-              ><span class="example">これは別の type の問題だ。</span>
+              ><span class="definition"
+                >A category of things sharing common characteristics.</span
+              ><span class="example">This is a different type of problem.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">キーボードなどで文字を打つ。</span
-              ><span class="example">彼女は住所を type した。</span>
+              ><span class="definition"
+                >To write using a keyboard or typewriter.</span
+              ><span class="example">She typed the address.</span>
             </div>
           </div>
           <div class="xrefs">
-            <span class="xref-label">参照</span> <a href="#typeof">typeof</a>
+            <span class="xref-label">see also</span>
+            <a href="#typeof">typeof</a>
           </div>
         </article>
         <article class="entry reserved-future" id="typedef">
@@ -2092,16 +2147,14 @@
             <h3 class="headword">typedef</h3>
             <span class="pron">/ˈtaɪp def/</span>
           </div>
-          <div class="pos">名詞・略語</div>
+          <div class="pos">noun · abbrev.</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >type definition
-                の短縮形。名前を持つ型を定める宣言・定義。</span
-              ><span class="example"
-                >その文書には typedef が含まれていた。</span
-              >
+                >A shortened form of type definition: a declaration or
+                description that establishes a named type.</span
+              ><span class="example">The document contained a typedef.</span>
             </div>
           </div>
         </article>
@@ -2110,14 +2163,14 @@
             <h3 class="headword">typeof</h3>
             <span class="pron">/ˈtaɪp əv/</span>
           </div>
-          <div class="pos">複合名詞</div>
+          <div class="pos">compound noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >type of。物が属するとされる種類、型、分類。</span
+                >Type of: the kind or category to which something belongs.</span
               ><span class="example"
-                >その対象はあらゆる typeof 分類に抵抗した。</span
+                >The object resisted every typeof classification.</span
               >
             </div>
           </div>
@@ -2128,14 +2181,17 @@
             <h3 class="headword">ufixed</h3>
             <span class="pron">/juː fɪkst/</span>
           </div>
-          <div class="pos">名詞・略語</div>
+          <div class="pos">noun · abbrev.</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >unsigned fixed-point
-                に関連する短縮形。固定された小数桁を持つ非負の値。</span
-              ><span class="example">その量は ufixed として表された。</span>
+                >A shortened form associated with unsigned fixed-point: a
+                non-negative value expressed with a fixed fractional
+                scale.</span
+              ><span class="example"
+                >The amount was represented as ufixed.</span
+              >
             </div>
           </div>
         </article>
@@ -2144,13 +2200,14 @@
             <h3 class="headword">uint</h3>
             <span class="pron">/juː ɪnt/</span>
           </div>
-          <div class="pos">名詞・略語</div>
+          <div class="pos">noun · abbrev.</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >unsigned integer に関連する短縮形。非負に限定された整数。</span
-              ><span class="example">個数は uint として保存された。</span>
+                >A shortened form associated with unsigned integer: a whole
+                number restricted to non-negative values.</span
+              ><span class="example">The count was stored as a uint.</span>
             </div>
           </div>
         </article>
@@ -2159,12 +2216,13 @@
             <h3 class="headword">unchecked</h3>
             <span class="pron">/ʌnˈtʃekt/</span>
           </div>
-          <div class="pos">形容詞</div>
+          <div class="pos">adjective</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">検査、検証、抑制を受けていない。</span
-              ><span class="example">その仮定は unchecked のままだった。</span>
+              ><span class="definition"
+                >Not examined, verified, or restrained by a check.</span
+              ><span class="example">The assumption remained unchecked.</span>
             </div>
           </div>
         </article>
@@ -2173,18 +2231,19 @@
             <h3 class="headword">unicode</h3>
             <span class="pron">/ˈjuːnɪkəʊd/</span>
           </div>
-          <div class="pos">名詞・形容詞</div>
+          <div class="pos">noun · adjective</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >多くの文字体系をデジタルに表現するための標準。</span
-              ><span class="example">本文は Unicode で符号化されている。</span>
+                >A standard for representing characters from many writing
+                systems in digital form.</span
+              ><span class="example">The text is encoded in Unicode.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">その標準に関する。</span
-              ><span class="example">Unicode 文字が含まれている。</span>
+              ><span class="definition">Relating to that standard.</span
+              ><span class="example">It contains Unicode characters.</span>
             </div>
           </div>
         </article>
@@ -2193,22 +2252,21 @@
             <h3 class="headword">using</h3>
             <span class="pron">/ˈjuːzɪŋ/</span>
           </div>
-          <div class="pos">前置詞・動詞</div>
+          <div class="pos">preposition · verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">〜を用いて、〜によって。</span
+              ><span class="definition">With the aid or means of.</span
               ><span class="example"
-                >画像は単純なレンズ using で作られた。</span
+                >The image was made using a simple lens.</span
               >
             </div>
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >use の現在分詞。目的のために何かを用いている。</span
-              ><span class="example"
-                >彼女は小さい方の鍵を using していた。</span
-              >
+                >Present participle of use: employing something for a
+                purpose.</span
+              ><span class="example">She was using the smaller key.</span>
             </div>
           </div>
         </article>
@@ -2218,14 +2276,15 @@
             <h3 class="headword">var</h3>
             <span class="pron">/vɑː/</span>
           </div>
-          <div class="pos">名詞・略語</div>
+          <div class="pos">noun · abbrev.</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >variable の略。異なる値や形を取りうる量、要素、条件。</span
+                >A shortened form of variable: a quantity, element, or condition
+                capable of change.</span
               ><span class="example"
-                >時間だけが制御されていない var として残った。</span
+                >Time remained the only uncontrolled var.</span
               >
             </div>
           </div>
@@ -2235,22 +2294,24 @@
             <h3 class="headword">view</h3>
             <span class="pron">/vjuː/</span>
           </div>
-          <div class="pos">名詞・動詞</div>
+          <div class="pos">noun · verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">何かを見ることのできる眺め、視界。</span
-              ><span class="example">丘から広い view が得られる。</span>
+              ><span class="definition"
+                >The ability or opportunity to see something.</span
+              ><span class="example">The hill offers a wide view.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">物事についての見方、考え。</span
-              ><span class="example">彼女の view は変わった。</span>
+              ><span class="definition"
+                >A particular way of considering something.</span
+              ><span class="example">Her view changed over time.</span>
             </div>
             <div class="sense">
               <span class="sense-no">3</span
-              ><span class="definition">見る、観察する。</span
-              ><span class="example">彼らは作品を静かに view した。</span>
+              ><span class="definition">To look at or inspect.</span
+              ><span class="example">They viewed the work in silence.</span>
             </div>
           </div>
         </article>
@@ -2259,20 +2320,22 @@
             <h3 class="headword">virtual</h3>
             <span class="pron">/ˈvɜːtʃuəl/</span>
           </div>
-          <div class="pos">形容詞</div>
+          <div class="pos">adjective</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >形式上・物理的には存在しなくても実質的に存在する。</span
-              ><span class="example"
-                >彼らは virtual control を持っていた。</span
-              >
+                >Existing in effect though not formally or physically
+                present.</span
+              ><span class="example">They had virtual control.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">デジタルな手段で作られ、行われる。</span
-              ><span class="example">会議は virtual space で行われた。</span>
+              ><span class="definition"
+                >Created, simulated, or carried out by digital means.</span
+              ><span class="example"
+                >The meeting took place in a virtual space.</span
+              >
             </div>
           </div>
         </article>
@@ -2282,31 +2345,34 @@
             <h3 class="headword">while</h3>
             <span class="pron">/waɪl/</span>
           </div>
-          <div class="pos">接続詞・名詞</div>
+          <div class="pos">conjunction · noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
-              ><span class="definition">別のことが起きている間に。</span
-              ><span class="example">私が探す間、ここで待っていて。</span>
+              ><span class="definition"
+                >During the time that something else is happening.</span
+              ><span class="example">Wait here while I look.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition">〜ではあるが。</span
-              ><span class="example">難しかったが、その計画は可能だった。</span>
+              ><span class="definition">Although; despite the fact that.</span
+              ><span class="example"
+                >While difficult, the plan was possible.</span
+              >
             </div>
             <div class="sense">
               <span class="sense-no">3</span
-              ><span class="definition">しばらくの時間。</span
-              ><span class="example">少しの間いてください。</span>
+              ><span class="definition">A period of time.</span
+              ><span class="example">Stay for a while.</span>
             </div>
           </div>
         </article>
       </section>
       <section class="colophon">
         <div>
-          <p><strong>94語 英和辞典</strong></p>
-          <p>初版。</p>
-          <p>日本にて印刷・製本。</p>
+          <p><strong>A Small Dictionary of Ninety-Four Words</strong></p>
+          <p>First edition.</p>
+          <p>Printed and bound in Japan.</p>
           <p class="version-mark">0.8.36</p>
         </div>
         <div></div>

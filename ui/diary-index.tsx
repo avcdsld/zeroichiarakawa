@@ -4,10 +4,10 @@ import { t } from '#/lib/i18n';
 import { BackLink } from '#/ui/back-link';
 
 export type DiaryEntry = {
-  slug: string;
+  slugJa: string;
+  slugEn: string;
   titleJa: string;
   titleEn: string;
-  hasEn: boolean;
 };
 
 export function DiaryIndex({ entries }: { entries: DiaryEntry[] }) {
@@ -26,23 +26,18 @@ export function DiaryIndex({ entries }: { entries: DiaryEntry[] }) {
           <ul className="space-y-6">
             {entries.map((e) => {
               // Static HTML served via rewrite — plain <a> (full navigation),
-              // not next/link. Each edition gets its own link so that the one
-              // on screen always points at the matching language; the Japanese
-              // edition stands in when there is no English one.
+              // not next/link. Each edition links to its own slug so the one on
+              // screen always points at the matching language; when a piece has
+              // only one edition, both slugs are the same file.
               const className =
                 'text-base text-gray-300 transition-opacity hover:opacity-70';
               return (
-                <li key={e.slug}>
+                <li key={e.slugJa}>
                   {t(
-                    <a
-                      href={
-                        e.hasEn ? `/diary/${e.slug}-en` : `/diary/${e.slug}`
-                      }
-                      className={className}
-                    >
+                    <a href={`/diary/${e.slugEn}`} className={className}>
                       {e.titleEn}
                     </a>,
-                    <a href={`/diary/${e.slug}`} className={className}>
+                    <a href={`/diary/${e.slugJa}`} className={className}>
                       {e.titleJa}
                     </a>,
                   )}
