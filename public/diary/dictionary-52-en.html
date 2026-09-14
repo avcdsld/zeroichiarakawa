@@ -2,15 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>A Small Dictionary of Forty-Six Words</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>A Small Dictionary of Fifty-Two Words</title>
+    <meta name="date" content="2026-09-14T23:27" />
     <style>
       :root {
         --ink: #171714;
-        --soft-ink: #5f5d57;
-        --hairline: #c9c5bb;
-        --paper: #fbfaf6;
-        --desk: #e7e3da;
+        --soft: #605d56;
+        --future: #9b978e;
+        --hair: #c8c4b9;
+        --paper: #fbfaf4;
+        --desk: #e5e1d8;
         --serif: Charter, 'Bitstream Charter', 'Charter BT', 'Iowan Old Style',
           Georgia, 'Times New Roman', serif;
         --sans: 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
@@ -23,7 +25,7 @@
       }
       body {
         margin: 0;
-        background: #e5e1d8;
+        background: var(--desk);
         color: var(--ink);
         font-family: var(--serif);
         font-size: 15px;
@@ -34,28 +36,21 @@
       .book {
         width: min(100%, 860px);
         margin: 38px auto 80px;
-        background: #fbfaf4;
+        background: var(--paper);
         box-shadow: 0 18px 60px rgba(24, 20, 12, 0.13),
           0 2px 10px rgba(24, 20, 12, 0.08);
       }
       .cover {
         min-height: 920px;
-        padding: 88px 76px 64px;
+        padding: 96px 76px 64px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        border-bottom: 1px solid var(--hairline);
-      }
-      .kicker {
-        font-family: var(--sans);
-        font-size: 10px;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--soft-ink);
+        justify-content: flex-start;
+        border-bottom: 1px solid var(--hair);
       }
       .cover h1 {
         margin: 0;
-        max-width: 640px;
+        max-width: 680px;
         font-family: var(--serif);
         font-weight: 400;
         font-size: clamp(48px, 8vw, 82px);
@@ -65,16 +60,9 @@
       .title-line {
         display: block;
       }
-      .cover .subtitle {
-        margin-top: 26px;
-        max-width: 440px;
-        font-size: 17px;
-        line-height: 1.55;
-        color: var(--soft-ink);
-      }
       .frontmatter {
         padding: 58px 76px 68px;
-        border-bottom: 1px solid var(--hairline);
+        border-bottom: 1px solid var(--hair);
       }
       .frontmatter-grid {
         display: grid;
@@ -85,15 +73,10 @@
         margin: 0 0 14px;
         font-size: 17px;
         font-weight: 600;
-        letter-spacing: 0.01em;
       }
       .frontmatter p {
         margin: 0 0 10px;
         color: #2d2c28;
-      }
-      .frontmatter .small {
-        font-size: 12px;
-        color: var(--soft-ink);
       }
       .legend {
         margin: 0;
@@ -112,7 +95,7 @@
         letter-spacing: 0.08em;
         text-transform: uppercase;
         text-decoration: none;
-        color: var(--soft-ink);
+        color: var(--soft);
       }
       .index-strip {
         display: flex;
@@ -126,17 +109,12 @@
       .index-strip a {
         color: var(--ink);
         text-decoration: none;
-        border-bottom: 1px solid transparent;
       }
-      .index-strip a:hover {
-        border-color: var(--ink);
-      }
-
       .dictionary {
         padding: 56px 64px 72px;
         column-count: 2;
         column-gap: 48px;
-        column-rule: 1px solid var(--hairline);
+        column-rule: 1px solid var(--hair);
       }
       .letter-marker {
         break-after: avoid;
@@ -152,6 +130,18 @@
       .entry {
         break-inside: avoid;
         margin: 0 0 24px;
+      }
+      .reserved-future {
+        color: var(--future);
+      }
+      .reserved-future .pron,
+      .reserved-future .pos,
+      .reserved-future .sense-no,
+      .reserved-future .example,
+      .reserved-future .xref-label,
+      .reserved-future .xrefs a,
+      .reserved-future .xref-plain {
+        color: var(--future);
       }
       .entry-line {
         display: flex;
@@ -169,7 +159,7 @@
       }
       .pron {
         font-size: 11px;
-        color: var(--soft-ink);
+        color: var(--soft);
         white-space: nowrap;
       }
       .pos {
@@ -197,7 +187,7 @@
         font-family: var(--sans);
         font-size: 9px;
         font-weight: 600;
-        color: var(--soft-ink);
+        color: var(--soft);
       }
       .definition {
         font-size: 13.2px;
@@ -213,7 +203,7 @@
       .xrefs {
         margin-top: 7px;
         padding-top: 5px;
-        border-top: 1px dotted var(--hairline);
+        border-top: 1px dotted var(--hair);
         font-size: 10.5px;
       }
       .xref-label {
@@ -221,21 +211,22 @@
         font-size: 8.5px;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: var(--soft-ink);
+        color: var(--soft);
       }
-      .xrefs a {
+      .xrefs a,
+      .xref-plain {
         color: var(--ink);
         text-decoration: none;
         font-style: italic;
       }
       .colophon {
         padding: 44px 76px 56px;
-        border-top: 1px solid var(--hairline);
+        border-top: 1px solid var(--hair);
         display: grid;
         grid-template-columns: 1.2fr 0.8fr;
         gap: 48px;
         font-size: 11.5px;
-        color: var(--soft-ink);
+        color: var(--soft);
       }
       .colophon p {
         margin: 0 0 8px;
@@ -249,9 +240,8 @@
         font-family: var(--serif);
         font-size: 10px;
         letter-spacing: 0.06em;
-        color: var(--soft-ink);
+        color: var(--soft);
       }
-
       @media (max-width: 720px) {
         .book {
           margin: 0;
@@ -280,25 +270,11 @@
           gap: 18px;
         }
       }
-
       @page {
         size: A5 portrait;
         margin: 15mm 13mm 17mm;
-        @bottom-center {
-          content: counter(page);
-          font-family: 'Helvetica Neue', Arial, sans-serif;
-          font-size: 8pt;
-        }
       }
       @media print {
-        :root {
-          --ink: #000;
-          --soft-ink: #555;
-          --hairline: #aaa;
-          --paper: #fff;
-          --desk: #fff;
-          --accent: #000;
-        }
         body {
           background: #fff;
           font-size: 10.2pt;
@@ -338,6 +314,9 @@
         .entry {
           margin-bottom: 4.5mm;
         }
+        .reserved-future {
+          color: #888;
+        }
         .colophon {
           page-break-before: always;
           padding: 3mm 0 0;
@@ -373,14 +352,11 @@
     <nav class="site-back"><a href="/diary">← Diary</a></nav>
     <main class="book">
       <section class="cover">
-        <div>
-          <h1>
-            <span class="title-line">A Small Dictionary</span
-            ><span class="title-line">of Forty-Six Words</span>
-          </h1>
-        </div>
+        <h1>
+          <span class="title-line">A Small Dictionary</span
+          ><span class="title-line">of Fifty-Two Words</span>
+        </h1>
       </section>
-
       <section class="frontmatter">
         <div class="frontmatter-grid">
           <div>
@@ -406,19 +382,95 @@
               <a href="#letter-a">A</a><a href="#letter-b">B</a
               ><a href="#letter-c">C</a><a href="#letter-d">D</a
               ><a href="#letter-e">E</a><a href="#letter-f">F</a
-              ><a href="#letter-i">I</a><a href="#letter-l">L</a
-              ><a href="#letter-n">N</a><a href="#letter-p">P</a
+              ><a href="#letter-g">G</a><a href="#letter-i">I</a
+              ><a href="#letter-l">L</a><a href="#letter-m">M</a
+              ><a href="#letter-o">O</a><a href="#letter-p">P</a
               ><a href="#letter-r">R</a><a href="#letter-s">S</a
-              ><a href="#letter-t">T</a><a href="#letter-v">V</a
-              ><a href="#letter-w">W</a><a href="#letter-y">Y</a>
+              ><a href="#letter-t">T</a><a href="#letter-u">U</a
+              ><a href="#letter-v">V</a><a href="#letter-w">W</a
+              ><a href="#letter-y">Y</a>
             </div>
           </div>
         </div>
       </section>
-
       <section class="dictionary">
         <div class="letter-marker" id="letter-a"><span>A</span></div>
-
+        <article class="entry reserved-future" id="abstract">
+          <div class="entry-line">
+            <h3 class="headword">abstract</h3>
+            <span class="pron">/ˈæbstrækt/</span>
+          </div>
+          <div class="pos">adjective · noun · verb</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >Existing as an idea, quality, or relation rather than as a
+                concrete thing.</span
+              ><span class="example">The argument remained abstract.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >A summary of the contents of a longer work.</span
+              ><span class="example">The paper begins with an abstract.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >To remove or separate something from a larger whole.</span
+              ><span class="example"
+                >The process abstracts one feature from the rest.</span
+              >
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">compare</span>
+            <span class="xref-plain">concrete</span>
+          </div>
+        </article>
+        <article class="entry" id="as">
+          <div class="entry-line">
+            <h3 class="headword">as</h3>
+            <span class="pron">/æz; əz/</span>
+          </div>
+          <div class="pos">conjunction · preposition · adverb</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >While or when something is happening.</span
+              ><span class="example">She watched as the light faded.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >In the role, function, or manner of.</span
+              ><span class="example">He worked as a translator.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">To the same degree or extent.</span
+              ><span class="example">It was as quiet as before.</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="async">
+          <div class="entry-line">
+            <h3 class="headword">async</h3>
+            <span class="pron">/eɪˈsɪŋk/</span>
+          </div>
+          <div class="pos">adjective · abbrev.</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >A shortened form of asynchronous: not occurring at the same
+                time or not governed by a single shared timing.</span
+              ><span class="example">The exchange was deliberately async.</span>
+            </div>
+          </div>
+        </article>
         <article class="entry" id="await">
           <div class="entry-line">
             <h3 class="headword">await</h3>
@@ -429,23 +481,67 @@
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >To remain in a state of expectation until a person, event, or
-                result arrives.</span
-              ><span class="example"
-                >They awaited a reply that never came.</span
-              >
+                >To wait for a person, event, or result.</span
+              ><span class="example">They awaited an answer.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
                 >To be in store for; to lie ahead of.</span
-              ><span class="example">A different future awaited them.</span>
+              ><span class="example">A difficult choice awaited them.</span>
             </div>
           </div>
         </article>
-
         <div class="letter-marker" id="letter-b"><span>B</span></div>
-
+        <article class="entry reserved-future" id="become">
+          <div class="entry-line">
+            <h3 class="headword">become</h3>
+            <span class="pron">/bɪˈkʌm/</span>
+          </div>
+          <div class="pos">verb</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >To begin to be; to develop into a particular state or
+                condition.</span
+              ><span class="example">The room became quiet.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >To be suitable for or look attractive on someone.</span
+              ><span class="example">The colour becomes her.</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry reserved-future" id="box">
+          <div class="entry-line">
+            <h3 class="headword">box</h3>
+            <span class="pron">/bɒks/</span>
+          </div>
+          <div class="pos">noun · verb</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >A container with flat sides, typically used for storing or
+                carrying things.</span
+              ><span class="example">The letters were kept in a box.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">To place or enclose in a box.</span
+              ><span class="example">They boxed the books for storage.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >To fight using the fists according to established rules.</span
+              ><span class="example">He learned to box at school.</span>
+            </div>
+          </div>
+        </article>
         <article class="entry" id="break">
           <div class="entry-line">
             <h3 class="headword">break</h3>
@@ -464,17 +560,14 @@
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >To interrupt the course, continuity, or operation of
-                something.</span
-              ><span class="example">A sudden question broke the silence.</span>
+                >To interrupt the course or continuity of something.</span
+              ><span class="example">A question broke the silence.</span>
             </div>
             <div class="sense">
               <span class="sense-no">3</span
               ><span class="definition"
                 >A pause or interruption in an activity.</span
-              ><span class="example"
-                >They took a short break before continuing.</span
-              >
+              ><span class="example">They took a short break.</span>
             </div>
           </div>
           <div class="xrefs">
@@ -482,105 +575,7 @@
             <a href="#continue">continue</a>
           </div>
         </article>
-
         <div class="letter-marker" id="letter-c"><span>C</span></div>
-
-        <article class="entry" id="case">
-          <div class="entry-line">
-            <h3 class="headword">case</h3>
-            <span class="pron">/keɪs/</span>
-          </div>
-          <div class="pos">noun</div>
-          <div class="senses">
-            <div class="sense">
-              <span class="sense-no">1</span
-              ><span class="definition"
-                >A particular instance of a situation; an example considered on
-                its own.</span
-              ><span class="example"
-                >In this case, no answer was required.</span
-              >
-            </div>
-            <div class="sense">
-              <span class="sense-no">2</span
-              ><span class="definition"
-                >A set of circumstances requiring consideration or
-                decision.</span
-              ><span class="example">The facts made a difficult case.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">3</span
-              ><span class="definition"
-                >A container made to hold or protect something.</span
-              ><span class="example">The instrument remained in its case.</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="entry" id="catch">
-          <div class="entry-line">
-            <h3 class="headword">catch</h3>
-            <span class="pron">/kætʃ/</span>
-          </div>
-          <div class="pos">verb · noun</div>
-          <div class="senses">
-            <div class="sense">
-              <span class="sense-no">1</span
-              ><span class="definition"
-                >To stop and hold something that is moving through the air or
-                away from the hand.</span
-              ><span class="example">She caught the falling glass.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">2</span
-              ><span class="definition"
-                >To notice, hear, or understand something brief or easily
-                missed.</span
-              ><span class="example">I did not catch the last word.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">3</span
-              ><span class="definition"
-                >An unforeseen difficulty or condition.</span
-              ><span class="example">There was one catch.</span>
-            </div>
-          </div>
-          <div class="xrefs">
-            <span class="xref-label">see also</span> <a href="#throw">throw</a>
-          </div>
-        </article>
-
-        <article class="entry" id="class">
-          <div class="entry-line">
-            <h3 class="headword">class</h3>
-            <span class="pron">/klɑːs/</span>
-          </div>
-          <div class="pos">noun</div>
-          <div class="senses">
-            <div class="sense">
-              <span class="sense-no">1</span
-              ><span class="definition"
-                >A group of people or things regarded as sharing important
-                qualities.</span
-              ><span class="example"
-                >The specimen belongs to a familiar class.</span
-              >
-            </div>
-            <div class="sense">
-              <span class="sense-no">2</span
-              ><span class="definition"
-                >A rank, division, or category within a larger order.</span
-              ><span class="example">Tickets were arranged by class.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">3</span
-              ><span class="definition"
-                >A group receiving instruction together.</span
-              ><span class="example">The class met twice a week.</span>
-            </div>
-          </div>
-        </article>
-
         <article class="entry" id="const">
           <div class="entry-line">
             <h3 class="headword">const</h3>
@@ -594,12 +589,11 @@
                 >A shortened form of constant: something regarded as fixed or
                 not subject to change.</span
               ><span class="example"
-                >One value was treated as a const throughout the argument.</span
+                >One value remained a const throughout the calculation.</span
               >
             </div>
           </div>
         </article>
-
         <article class="entry" id="continue">
           <div class="entry-line">
             <h3 class="headword">continue</h3>
@@ -610,7 +604,7 @@
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >To remain in existence or operation without stopping.</span
+                >To remain in progress or existence without stopping.</span
               ><span class="example"
                 >The rain continued through the night.</span
               >
@@ -625,94 +619,40 @@
               <span class="sense-no">3</span
               ><span class="definition"
                 >To proceed farther in the same direction or course.</span
-              ><span class="example"
-                >Continue along the road until it narrows.</span
-              >
+              ><span class="example">Continue until the road narrows.</span>
             </div>
           </div>
           <div class="xrefs">
             <span class="xref-label">see also</span> <a href="#break">break</a>
           </div>
         </article>
-
-        <div class="letter-marker" id="letter-d"><span>D</span></div>
-
-        <article class="entry" id="debugger">
+        <article class="entry" id="crate">
           <div class="entry-line">
-            <h3 class="headword">debugger</h3>
-            <span class="pron">/ˌdiːˈbʌɡə/</span>
-          </div>
-          <div class="pos">noun</div>
-          <div class="senses">
-            <div class="sense">
-              <span class="sense-no">1</span
-              ><span class="definition"
-                >A person or thing that seeks out defects, faults, or hidden
-                causes of failure and attempts to remove them.</span
-              ><span class="example"
-                >The debugger worked by isolating one fault at a time.</span
-              >
-            </div>
-          </div>
-        </article>
-
-        <article class="entry" id="default">
-          <div class="entry-line">
-            <h3 class="headword">default</h3>
-            <span class="pron">/dɪˈfɔːlt/</span>
+            <h3 class="headword">crate</h3>
+            <span class="pron">/kreɪt/</span>
           </div>
           <div class="pos">noun · verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >A condition, choice, or action that applies when no alternative
-                is specified.</span
-              ><span class="example">Silence became the default.</span>
+                >A large rigid container used for transporting or storing
+                goods.</span
+              ><span class="example"
+                >The equipment arrived in a wooden crate.</span
+              >
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition"
-                >Failure to fulfil an obligation, especially one formally
-                agreed.</span
-              ><span class="example">The loan fell into default.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">3</span
-              ><span class="definition"
-                >To fail to act, appear, or perform as required.</span
+              ><span class="definition">To pack something in a crate.</span
               ><span class="example"
-                >The player defaulted before the final round.</span
+                >The sculptures were crated for transport.</span
               >
             </div>
           </div>
         </article>
-
-        <article class="entry" id="delete">
-          <div class="entry-line">
-            <h3 class="headword">delete</h3>
-            <span class="pron">/dɪˈliːt/</span>
-          </div>
-          <div class="pos">verb</div>
-          <div class="senses">
-            <div class="sense">
-              <span class="sense-no">1</span
-              ><span class="definition"
-                >To remove written, recorded, or stored material.</span
-              ><span class="example">She deleted the final sentence.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">2</span
-              ><span class="definition"
-                >To cancel or strike out as no longer wanted.</span
-              ><span class="example"
-                >Several names were deleted from the list.</span
-              >
-            </div>
-          </div>
-        </article>
-
-        <article class="entry" id="do">
+        <div class="letter-marker" id="letter-d"><span>D</span></div>
+        <article class="entry reserved-future" id="do">
           <div class="entry-line">
             <h3 class="headword">do</h3>
             <span class="pron">/duː/</span>
@@ -738,9 +678,25 @@
             </div>
           </div>
         </article>
-
+        <article class="entry" id="dyn">
+          <div class="entry-line">
+            <h3 class="headword">dyn</h3>
+            <span class="pron">/daɪn/</span>
+          </div>
+          <div class="pos">adjective · abbrev.</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >A shortened form associated with dynamic: changing, active, or
+                determined during operation rather than in advance.</span
+              ><span class="example"
+                >The system treated the relation as dyn.</span
+              >
+            </div>
+          </div>
+        </article>
         <div class="letter-marker" id="letter-e"><span>E</span></div>
-
         <article class="entry" id="else">
           <div class="entry-line">
             <h3 class="headword">else</h3>
@@ -761,8 +717,10 @@
               ><span class="example">Someone else had already arrived.</span>
             </div>
           </div>
+          <div class="xrefs">
+            <span class="xref-label">see also</span> <a href="#if">if</a>
+          </div>
         </article>
-
         <article class="entry" id="enum">
           <div class="entry-line">
             <h3 class="headword">enum</h3>
@@ -781,61 +739,25 @@
             </div>
           </div>
         </article>
-
-        <article class="entry" id="export">
+        <article class="entry" id="extern">
           <div class="entry-line">
-            <h3 class="headword">export</h3>
-            <span class="pron">verb /ɪkˈspɔːt/ · noun /ˈekspɔːt/</span>
+            <h3 class="headword">extern</h3>
+            <span class="pron">/ˈekstɜːn/</span>
           </div>
-          <div class="pos">verb · noun</div>
+          <div class="pos">adjective · noun · abbrev.</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >To send goods, materials, ideas, or data from one place or
-                system to another.</span
+                >A shortened form associated with external: situated,
+                originating, or operating outside.</span
               ><span class="example"
-                >The region exports more than it imports.</span
-              >
-            </div>
-            <div class="sense">
-              <span class="sense-no">2</span
-              ><span class="definition">Something sent outward or abroad.</span
-              ><span class="example">Tea became an important export.</span>
-            </div>
-          </div>
-          <div class="xrefs">
-            <span class="xref-label">compare</span> <a href="#import">import</a>
-          </div>
-        </article>
-
-        <article class="entry" id="extends">
-          <div class="entry-line">
-            <h3 class="headword">extends</h3>
-            <span class="pron">/ɪkˈstendz/</span>
-          </div>
-          <div class="pos">verb</div>
-          <div class="senses">
-            <div class="sense">
-              <span class="sense-no">1</span
-              ><span class="definition"
-                >Third-person singular of extend: reaches, continues, or causes
-                something to reach beyond an existing limit.</span
-              ><span class="example">The path extends beyond the trees.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">2</span
-              ><span class="definition"
-                >Offers or gives something to another.</span
-              ><span class="example"
-                >The invitation extends to all members.</span
+                >The declaration referred to an extern source.</span
               >
             </div>
           </div>
         </article>
-
         <div class="letter-marker" id="letter-f"><span>F</span></div>
-
         <article class="entry" id="false">
           <div class="entry-line">
             <h3 class="headword">false</h3>
@@ -866,29 +788,51 @@
             <span class="xref-label">opposite</span> <a href="#true">true</a>
           </div>
         </article>
-
-        <article class="entry" id="finally">
+        <article class="entry reserved-future" id="final">
           <div class="entry-line">
-            <h3 class="headword">finally</h3>
-            <span class="pron">/ˈfaɪnəli/</span>
+            <h3 class="headword">final</h3>
+            <span class="pron">/ˈfaɪnəl/</span>
           </div>
-          <div class="pos">adverb</div>
+          <div class="pos">adjective · noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >At the end of a sequence or period of waiting.</span
-              ><span class="example">The door finally opened.</span>
+                >Coming at the end of a series, process, or period.</span
+              ><span class="example"
+                >The final question remained unanswered.</span
+              >
             </div>
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >As the last point or consideration.</span
-              ><span class="example">Finally, one question remained.</span>
+                >Conclusive; not intended to be changed or reconsidered.</span
+              ><span class="example">The decision is final.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >The last stage of a competition or examination.</span
+              ><span class="example">She reached the final.</span>
             </div>
           </div>
         </article>
-
+        <article class="entry" id="fn">
+          <div class="entry-line">
+            <h3 class="headword">fn</h3>
+            <span class="pron">/ˌef ˈen/</span>
+          </div>
+          <div class="pos">noun · abbrev.</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >An abbreviated form used for function: a purpose, role, or
+                characteristic activity.</span
+              ><span class="example">The note marked the operation as fn.</span>
+            </div>
+          </div>
+        </article>
         <article class="entry" id="for">
           <div class="entry-line">
             <h3 class="headword">for</h3>
@@ -899,14 +843,13 @@
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >Intended to belong to, benefit, affect, or be received by
-                someone or something.</span
+                >Intended to belong to, benefit, or be received by someone or
+                something.</span
               ><span class="example">This letter is for you.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
-              ><span class="definition"
-                >During a specified period or extent.</span
+              ><span class="definition">During a specified period.</span
               ><span class="example">They waited for three hours.</span>
             </div>
             <div class="sense">
@@ -916,43 +859,24 @@
             </div>
           </div>
         </article>
-
-        <article class="entry" id="function">
+        <div class="letter-marker" id="letter-g"><span>G</span></div>
+        <article class="entry reserved-future" id="gen">
           <div class="entry-line">
-            <h3 class="headword">function</h3>
-            <span class="pron">/ˈfʌŋkʃən/</span>
+            <h3 class="headword">gen</h3>
+            <span class="pron">/dʒen/</span>
           </div>
-          <div class="pos">noun · verb</div>
+          <div class="pos">noun · abbrev.</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >The purpose, role, or characteristic activity of a person or
-                thing.</span
-              ><span class="example"
-                >The function of the key is to open the lock.</span
-              >
-            </div>
-            <div class="sense">
-              <span class="sense-no">2</span
-              ><span class="definition"
-                >An activity regarded in relation to how a larger whole
-                operates.</span
-              ><span class="example"
-                >Memory is one function of the system.</span
-              >
-            </div>
-            <div class="sense">
-              <span class="sense-no">3</span
-              ><span class="definition"
-                >To work or operate in a normal or intended way.</span
-              ><span class="example">The device continued to function.</span>
+                >A shortened form associated with generation or general
+                information.</span
+              ><span class="example">The file contained the latest gen.</span>
             </div>
           </div>
         </article>
-
         <div class="letter-marker" id="letter-i"><span>I</span></div>
-
         <article class="entry" id="if">
           <div class="entry-line">
             <h3 class="headword">if</h3>
@@ -982,63 +906,22 @@
             <span class="xref-label">see also</span> <a href="#else">else</a>
           </div>
         </article>
-
-        <article class="entry" id="implements">
+        <article class="entry" id="impl">
           <div class="entry-line">
-            <h3 class="headword">implements</h3>
-            <span class="pron">/ˈɪmplɪments/</span>
+            <h3 class="headword">impl</h3>
+            <span class="pron">/ɪmpl/</span>
           </div>
-          <div class="pos">verb</div>
+          <div class="pos">noun · abbrev.</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >Third-person singular of implement: puts a decision, plan, or
-                system into practical effect.</span
-              ><span class="example"
-                >The policy implements the earlier agreement.</span
-              >
+                >A shortened form of implementation: the act or means of putting
+                an idea, design, or system into effect.</span
+              ><span class="example">The second impl was simpler.</span>
             </div>
           </div>
         </article>
-
-        <article class="entry" id="import">
-          <div class="entry-line">
-            <h3 class="headword">import</h3>
-            <span class="pron">verb /ɪmˈpɔːt/ · noun /ˈɪmpɔːt/</span>
-          </div>
-          <div class="pos">verb · noun</div>
-          <div class="senses">
-            <div class="sense">
-              <span class="sense-no">1</span
-              ><span class="definition"
-                >To bring goods, materials, ideas, or data into a place or
-                system from elsewhere.</span
-              ><span class="example"
-                >The country imports most of its fuel.</span
-              >
-            </div>
-            <div class="sense">
-              <span class="sense-no">2</span
-              ><span class="definition"
-                >Something brought in from elsewhere.</span
-              ><span class="example">The fruit is a seasonal import.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">3</span
-              ><span class="definition"
-                >Meaning, significance, or consequence.</span
-              ><span class="example"
-                >Only later did they understand the import of the
-                decision.</span
-              >
-            </div>
-          </div>
-          <div class="xrefs">
-            <span class="xref-label">compare</span> <a href="#export">export</a>
-          </div>
-        </article>
-
         <article class="entry" id="in">
           <div class="entry-line">
             <h3 class="headword">in</h3>
@@ -1067,65 +950,7 @@
             </div>
           </div>
         </article>
-
-        <article class="entry" id="instanceof">
-          <div class="entry-line">
-            <h3 class="headword">instanceof</h3>
-            <span class="pron">/ˈɪnstəns əv/</span>
-          </div>
-          <div class="pos">compound noun</div>
-          <div class="senses">
-            <div class="sense">
-              <span class="sense-no">1</span
-              ><span class="definition"
-                >An instance of: a particular example or occurrence considered
-                as belonging to a wider kind.</span
-              ><span class="example"
-                >The event was treated as an instanceof a more general
-                pattern.</span
-              >
-            </div>
-          </div>
-        </article>
-
-        <article class="entry" id="interface">
-          <div class="entry-line">
-            <h3 class="headword">interface</h3>
-            <span class="pron">/ˈɪntəfeɪs/</span>
-          </div>
-          <div class="pos">noun · verb</div>
-          <div class="senses">
-            <div class="sense">
-              <span class="sense-no">1</span
-              ><span class="definition"
-                >A point or boundary at which two different things meet and
-                affect one another.</span
-              ><span class="example"
-                >The shoreline forms an interface between land and sea.</span
-              >
-            </div>
-            <div class="sense">
-              <span class="sense-no">2</span
-              ><span class="definition"
-                >A means by which two parties, systems, or fields
-                communicate.</span
-              ><span class="example"
-                >Language became the interface between them.</span
-              >
-            </div>
-            <div class="sense">
-              <span class="sense-no">3</span
-              ><span class="definition"
-                >To interact or communicate at such a boundary.</span
-              ><span class="example"
-                >The two groups rarely interface directly.</span
-              >
-            </div>
-          </div>
-        </article>
-
         <div class="letter-marker" id="letter-l"><span>L</span></div>
-
         <article class="entry" id="let">
           <div class="entry-line">
             <h3 class="headword">let</h3>
@@ -1154,194 +979,251 @@
             </div>
           </div>
         </article>
-
-        <div class="letter-marker" id="letter-n"><span>N</span></div>
-
-        <article class="entry" id="new">
+        <article class="entry" id="loop">
           <div class="entry-line">
-            <h3 class="headword">new</h3>
-            <span class="pron">/njuː/</span>
-          </div>
-          <div class="pos">adjective · adverb</div>
-          <div class="senses">
-            <div class="sense">
-              <span class="sense-no">1</span
-              ><span class="definition"
-                >Not existing before; recently made, discovered, introduced, or
-                begun.</span
-              ><span class="example">They opened a new road.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">2</span
-              ><span class="definition"
-                >Unfamiliar or not previously experienced by the person
-                concerned.</span
-              ><span class="example">The city was new to her.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">3</span
-              ><span class="definition">Afresh; again in a changed state.</span
-              ><span class="example">They began new.</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="entry" id="null">
-          <div class="entry-line">
-            <h3 class="headword">null</h3>
-            <span class="pron">/nʌl/</span>
-          </div>
-          <div class="pos">adjective · noun · verb</div>
-          <div class="senses">
-            <div class="sense">
-              <span class="sense-no">1</span
-              ><span class="definition">Having no legal or binding force.</span
-              ><span class="example">The agreement was declared null.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">2</span
-              ><span class="definition"
-                >Amounting to nothing; absent, empty, or without effect.</span
-              ><span class="example"
-                >The experiment produced a null result.</span
-              >
-            </div>
-            <div class="sense">
-              <span class="sense-no">3</span
-              ><span class="definition">A zero or empty value.</span
-              ><span class="example">The field was left null.</span>
-            </div>
-          </div>
-          <div class="xrefs">
-            <span class="xref-label">see also</span> <a href="#void">void</a>
-          </div>
-        </article>
-
-        <div class="letter-marker" id="letter-p"><span>P</span></div>
-
-        <article class="entry" id="package">
-          <div class="entry-line">
-            <h3 class="headword">package</h3>
-            <span class="pron">/ˈpækɪdʒ/</span>
+            <h3 class="headword">loop</h3>
+            <span class="pron">/luːp/</span>
           </div>
           <div class="pos">noun · verb</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >An object or group of objects wrapped, boxed, or otherwise
-                contained together.</span
-              ><span class="example">A small package arrived by post.</span>
+                >A shape or path that bends round and crosses or returns toward
+                itself.</span
+              ><span class="example">The road forms a loop.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >A set of related things presented or offered as a single
-                unit.</span
+                >A sequence that returns to an earlier point and repeats.</span
+              ><span class="example">The recording played in a loop.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >To move or cause something to move in a loop.</span
+              ><span class="example">The path loops around the hill.</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-m"><span>M</span></div>
+        <article class="entry reserved-future" id="macro">
+          <div class="entry-line">
+            <h3 class="headword">macro</h3>
+            <span class="pron">/ˈmækrəʊ/</span>
+          </div>
+          <div class="pos">noun · adjective</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >Something operating on or concerned with a large scale.</span
               ><span class="example"
-                >The measures formed a complete package.</span
+                >The analysis moved from micro to macro.</span
+              >
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >A stored sequence of instructions invoked as a single
+                action.</span
+              ><span class="example"
+                >She recorded a macro for the repeated task.</span
+              >
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="match">
+          <div class="entry-line">
+            <h3 class="headword">match</h3>
+            <span class="pron">/mætʃ/</span>
+          </div>
+          <div class="pos">noun · verb</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >A person or thing equal or corresponding to another.</span
+              ><span class="example">The two samples were a close match.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >To correspond or be equal in some important respect.</span
+              ><span class="example">The colours match.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >To pair or place together according to a relation.</span
+              ><span class="example">Each name was matched with a number.</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="mod">
+          <div class="entry-line">
+            <h3 class="headword">mod</h3>
+            <span class="pron">/mɒd/</span>
+          </div>
+          <div class="pos">noun · adjective · abbrev.</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >A shortened form of modification: a change made to something,
+                especially to alter its use or appearance.</span
+              ><span class="example">The device had a small mod.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >Modern or fashionable in style, especially in reference to a
+                twentieth-century subculture.</span
+              ><span class="example">The room had a mod look.</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="move">
+          <div class="entry-line">
+            <h3 class="headword">move</h3>
+            <span class="pron">/muːv/</span>
+          </div>
+          <div class="pos">verb · noun</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">To change position or place.</span
+              ><span class="example">The shadow moved across the wall.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >To cause someone to feel strong emotion.</span
+              ><span class="example">The speech moved the audience.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >An act of changing position, place, or strategy.</span
+              ><span class="example">It was a careful move.</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">see also</span>
+            <a href="#return">return</a>
+          </div>
+        </article>
+        <article class="entry" id="mut">
+          <div class="entry-line">
+            <h3 class="headword">mut</h3>
+            <span class="pron">/mʌt/</span>
+          </div>
+          <div class="pos">noun · abbrev.</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >A shortened form associated with mutable or mutation: capable
+                of change, or a change in form or state.</span
+              ><span class="example">The note marked the value as mut.</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-o"><span>O</span></div>
+        <article class="entry reserved-future" id="override">
+          <div class="entry-line">
+            <h3 class="headword">override</h3>
+            <span class="pron">verb /ˌəʊvəˈraɪd/ · noun /ˈəʊvəraɪd/</span>
+          </div>
+          <div class="pos">verb · noun</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >To use authority to reject, cancel, or set aside a decision or
+                rule.</span
+              ><span class="example">The court may override the decision.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >To take precedence over something else.</span
+              ><span class="example"
+                >Safety concerns override convenience.</span
               >
             </div>
             <div class="sense">
               <span class="sense-no">3</span
               ><span class="definition"
-                >To enclose or combine for distribution or presentation.</span
-              ><span class="example">The goods were carefully packaged.</span>
+                >An action or mechanism that supersedes normal operation.</span
+              ><span class="example">The system has a manual override.</span>
             </div>
           </div>
         </article>
-
-        <article class="entry" id="private">
+        <div class="letter-marker" id="letter-p"><span>P</span></div>
+        <article class="entry reserved-future" id="priv">
           <div class="entry-line">
-            <h3 class="headword">private</h3>
-            <span class="pron">/ˈpraɪvət/</span>
+            <h3 class="headword">priv</h3>
+            <span class="pron">/prɪv/</span>
           </div>
-          <div class="pos">adjective · noun</div>
+          <div class="pos">adjective · noun · abbrev.</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >Belonging to or intended for one person or a restricted
-                group.</span
-              ><span class="example">They met in a private room.</span>
+                >A shortened form associated with private or privilege:
+                restricted, personal, or specially granted.</span
+              ><span class="example">The record was marked priv.</span>
             </div>
-            <div class="sense">
-              <span class="sense-no">2</span
-              ><span class="definition"
-                >Not open to public knowledge, access, or observation.</span
-              ><span class="example">The correspondence remained private.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">3</span
-              ><span class="definition"
-                >A soldier of the lowest enlisted rank in several armies.</span
-              ><span class="example">He served as a private.</span>
-            </div>
-          </div>
-          <div class="xrefs">
-            <span class="xref-label">compare</span> <a href="#public">public</a>
           </div>
         </article>
-
-        <article class="entry" id="protected">
+        <article class="entry" id="pub">
           <div class="entry-line">
-            <h3 class="headword">protected</h3>
-            <span class="pron">/prəˈtektɪd/</span>
+            <h3 class="headword">pub</h3>
+            <span class="pron">/pʌb/</span>
           </div>
-          <div class="pos">adjective</div>
+          <div class="pos">noun · abbrev.</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >Kept safe from harm, damage, interference, or unwanted
-                change.</span
-              ><span class="example">The building is protected by law.</span>
+                >A public house: an establishment where alcoholic drinks and
+                often food are served.</span
+              ><span class="example">They met at the pub.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >Reserved or secured for a particular person, group, or
-                purpose.</span
-              ><span class="example">Part of the coast is protected land.</span>
+                >A shortened form associated with public or publication.</span
+              ><span class="example">The notice was marked pub.</span>
             </div>
           </div>
         </article>
-
-        <article class="entry" id="public">
-          <div class="entry-line">
-            <h3 class="headword">public</h3>
-            <span class="pron">/ˈpʌblɪk/</span>
-          </div>
-          <div class="pos">adjective · noun</div>
-          <div class="senses">
-            <div class="sense">
-              <span class="sense-no">1</span
-              ><span class="definition"
-                >Open, accessible, or relating to people generally rather than
-                to a restricted group.</span
-              ><span class="example">The archive is open to the public.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">2</span
-              ><span class="definition"
-                >Done, known, or expressed where others may observe it.</span
-              ><span class="example">The statement was made public.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">3</span
-              ><span class="definition"
-                >The people considered collectively.</span
-              ><span class="example">The public was invited to attend.</span>
-            </div>
-          </div>
-          <div class="xrefs">
-            <span class="xref-label">compare</span>
-            <a href="#private">private</a>
-          </div>
-        </article>
-
         <div class="letter-marker" id="letter-r"><span>R</span></div>
-
+        <article class="entry" id="ref">
+          <div class="entry-line">
+            <h3 class="headword">ref</h3>
+            <span class="pron">/ref/</span>
+          </div>
+          <div class="pos">noun · abbrev.</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >A shortened form of reference: a mention, source, relation, or
+                means of locating something.</span
+              ><span class="example">Add a ref to the original text.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >A shortened form of referee: an official who supervises a game
+                or contest.</span
+              ><span class="example">The ref stopped the match.</span>
+            </div>
+          </div>
+        </article>
         <article class="entry" id="return">
           <div class="entry-line">
             <h3 class="headword">return</h3>
@@ -1369,9 +1251,54 @@
             </div>
           </div>
         </article>
-
         <div class="letter-marker" id="letter-s"><span>S</span></div>
-
+        <article class="entry" id="self">
+          <div class="entry-line">
+            <h3 class="headword">self</h3>
+            <span class="pron">/self/</span>
+          </div>
+          <div class="pos">noun · pronoun</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >A person&#x27;s essential being, identity, or
+                individuality.</span
+              ><span class="example">She felt more like her old self.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >One&#x27;s own person, interests, or identity considered
+                separately from others.</span
+              ><span class="example">The work asks where self begins.</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">compare</span> <a href="#Self">Self</a>
+          </div>
+        </article>
+        <article class="entry" id="Self">
+          <div class="entry-line">
+            <h3 class="headword">Self</h3>
+            <span class="pron">/self/</span>
+          </div>
+          <div class="pos">noun</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >The self considered as a distinct or emphasized identity.</span
+              ><span class="example"
+                >The distinction between self and Self shaped the
+                argument.</span
+              >
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">compare</span> <a href="#self">self</a>
+          </div>
+        </article>
         <article class="entry" id="static">
           <div class="entry-line">
             <h3 class="headword">static</h3>
@@ -1404,7 +1331,24 @@
             </div>
           </div>
         </article>
-
+        <article class="entry" id="struct">
+          <div class="entry-line">
+            <h3 class="headword">struct</h3>
+            <span class="pron">/strʌkt/</span>
+          </div>
+          <div class="pos">noun · abbrev.</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >A shortened form of structure: an arrangement of parts
+                considered as a whole.</span
+              ><span class="example"
+                >The record was stored as a compact struct.</span
+              >
+            </div>
+          </div>
+        </article>
         <article class="entry" id="super">
           <div class="entry-line">
             <h3 class="headword">super</h3>
@@ -1421,108 +1365,39 @@
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >Above, beyond, or greater than what is indicated by the word
-                that follows.</span
+                >Above, beyond, or greater than what is usual or
+                indicated.</span
               ><span class="example"
                 >The prefix can suggest a superhuman scale.</span
               >
             </div>
           </div>
         </article>
-
-        <article class="entry" id="switch">
-          <div class="entry-line">
-            <h3 class="headword">switch</h3>
-            <span class="pron">/swɪtʃ/</span>
-          </div>
-          <div class="pos">verb · noun</div>
-          <div class="senses">
-            <div class="sense">
-              <span class="sense-no">1</span
-              ><span class="definition"
-                >To change from one thing, position, course, or condition to
-                another.</span
-              ><span class="example">They switched seats.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">2</span
-              ><span class="definition"
-                >A device for making or breaking a connection or changing a
-                circuit.</span
-              ><span class="example">He reached for the light switch.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">3</span
-              ><span class="definition">A sudden or deliberate change.</span
-              ><span class="example">The switch in tone was immediate.</span>
-            </div>
-          </div>
-        </article>
-
         <div class="letter-marker" id="letter-t"><span>T</span></div>
-
-        <article class="entry" id="this">
+        <article class="entry" id="trait">
           <div class="entry-line">
-            <h3 class="headword">this</h3>
-            <span class="pron">/ðɪs/</span>
+            <h3 class="headword">trait</h3>
+            <span class="pron">/treɪt/</span>
           </div>
-          <div class="pos">determiner · pronoun · adverb</div>
+          <div class="pos">noun</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >Referring to a person or thing that is present, near, being
-                indicated, or currently under consideration.</span
-              ><span class="example">This is the one I meant.</span>
+                >A distinguishing quality or characteristic of a person or
+                thing.</span
+              ><span class="example">Patience was her strongest trait.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >Referring to the present time, situation, or experience.</span
-              ><span class="example">I had not expected this.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">3</span
-              ><span class="definition">To the degree indicated.</span
+                >A genetically determined characteristic.</span
               ><span class="example"
-                >I did not think it would be this difficult.</span
+                >The trait appeared in later generations.</span
               >
             </div>
           </div>
         </article>
-
-        <article class="entry" id="throw">
-          <div class="entry-line">
-            <h3 class="headword">throw</h3>
-            <span class="pron">/θrəʊ/</span>
-          </div>
-          <div class="pos">verb · noun</div>
-          <div class="senses">
-            <div class="sense">
-              <span class="sense-no">1</span
-              ><span class="definition"
-                >To send something through the air by a movement of the arm or
-                hand.</span
-              ><span class="example">He threw the stone into the water.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">2</span
-              ><span class="definition"
-                >To cause suddenly to enter a particular state or
-                condition.</span
-              ><span class="example">The news threw them into confusion.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">3</span
-              ><span class="definition">An act of throwing.</span
-              ><span class="example">It was a long throw.</span>
-            </div>
-          </div>
-          <div class="xrefs">
-            <span class="xref-label">see also</span> <a href="#catch">catch</a>
-          </div>
-        </article>
-
         <article class="entry" id="true">
           <div class="entry-line">
             <h3 class="headword">true</h3>
@@ -1552,8 +1427,7 @@
             <span class="xref-label">opposite</span> <a href="#false">false</a>
           </div>
         </article>
-
-        <article class="entry" id="try">
+        <article class="entry reserved-future" id="try">
           <div class="entry-line">
             <h3 class="headword">try</h3>
             <span class="pron">/traɪ/</span>
@@ -1580,8 +1454,36 @@
             </div>
           </div>
         </article>
-
-        <article class="entry" id="typeof">
+        <article class="entry" id="type">
+          <div class="entry-line">
+            <h3 class="headword">type</h3>
+            <span class="pron">/taɪp/</span>
+          </div>
+          <div class="pos">noun · verb</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >A category of people or things sharing common
+                characteristics.</span
+              ><span class="example">This is a different type of problem.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >A person or thing regarded as representative of a
+                category.</span
+              ><span class="example">The specimen is a rare type.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >To write using a keyboard or typewriter.</span
+              ><span class="example">She typed the address carefully.</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry reserved-future" id="typeof">
           <div class="entry-line">
             <h3 class="headword">typeof</h3>
             <span class="pron">/ˈtaɪp əv/</span>
@@ -1599,62 +1501,138 @@
             </div>
           </div>
         </article>
-
-        <div class="letter-marker" id="letter-v"><span>V</span></div>
-
-        <article class="entry" id="var">
+        <div class="letter-marker" id="letter-u"><span>U</span></div>
+        <article class="entry" id="unsafe">
           <div class="entry-line">
-            <h3 class="headword">var</h3>
-            <span class="pron">/vɑː/</span>
+            <h3 class="headword">unsafe</h3>
+            <span class="pron">/ʌnˈseɪf/</span>
           </div>
-          <div class="pos">noun · abbrev.</div>
+          <div class="pos">adjective</div>
           <div class="senses">
             <div class="sense">
               <span class="sense-no">1</span
               ><span class="definition"
-                >A shortened form of variable: a quantity, element, or condition
-                capable of taking different values or forms.</span
-              ><span class="example"
-                >Time remained the only uncontrolled var.</span
-              >
-            </div>
-          </div>
-        </article>
-
-        <article class="entry" id="void">
-          <div class="entry-line">
-            <h3 class="headword">void</h3>
-            <span class="pron">/vɔɪd/</span>
-          </div>
-          <div class="pos">noun · adjective · verb</div>
-          <div class="senses">
-            <div class="sense">
-              <span class="sense-no">1</span
-              ><span class="definition"
-                >An empty space; a gap or absence where something might
-                otherwise be.</span
-              ><span class="example">The sound disappeared into the void.</span>
+                >Not safe; involving or likely to involve danger, harm, or
+                risk.</span
+              ><span class="example">The structure was declared unsafe.</span>
             </div>
             <div class="sense">
               <span class="sense-no">2</span
               ><span class="definition"
-                >Containing nothing; lacking a quality, substance, or
-                effect.</span
-              ><span class="example">The room felt void of warmth.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">3</span
-              ><span class="definition">To make invalid or without force.</span
-              ><span class="example">The error may void the agreement.</span>
+                >Not protected from possible error, loss, or injury.</span
+              ><span class="example"
+                >It would be unsafe to assume too much.</span
+              >
             </div>
           </div>
           <div class="xrefs">
-            <span class="xref-label">see also</span> <a href="#null">null</a>
+            <span class="xref-label">compare</span>
+            <span class="xref-plain">safe</span>
           </div>
         </article>
-
+        <article class="entry reserved-future" id="unsized">
+          <div class="entry-line">
+            <h3 class="headword">unsized</h3>
+            <span class="pron">/ʌnˈsaɪzd/</span>
+          </div>
+          <div class="pos">adjective</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >Not assigned, made, or classified according to a particular
+                size.</span
+              ><span class="example">The material remained unsized.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">Without a fixed or specified size.</span
+              ><span class="example">The form was deliberately unsized.</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="use">
+          <div class="entry-line">
+            <h3 class="headword">use</h3>
+            <span class="pron">verb /juːz/ · noun /juːs/</span>
+          </div>
+          <div class="pos">verb · noun</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">To employ something for a purpose.</span
+              ><span class="example">Use the smaller key.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >The action or purpose of using something.</span
+              ><span class="example">The tool has several uses.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >The ability or permission to employ something.</span
+              ><span class="example">They were given use of the room.</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-v"><span>V</span></div>
+        <article class="entry reserved-future" id="virtual">
+          <div class="entry-line">
+            <h3 class="headword">virtual</h3>
+            <span class="pron">/ˈvɜːtʃuəl/</span>
+          </div>
+          <div class="pos">adjective</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >Existing in effect or result though not formally or physically
+                present.</span
+              ><span class="example"
+                >They had virtual control of the organization.</span
+              >
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >Created, simulated, or carried out by digital means.</span
+              ><span class="example"
+                >The meeting took place in a virtual space.</span
+              >
+            </div>
+          </div>
+        </article>
         <div class="letter-marker" id="letter-w"><span>W</span></div>
-
+        <article class="entry" id="where">
+          <div class="entry-line">
+            <h3 class="headword">where</h3>
+            <span class="pron">/weə/</span>
+          </div>
+          <div class="pos">adverb · conjunction · noun</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">In or to what place or position.</span
+              ><span class="example">Where are you going?</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >At, in, or to the place or situation in which.</span
+              ><span class="example">Return to where you began.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >The place or point at which something occurs.</span
+              ><span class="example"
+                >The problem was not the how but the where.</span
+              >
+            </div>
+          </div>
+        </article>
         <article class="entry" id="while">
           <div class="entry-line">
             <h3 class="headword">while</h3>
@@ -1682,38 +1660,8 @@
             </div>
           </div>
         </article>
-
-        <article class="entry" id="with">
-          <div class="entry-line">
-            <h3 class="headword">with</h3>
-            <span class="pron">/wɪð; wɪθ/</span>
-          </div>
-          <div class="pos">preposition</div>
-          <div class="senses">
-            <div class="sense">
-              <span class="sense-no">1</span
-              ><span class="definition"
-                >Accompanied by or in the company of.</span
-              ><span class="example">She arrived with a friend.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">2</span
-              ><span class="definition"
-                >Using, carrying, containing, or marked by.</span
-              ><span class="example">Write with a pencil.</span>
-            </div>
-            <div class="sense">
-              <span class="sense-no">3</span
-              ><span class="definition"
-                >In relation to, agreement with, or opposition to.</span
-              ><span class="example">I agree with you.</span>
-            </div>
-          </div>
-        </article>
-
         <div class="letter-marker" id="letter-y"><span>Y</span></div>
-
-        <article class="entry" id="yield">
+        <article class="entry reserved-future" id="yield">
           <div class="entry-line">
             <h3 class="headword">yield</h3>
             <span class="pron">/jiːld/</span>
@@ -1741,20 +1689,21 @@
             <div class="sense">
               <span class="sense-no">4</span
               ><span class="definition">The amount produced or returned.</span
-              ><span class="example"
-                >The harvest gave a lower yield than expected.</span
-              >
+              ><span class="example">The harvest gave a lower yield.</span>
             </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">see also</span>
+            <a href="#return">return</a>
           </div>
         </article>
       </section>
-
       <section class="colophon">
         <div>
-          <p><strong>A Small Dictionary of Forty-Six Words</strong></p>
+          <p><strong>A Small Dictionary of Fifty-Two Words</strong></p>
           <p>First edition.</p>
           <p>Printed and bound in Japan.</p>
-          <p class="version-mark">17th edition, 2026</p>
+          <p class="version-mark">2024 edition</p>
         </div>
         <div></div>
       </section>
