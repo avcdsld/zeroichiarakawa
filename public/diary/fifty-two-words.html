@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>52語 英和辞典</title>
+    <style>
+      :root {
+        --ink: #171714;
+        --soft: #605d56;
+        --future: #9b978e;
+        --hair: #c8c4b9;
+        --paper: #fbfaf4;
+        --desk: #e5e1d8;
+        --latin: Charter, 'Bitstream Charter', 'Charter BT', 'Iowan Old Style',
+          Georgia, 'Times New Roman', serif;
+        --serif: 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho',
+          'Noto Serif CJK JP', 'Noto Serif JP', serif;
+        --sans: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'YuGothic',
+          'Helvetica Neue', Arial, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--desk);
+        color: var(--ink);
+        font-family: var(--serif);
+        font-size: 15px;
+        line-height: 1.42;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+      .book {
+        width: min(100%, 860px);
+        margin: 38px auto 80px;
+        background: var(--paper);
+        box-shadow: 0 18px 60px rgba(24, 20, 12, 0.13),
+          0 2px 10px rgba(24, 20, 12, 0.08);
+      }
+      .cover {
+        min-height: 920px;
+        padding: 96px 76px 64px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-bottom: 1px solid var(--hair);
+      }
+      .cover h1 {
+        margin: 0;
+        max-width: 680px;
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: clamp(48px, 8vw, 82px);
+        line-height: 0.98;
+        letter-spacing: -0.028em;
+      }
+      .title-line {
+        display: block;
+      }
+      .frontmatter {
+        padding: 58px 76px 68px;
+        border-bottom: 1px solid var(--hair);
+      }
+      .frontmatter-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 42px 56px;
+      }
+      .frontmatter h2 {
+        margin: 0 0 14px;
+        font-size: 17px;
+        font-weight: 600;
+      }
+      .frontmatter p {
+        margin: 0 0 10px;
+        color: #2d2c28;
+      }
+      .legend {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 12px;
+      }
+      .legend li {
+        margin: 0 0 5px;
+      }
+      .legend abbr {
+        display: inline-block;
+        width: 42px;
+        font-family: var(--sans);
+        font-size: 9px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--soft);
+      }
+      .index-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px 10px;
+        margin-top: 18px;
+        font-family: var(--sans);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+      }
+      .index-strip a {
+        color: var(--ink);
+        text-decoration: none;
+      }
+      .dictionary {
+        padding: 56px 64px 72px;
+        column-count: 2;
+        column-gap: 48px;
+        column-rule: 1px solid var(--hair);
+      }
+      .letter-marker {
+        break-after: avoid;
+        margin: 0 0 18px;
+        padding: 0 0 8px;
+        border-bottom: 1px solid var(--ink);
+      }
+      .letter-marker span {
+        font-size: 31px;
+        font-weight: 400;
+        line-height: 1;
+      }
+      .entry {
+        break-inside: avoid;
+        margin: 0 0 24px;
+      }
+      .reserved-future {
+        color: var(--future);
+      }
+      .reserved-future .pron,
+      .reserved-future .pos,
+      .reserved-future .sense-no,
+      .reserved-future .example,
+      .reserved-future .xref-label,
+      .reserved-future .xrefs a,
+      .reserved-future .xref-plain {
+        color: var(--future);
+      }
+      .entry-line {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        column-gap: 9px;
+      }
+      .headword {
+        margin: 0;
+        font-family: var(--serif);
+        font-size: 20px;
+        line-height: 1.05;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+      .pron {
+        font-size: 11px;
+        color: var(--soft);
+        white-space: nowrap;
+      }
+      .pos {
+        margin-top: 3px;
+        font-family: var(--sans);
+        font-size: 9px;
+        line-height: 1.2;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--ink);
+        opacity: 0.72;
+      }
+      .senses {
+        margin-top: 7px;
+      }
+      .sense {
+        position: relative;
+        padding-left: 17px;
+        margin: 0 0 6px;
+      }
+      .sense-no {
+        position: absolute;
+        left: 0;
+        top: 0.08em;
+        font-family: var(--sans);
+        font-size: 9px;
+        font-weight: 600;
+        color: var(--soft);
+      }
+      .definition {
+        font-size: 13.2px;
+      }
+      .example {
+        display: block;
+        margin-top: 1px;
+        font-size: 12px;
+        line-height: 1.35;
+        font-style: italic;
+        color: #57544d;
+      }
+      .xrefs {
+        margin-top: 7px;
+        padding-top: 5px;
+        border-top: 1px dotted var(--hair);
+        font-size: 10.5px;
+      }
+      .xref-label {
+        font-family: var(--sans);
+        font-size: 8.5px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--soft);
+      }
+      .xrefs a,
+      .xref-plain {
+        color: var(--ink);
+        text-decoration: none;
+        font-style: italic;
+      }
+      .colophon {
+        padding: 44px 76px 56px;
+        border-top: 1px solid var(--hair);
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 48px;
+        font-size: 11.5px;
+        color: var(--soft);
+      }
+      .colophon p {
+        margin: 0 0 8px;
+      }
+      .colophon strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+      .version-mark {
+        margin-top: 42px !important;
+        font-family: var(--serif);
+        font-size: 10px;
+        letter-spacing: 0.06em;
+        color: var(--soft);
+      }
+      @media (max-width: 720px) {
+        .book {
+          margin: 0;
+          width: 100%;
+          box-shadow: none;
+        }
+        .cover {
+          min-height: 82vh;
+          padding: 54px 28px 34px;
+        }
+        .frontmatter {
+          padding: 42px 28px;
+        }
+        .frontmatter-grid {
+          grid-template-columns: 1fr;
+          gap: 26px;
+        }
+        .dictionary {
+          padding: 42px 28px 54px;
+          column-count: 1;
+          column-rule: none;
+        }
+        .colophon {
+          padding: 34px 28px 44px;
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+      }
+      @page {
+        size: A5 portrait;
+        margin: 15mm 13mm 17mm;
+      }
+      @media print {
+        body {
+          background: #fff;
+          font-size: 10.2pt;
+        }
+        .book {
+          width: auto;
+          margin: 0;
+          box-shadow: none;
+        }
+        .cover {
+          min-height: 175mm;
+          padding: 10mm 6mm 0;
+          page-break-after: always;
+        }
+        .cover h1 {
+          font-size: 41pt;
+        }
+        .frontmatter {
+          padding: 3mm 0 0;
+          page-break-after: always;
+        }
+        .dictionary {
+          padding: 0;
+          column-count: 2;
+          column-gap: 8mm;
+          column-rule: 0.25pt solid #aaa;
+        }
+        .headword {
+          font-size: 13pt;
+        }
+        .definition {
+          font-size: 8.8pt;
+        }
+        .example {
+          font-size: 8pt;
+        }
+        .entry {
+          margin-bottom: 4.5mm;
+        }
+        .reserved-future {
+          color: #888;
+        }
+        .colophon {
+          page-break-before: always;
+          padding: 3mm 0 0;
+        }
+        a {
+          color: inherit;
+        }
+      }
+
+      .cover {
+        padding: 96px 76px 64px;
+      }
+      .jp-title {
+        margin: 0;
+        width: fit-content;
+        line-height: 1;
+      }
+      .jp-title-top {
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+      }
+      .title-num {
+        font-family: var(--latin);
+        font-size: clamp(82px, 12vw, 132px);
+        font-weight: 400;
+        letter-spacing: -0.065em;
+        line-height: 0.84;
+      }
+      .title-ja {
+        font-family: var(--serif);
+        font-size: clamp(38px, 5.8vw, 58px);
+        font-weight: 500;
+        letter-spacing: -0.03em;
+        line-height: 1;
+        padding-top: 16px;
+      }
+      .jp-title-bottom {
+        margin-top: 26px;
+        margin-left: 2px;
+        font-family: var(--serif);
+        font-size: clamp(33px, 5vw, 52px);
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        line-height: 1.12;
+      }
+      .headword {
+        font-family: var(--latin);
+      }
+      .pron {
+        font-family: var(--latin);
+      }
+      .letter-marker span {
+        font-family: var(--latin);
+      }
+      .version-mark {
+        font-family: var(--latin);
+      }
+      @media print {
+        .title-num {
+          font-size: 58pt;
+        }
+        .title-ja {
+          font-size: 27pt;
+          padding-top: 4mm;
+        }
+        .jp-title-top {
+          gap: 5mm;
+        }
+        .jp-title-bottom {
+          font-size: 23pt;
+          margin-top: 7mm;
+        }
+      }
+      .site-back {
+        width: min(100%, 860px);
+        margin: 0 auto;
+        padding: 22px 4px 0;
+        font-family: var(--sans);
+      }
+      .site-back a {
+        color: var(--soft-ink);
+        text-decoration: none;
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        transition: color 0.15s;
+      }
+      .site-back a:hover {
+        color: var(--ink);
+      }
+      @media (max-width: 600px) {
+        .site-back {
+          padding: 20px 26px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="site-back"><a href="/diary">← 日記</a></nav>
+    <main class="book">
+      <section class="cover">
+        <div class="jp-title">
+          <div class="jp-title-top">
+            <span class="title-num">52</span><span class="title-ja">語</span>
+          </div>
+          <div class="jp-title-bottom">英和辞典</div>
+        </div>
+      </section>
+      <section class="frontmatter">
+        <div class="frontmatter-grid">
+          <div>
+            <h2>編集方針</h2>
+            <p>
+              語義は、現代英語における一般的な用法を基準に配列した。複数の確立した意味を持つ語は、語義を分けて番号を付した。用例は通常の用法を示すために編集したものである。発音は簡略な表記による。
+            </p>
+          </div>
+          <div>
+            <h2>項目の見方</h2>
+            <ul class="legend">
+              <li><abbr>見出し</abbr> 定義する語</li>
+              <li><abbr>発音</abbr> 発音表記</li>
+              <li><abbr>品詞</abbr> 品詞</li>
+              <li><abbr>1, 2…</abbr> 語義</li>
+              <li><abbr>用例</abbr> 使用例</li>
+              <li><abbr>参照</abbr> 関連する項目</li>
+            </ul>
+            <div class="index-strip">
+              <a href="#letter-a">A</a><a href="#letter-b">B</a
+              ><a href="#letter-c">C</a><a href="#letter-d">D</a
+              ><a href="#letter-e">E</a><a href="#letter-f">F</a
+              ><a href="#letter-g">G</a><a href="#letter-i">I</a
+              ><a href="#letter-l">L</a><a href="#letter-m">M</a
+              ><a href="#letter-o">O</a><a href="#letter-p">P</a
+              ><a href="#letter-r">R</a><a href="#letter-s">S</a
+              ><a href="#letter-t">T</a><a href="#letter-u">U</a
+              ><a href="#letter-v">V</a><a href="#letter-w">W</a
+              ><a href="#letter-y">Y</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="dictionary">
+        <div class="letter-marker" id="letter-a"><span>A</span></div>
+        <article class="entry reserved-future" id="abstract">
+          <div class="entry-line">
+            <h3 class="headword">abstract</h3>
+            <span class="pron">/ˈæbstrækt/</span>
+          </div>
+          <div class="pos">形容詞・名詞・動詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >具体物ではなく、観念・性質・関係として存在する。抽象的な。</span
+              ><span class="example">議論は抽象的なままだった。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >長い文章の内容を要約したもの。要旨。</span
+              ><span class="example">論文は abstract から始まる。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >より大きな全体から一つの性質などを取り出す。抽象する。</span
+              ><span class="example">その過程は一つの特徴だけを抽出する。</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">比較</span>
+            <span class="xref-plain">concrete</span>
+          </div>
+        </article>
+        <article class="entry" id="as">
+          <div class="entry-line">
+            <h3 class="headword">as</h3>
+            <span class="pron">/æz; əz/</span>
+          </div>
+          <div class="pos">接続詞・前置詞・副詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">〜している間に、〜するとき。</span
+              ><span class="example">彼女は光が消えていくのを見ていた。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">〜として、〜の役割で。</span
+              ><span class="example">彼は翻訳者として働いた。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">〜と同じ程度に。</span
+              ><span class="example">以前と同じくらい静かだった。</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="async">
+          <div class="entry-line">
+            <h3 class="headword">async</h3>
+            <span class="pron">/eɪˈsɪŋk/</span>
+          </div>
+          <div class="pos">形容詞・略語</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >asynchronous
+                の略。同時に起こらない、または単一の共通した時間に従わない。</span
+              ><span class="example"
+                >そのやり取りは意図的に async だった。</span
+              >
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="await">
+          <div class="entry-line">
+            <h3 class="headword">await</h3>
+            <span class="pron">/əˈweɪt/</span>
+          </div>
+          <div class="pos">動詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">人、出来事、結果などを待つ。</span
+              ><span class="example">彼らは返答を待った。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">〈出来事などが〉将来に待ち受ける。</span
+              ><span class="example">難しい選択が彼らを待っていた。</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-b"><span>B</span></div>
+        <article class="entry reserved-future" id="become">
+          <div class="entry-line">
+            <h3 class="headword">become</h3>
+            <span class="pron">/bɪˈkʌm/</span>
+          </div>
+          <div class="pos">動詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">ある状態になり始める、〜になる。</span
+              ><span class="example">部屋は静かになった。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">人に似合う、ふさわしい。</span
+              ><span class="example">その色は彼女によく似合う。</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry reserved-future" id="box">
+          <div class="entry-line">
+            <h3 class="headword">box</h3>
+            <span class="pron">/bɒks/</span>
+          </div>
+          <div class="pos">名詞・動詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >物を入れたり運んだりする、平らな面を持つ容器。箱。</span
+              ><span class="example">手紙は箱にしまわれていた。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">箱に入れる。</span
+              ><span class="example">本は保管のため箱詰めされた。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >規則に従って拳で戦う。ボクシングをする。</span
+              ><span class="example">彼は学校でボクシングを習った。</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="break">
+          <div class="entry-line">
+            <h3 class="headword">break</h3>
+            <span class="pron">/breɪk/</span>
+          </div>
+          <div class="pos">動詞・名詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">力、圧力、負荷などで割る、壊す。</span
+              ><span class="example">枝は自重で折れた。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">流れや連続性を中断する。</span
+              ><span class="example">質問が沈黙を破った。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">活動の途中に入る休止、中断。</span
+              ><span class="example">彼らは短い休憩を取った。</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">参照</span>
+            <a href="#continue">continue</a>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-c"><span>C</span></div>
+        <article class="entry" id="const">
+          <div class="entry-line">
+            <h3 class="headword">const</h3>
+            <span class="pron">/kɒnst/</span>
+          </div>
+          <div class="pos">名詞・略語</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >constant の略。変化しないもの、固定されたもの。</span
+              ><span class="example"
+                >計算を通じて一つの値は const のままだった。</span
+              >
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="continue">
+          <div class="entry-line">
+            <h3 class="headword">continue</h3>
+            <span class="pron">/kənˈtɪnjuː/</span>
+          </div>
+          <div class="pos">動詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">止まらずに存在、進行し続ける。</span
+              ><span class="example">雨は夜通し降り続いた。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">中断の後で再び始める。</span
+              ><span class="example">少し間を置いて、彼女は話を続けた。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">同じ方向や過程をさらに進む。</span
+              ><span class="example">道が細くなるところまで進みなさい。</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">参照</span> <a href="#break">break</a>
+          </div>
+        </article>
+        <article class="entry" id="crate">
+          <div class="entry-line">
+            <h3 class="headword">crate</h3>
+            <span class="pron">/kreɪt/</span>
+          </div>
+          <div class="pos">名詞・動詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >物を運搬・保管するための大きく堅い容器。木箱など。</span
+              ><span class="example">機材は木箱に入って届いた。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">木箱などに梱包する。</span
+              ><span class="example">彫刻は輸送のため木箱に収められた。</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-d"><span>D</span></div>
+        <article class="entry reserved-future" id="do">
+          <div class="entry-line">
+            <h3 class="headword">do</h3>
+            <span class="pron">/duː/</span>
+          </div>
+          <div class="pos">動詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">行為を行う、実行する。</span
+              ><span class="example">必要なことをしなさい。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">仕事や課題を完了する、処理する。</span
+              ><span class="example">仕事は正午までに終わった。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">ある仕方で行動する、ふるまう。</span
+              ><span class="example">あなたはよくやった。</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="dyn">
+          <div class="entry-line">
+            <h3 class="headword">dyn</h3>
+            <span class="pron">/daɪn/</span>
+          </div>
+          <div class="pos">形容詞・略語</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >dynamic
+                に関連する短縮形。変化する、活動的な、または事前ではなく作動時に決まる。</span
+              ><span class="example"
+                >その体系では関係を dyn として扱った。</span
+              >
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-e"><span>E</span></div>
+        <article class="entry" id="else">
+          <div class="entry-line">
+            <h3 class="headword">else</h3>
+            <span class="pron">/els/</span>
+          </div>
+          <div class="pos">副詞・形容詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >すでに述べたもの以外に、またはその代わりに。</span
+              ><span class="example">ほかに何が言えただろう。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">別の、ほかの。</span
+              ><span class="example">別の誰かがすでに到着していた。</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">参照</span> <a href="#if">if</a>
+          </div>
+        </article>
+        <article class="entry" id="enum">
+          <div class="entry-line">
+            <h3 class="headword">enum</h3>
+            <span class="pron">/ˈiːnʌm/</span>
+          </div>
+          <div class="pos">名詞・略語</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >enumeration
+                の略。区別された複数の可能性を順に挙げること、またはその列挙。</span
+              ><span class="example"
+                >その目録は失われた形の enum のように読めた。</span
+              >
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="extern">
+          <div class="entry-line">
+            <h3 class="headword">extern</h3>
+            <span class="pron">/ˈekstɜːn/</span>
+          </div>
+          <div class="pos">形容詞・名詞・略語</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >external
+                に関連する短縮形。外部に位置する、外部から生じる、外部で働く。</span
+              ><span class="example"
+                >その宣言は extern の情報源を参照していた。</span
+              >
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-f"><span>F</span></div>
+        <article class="entry" id="false">
+          <div class="entry-line">
+            <h3 class="headword">false</h3>
+            <span class="pron">/fɔːls/</span>
+          </div>
+          <div class="pos">形容詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">事実や現実に合っていない。</span
+              ><span class="example">その報告は誤りだと判明した。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">本物に見せかけた、偽の。</span
+              ><span class="example">彼は偽名で旅をした。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">誤った信念や印象に基づく。</span
+              ><span class="example">彼らは誤った前提で行動した。</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">反対語</span> <a href="#true">true</a>
+          </div>
+        </article>
+        <article class="entry reserved-future" id="final">
+          <div class="entry-line">
+            <h3 class="headword">final</h3>
+            <span class="pron">/ˈfaɪnəl/</span>
+          </div>
+          <div class="pos">形容詞・名詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >一連の過程や期間の最後に来る。最終の。</span
+              ><span class="example">最後の問いは答えられないまま残った。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >決定的で、変更や再検討を意図しない。</span
+              ><span class="example">その決定は最終的なものだ。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">競技や試験の最後の段階。決勝。</span
+              ><span class="example">彼女は決勝まで進んだ。</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="fn">
+          <div class="entry-line">
+            <h3 class="headword">fn</h3>
+            <span class="pron">/ˌef ˈen/</span>
+          </div>
+          <div class="pos">名詞・略語</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >function を示す短縮形。目的、役割、働き。</span
+              ><span class="example">その注記では操作を fn と記した。</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="for">
+          <div class="entry-line">
+            <h3 class="headword">for</h3>
+            <span class="pron">/fɔː; fə/</span>
+          </div>
+          <div class="pos">前置詞・接続詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >誰か・何かに属する、利益を与える、届くことを意図して。</span
+              ><span class="example">この手紙はあなた宛てです。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">一定の期間にわたって。</span
+              ><span class="example">彼らは三時間待った。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">〜のために、〜を理由として。</span
+              ><span class="example">その町は庭園で知られていた。</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-g"><span>G</span></div>
+        <article class="entry reserved-future" id="gen">
+          <div class="entry-line">
+            <h3 class="headword">gen</h3>
+            <span class="pron">/dʒen/</span>
+          </div>
+          <div class="pos">名詞・略語</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >generation または一般的な情報を表す短縮形。</span
+              ><span class="example"
+                >そのファイルには最新の gen が入っていた。</span
+              >
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-i"><span>I</span></div>
+        <article class="entry" id="if">
+          <div class="entry-line">
+            <h3 class="headword">if</h3>
+            <span class="pron">/ɪf/</span>
+          </div>
+          <div class="pos">接続詞・名詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >ある条件が成り立つことを前提として。</span
+              ><span class="example">雨なら、私たちは中にいる。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">真偽の定かでない可能性を導く。</span
+              ><span class="example">誰かがそれを見たかどうか尋ねた。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">条件や但し書き。</span
+              ><span class="example">条件が多すぎた。</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">参照</span> <a href="#else">else</a>
+          </div>
+        </article>
+        <article class="entry" id="impl">
+          <div class="entry-line">
+            <h3 class="headword">impl</h3>
+            <span class="pron">/ɪmpl/</span>
+          </div>
+          <div class="pos">名詞・略語</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >implementation
+                の略。考え、設計、制度などを実際に働く形へ移すこと、またはその実現。</span
+              ><span class="example">二つ目の impl のほうが単純だった。</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="in">
+          <div class="entry-line">
+            <h3 class="headword">in</h3>
+            <span class="pron">/ɪn/</span>
+          </div>
+          <div class="pos">前置詞・副詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >何かの内部、範囲、状態、期間のうちに。</span
+              ><span class="example">部屋の中に明かりがついていた。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">内部へ。</span
+              ><span class="example">中へどうぞ。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">参加している、含まれている。</span
+              ><span class="example">あなたも参加する？</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-l"><span>L</span></div>
+        <article class="entry" id="let">
+          <div class="entry-line">
+            <h3 class="headword">let</h3>
+            <span class="pron">/let/</span>
+          </div>
+          <div class="pos">動詞・名詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">何かが起こることを許す。</span
+              ><span class="example">その件はそのままにしておきなさい。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >人や物が動く、行動することを可能にする。</span
+              ><span class="example">彼女は鳥を放した。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >ラケット競技などで、やり直しとなる中断。</span
+              ><span class="example">そのサーブは let と判定された。</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="loop">
+          <div class="entry-line">
+            <h3 class="headword">loop</h3>
+            <span class="pron">/luːp/</span>
+          </div>
+          <div class="pos">名詞・動詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >曲がって元の方向へ戻る、または交差する形や経路。輪。</span
+              ><span class="example">道は loop を描く。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">以前の地点へ戻って反復する系列。</span
+              ><span class="example">録音は loop で再生された。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">輪を描くように動く、動かす。</span
+              ><span class="example">道は丘を回り込む。</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-m"><span>M</span></div>
+        <article class="entry reserved-future" id="macro">
+          <div class="entry-line">
+            <h3 class="headword">macro</h3>
+            <span class="pron">/ˈmækrəʊ/</span>
+          </div>
+          <div class="pos">名詞・形容詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >大きな規模で働く、または大きな規模に関するもの。</span
+              ><span class="example">分析は micro から macro へ移った。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >複数の命令を一つの操作として呼び出せるよう保存したもの。</span
+              ><span class="example"
+                >彼女は反復作業のため macro を記録した。</span
+              >
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="match">
+          <div class="entry-line">
+            <h3 class="headword">match</h3>
+            <span class="pron">/mætʃ/</span>
+          </div>
+          <div class="pos">名詞・動詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >他のものと等しい、または対応する人・物。</span
+              ><span class="example">二つの試料はよく一致していた。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">重要な点で対応する、一致する。</span
+              ><span class="example">色が合っている。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">関係に従って対にする。</span
+              ><span class="example">各名称を番号と対応させた。</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="mod">
+          <div class="entry-line">
+            <h3 class="headword">mod</h3>
+            <span class="pron">/mɒd/</span>
+          </div>
+          <div class="pos">名詞・形容詞・略語</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >modification の略。用途や外観を変えるために加えた変更。</span
+              ><span class="example">その装置には小さな mod があった。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >現代的、流行的な様式。特に20世紀のサブカルチャーに関する。</span
+              ><span class="example">その部屋には mod な雰囲気があった。</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="move">
+          <div class="entry-line">
+            <h3 class="headword">move</h3>
+            <span class="pron">/muːv/</span>
+          </div>
+          <div class="pos">動詞・名詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">位置や場所を変える。</span
+              ><span class="example">影が壁を横切って動いた。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">人に強い感情を起こさせる。</span
+              ><span class="example">その演説は聴衆の心を動かした。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">位置、場所、方針などを変える行為。</span
+              ><span class="example">慎重な一手だった。</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">参照</span> <a href="#return">return</a>
+          </div>
+        </article>
+        <article class="entry" id="mut">
+          <div class="entry-line">
+            <h3 class="headword">mut</h3>
+            <span class="pron">/mʌt/</span>
+          </div>
+          <div class="pos">名詞・略語</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >mutable または mutation
+                に関連する短縮形。変化しうること、または形・状態の変化。</span
+              ><span class="example">その値には mut と記されていた。</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-o"><span>O</span></div>
+        <article class="entry reserved-future" id="override">
+          <div class="entry-line">
+            <h3 class="headword">override</h3>
+            <span class="pron">verb /ˌəʊvəˈraɪd/ · noun /ˈəʊvəraɪd/</span>
+          </div>
+          <div class="pos">動詞・名詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >権限によって決定や規則を退ける、無効にする。</span
+              ><span class="example">裁判所はその決定を覆すことができる。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">他のものより優先する。</span
+              ><span class="example">安全上の懸念は利便性に優先する。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >通常の動作を上書きする操作や仕組み。</span
+              ><span class="example">その装置には手動 override がある。</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-p"><span>P</span></div>
+        <article class="entry reserved-future" id="priv">
+          <div class="entry-line">
+            <h3 class="headword">priv</h3>
+            <span class="pron">/prɪv/</span>
+          </div>
+          <div class="pos">形容詞・名詞・略語</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >private または privilege
+                に関連する短縮形。限定された、個人的な、特別に与えられた。</span
+              ><span class="example">その記録には priv と記されていた。</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="pub">
+          <div class="entry-line">
+            <h3 class="headword">pub</h3>
+            <span class="pron">/pʌb/</span>
+          </div>
+          <div class="pos">名詞・略語</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >酒類や食事を提供する public house。パブ。</span
+              ><span class="example">彼らは pub で会った。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >public または publication に関連する短縮形。</span
+              ><span class="example">その告知には pub と記されていた。</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-r"><span>R</span></div>
+        <article class="entry" id="ref">
+          <div class="entry-line">
+            <h3 class="headword">ref</h3>
+            <span class="pron">/ref/</span>
+          </div>
+          <div class="pos">名詞・略語</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >reference
+                の略。言及、出典、関係、または何かを探し当てるための手掛かり。</span
+              ><span class="example">原文への ref を加えなさい。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">referee の略。競技を監督する審判。</span
+              ><span class="example">ref が試合を止めた。</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="return">
+          <div class="entry-line">
+            <h3 class="headword">return</h3>
+            <span class="pron">/rɪˈtɜːn/</span>
+          </div>
+          <div class="pos">動詞・名詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">以前の場所、人、状態、活動へ戻る。</span
+              ><span class="example">彼女は暗くなる前に戻った。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">何かを返す、戻す。</span
+              ><span class="example">本を返してください。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">戻ること、帰還。</span
+              ><span class="example">彼の帰還で空気が変わった。</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-s"><span>S</span></div>
+        <article class="entry" id="self">
+          <div class="entry-line">
+            <h3 class="headword">self</h3>
+            <span class="pron">/self/</span>
+          </div>
+          <div class="pos">名詞・代名詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >人の本質的な存在、同一性、個性。自己。</span
+              ><span class="example">彼女は昔の自分に戻ったように感じた。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >他者と区別して考えられた自分自身、自己の利益や同一性。</span
+              ><span class="example"
+                >その作品は self がどこから始まるかを問う。</span
+              >
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">比較</span> <a href="#Self">Self</a>
+          </div>
+        </article>
+        <article class="entry" id="Self">
+          <div class="entry-line">
+            <h3 class="headword">Self</h3>
+            <span class="pron">/self/</span>
+          </div>
+          <div class="pos">名詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >区別され、強調された同一性としての自己。</span
+              ><span class="example"
+                >self と Self の区別が議論を形づくった。</span
+              >
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">比較</span> <a href="#self">self</a>
+          </div>
+        </article>
+        <article class="entry" id="static">
+          <div class="entry-line">
+            <h3 class="headword">static</h3>
+            <span class="pron">/ˈstætɪk/</span>
+          </div>
+          <div class="pos">形容詞・名詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >同じ場所や状態にとどまり、動かない、変化しない。</span
+              ><span class="example">画像は静止したままだった。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">運動ではなく平衡状態の力に関する。</span
+              ><span class="example">計算では静的荷重を仮定した。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >無線や電気信号に入るパチパチ、サーという雑音。</span
+              ><span class="example"
+                >スピーカーからは雑音しか聞こえなかった。</span
+              >
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="struct">
+          <div class="entry-line">
+            <h3 class="headword">struct</h3>
+            <span class="pron">/strʌkt/</span>
+          </div>
+          <div class="pos">名詞・略語</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >structure
+                の略。複数の部分を一つの全体として見た構成、構造。</span
+              ><span class="example"
+                >その記録は小さな struct として保存された。</span
+              >
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="super">
+          <div class="entry-line">
+            <h3 class="headword">super</h3>
+            <span class="pron">/ˈsuːpə/</span>
+          </div>
+          <div class="pos">形容詞・副詞・接頭辞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">すばらしい、並外れている。</span
+              ><span class="example">とても楽しい夜だった。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >通常を超える、上位の、大きなことを表す。</span
+              ><span class="example">その接頭辞は超人的な規模を示しうる。</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-t"><span>T</span></div>
+        <article class="entry" id="trait">
+          <div class="entry-line">
+            <h3 class="headword">trait</h3>
+            <span class="pron">/treɪt/</span>
+          </div>
+          <div class="pos">名詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">人や物を特徴づける性質。</span
+              ><span class="example">忍耐は彼女の最も強い trait だった。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">遺伝的に決定される特徴。</span
+              ><span class="example">その trait は後の世代に現れた。</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="true">
+          <div class="entry-line">
+            <h3 class="headword">true</h3>
+            <span class="pron">/truː/</span>
+          </div>
+          <div class="pos">形容詞・副詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">事実や現実に合っている。</span
+              ><span class="example">その話は本当だ。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">正確な、正しい位置や状態にある。</span
+              ><span class="example"
+                >その車輪はもはや正しく回っていなかった。</span
+              >
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">誠実な、忠実な、一貫した。</span
+              ><span class="example">彼女は自分の言葉に忠実だった。</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">反対語</span> <a href="#false">false</a>
+          </div>
+        </article>
+        <article class="entry reserved-future" id="try">
+          <div class="entry-line">
+            <h3 class="headword">try</h3>
+            <span class="pron">/traɪ/</span>
+          </div>
+          <div class="pos">動詞・名詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">何かをしようと試みる。</span
+              ><span class="example">もう一度やってみなさい。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >品質、適性、効果などを確かめるために試す。</span
+              ><span class="example">彼女はその鍵を錠に試した。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">試み。</span
+              ><span class="example">次の試みではうまくいくかもしれない。</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="type">
+          <div class="entry-line">
+            <h3 class="headword">type</h3>
+            <span class="pron">/taɪp/</span>
+          </div>
+          <div class="pos">名詞・動詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">共通する特徴を持つ人や物の類、型。</span
+              ><span class="example">これは別の type の問題だ。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">ある類を代表する人や物。</span
+              ><span class="example">その標本は珍しい type である。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >キーボードやタイプライターで文字を打つ。</span
+              ><span class="example">彼女は住所を慎重に入力した。</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry reserved-future" id="typeof">
+          <div class="entry-line">
+            <h3 class="headword">typeof</h3>
+            <span class="pron">/ˈtaɪp əv/</span>
+          </div>
+          <div class="pos">複合名詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >type of。物が属するとされる種類、型、分類。</span
+              ><span class="example"
+                >その対象はあらゆる typeof 分類に抵抗した。</span
+              >
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-u"><span>U</span></div>
+        <article class="entry" id="unsafe">
+          <div class="entry-line">
+            <h3 class="headword">unsafe</h3>
+            <span class="pron">/ʌnˈseɪf/</span>
+          </div>
+          <div class="pos">形容詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >安全でない。危険、害、損失を伴う可能性がある。</span
+              ><span class="example">その構造物は unsafe と判断された。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >誤り、損失、損傷などの可能性から守られていない。</span
+              ><span class="example">そこまで仮定するのは unsafe だろう。</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">比較</span>
+            <span class="xref-plain">safe</span>
+          </div>
+        </article>
+        <article class="entry reserved-future" id="unsized">
+          <div class="entry-line">
+            <h3 class="headword">unsized</h3>
+            <span class="pron">/ʌnˈsaɪzd/</span>
+          </div>
+          <div class="pos">形容詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >特定の大きさに割り当てられたり分類されたりしていない。</span
+              ><span class="example">その素材は unsized のままだった。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >固定または指定された大きさを持たない。</span
+              ><span class="example">その形は意図的に unsized だった。</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="use">
+          <div class="entry-line">
+            <h3 class="headword">use</h3>
+            <span class="pron">verb /juːz/ · noun /juːs/</span>
+          </div>
+          <div class="pos">動詞・名詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">目的のために何かを用いる。</span
+              ><span class="example">小さい方の鍵を使いなさい。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">何かを使うこと、またはその用途。</span
+              ><span class="example">その道具にはいくつかの用途がある。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">何かを使用する能力や許可。</span
+              ><span class="example"
+                >彼らにはその部屋を使うことが認められた。</span
+              >
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-v"><span>V</span></div>
+        <article class="entry reserved-future" id="virtual">
+          <div class="entry-line">
+            <h3 class="headword">virtual</h3>
+            <span class="pron">/ˈvɜːtʃuəl/</span>
+          </div>
+          <div class="pos">形容詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >形式上・物理的には存在しなくても、実質的な効果として存在する。</span
+              ><span class="example">彼らは組織を事実上支配していた。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >デジタルな手段で作られ、模擬され、行われる。</span
+              ><span class="example">会議は virtual な空間で行われた。</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-w"><span>W</span></div>
+        <article class="entry" id="where">
+          <div class="entry-line">
+            <h3 class="headword">where</h3>
+            <span class="pron">/weə/</span>
+          </div>
+          <div class="pos">副詞・接続詞・名詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">どの場所、位置に、またはへ。</span
+              ><span class="example">どこへ行くのですか。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">〜する場所・状況で。</span
+              ><span class="example">始めた場所へ戻りなさい。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">何かが起こる場所や地点。</span
+              ><span class="example">問題は how ではなく where だった。</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="while">
+          <div class="entry-line">
+            <h3 class="headword">while</h3>
+            <span class="pron">/waɪl/</span>
+          </div>
+          <div class="pos">接続詞・名詞・動詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">別のことが起きている間に。</span
+              ><span class="example">私が探す間、ここで待っていて。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">〜ではあるが。</span
+              ><span class="example">その計画は難しかったが、可能だった。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">しばらくの時間。</span
+              ><span class="example">少しの間いてください。</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-y"><span>Y</span></div>
+        <article class="entry reserved-future" id="yield">
+          <div class="entry-line">
+            <h3 class="headword">yield</h3>
+            <span class="pron">/jiːld/</span>
+          </div>
+          <div class="pos">動詞・名詞</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">結果として生み出す、もたらす。</span
+              ><span class="example">その畑は毎夏穀物を産する。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >圧力、力、議論、要求などに屈する、譲る。</span
+              ><span class="example">その材料は変形し始めた。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">所有、支配、優先権などを譲り渡す。</span
+              ><span class="example">彼らはその場所を譲ることを拒んだ。</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">4</span
+              ><span class="definition">産出量、収益量。</span
+              ><span class="example">収穫量は予想より少なかった。</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">参照</span> <a href="#return">return</a>
+          </div>
+        </article>
+      </section>
+      <section class="colophon">
+        <div>
+          <p><strong>52語 英和辞典</strong></p>
+          <p>初版。</p>
+          <p>日本にて印刷・製本。</p>
+          <p class="version-mark">2024 edition</p>
+        </div>
+        <div></div>
+      </section>
+    </main>
+  </body>
+</html>

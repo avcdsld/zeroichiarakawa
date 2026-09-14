@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>A Small Dictionary of Thirty-Five Words</title>
+    <style>
+      :root {
+        --ink: #171714;
+        --soft: #605d56;
+        --hair: #c8c4b9;
+        --paper: #fbfaf4;
+        --desk: #e5e1d8;
+        --serif: Charter, 'Bitstream Charter', 'Charter BT', 'Iowan Old Style',
+          Georgia, 'Times New Roman', serif;
+        --sans: 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--desk);
+        color: var(--ink);
+        font-family: var(--serif);
+        font-size: 15px;
+        line-height: 1.42;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+      .book {
+        width: min(100%, 860px);
+        margin: 38px auto 80px;
+        background: var(--paper);
+        box-shadow: 0 18px 60px rgba(24, 20, 12, 0.13),
+          0 2px 10px rgba(24, 20, 12, 0.08);
+      }
+      .cover {
+        min-height: 920px;
+        padding: 96px 76px 64px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-bottom: 1px solid var(--hair);
+      }
+      .cover h1 {
+        margin: 0;
+        max-width: 650px;
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: clamp(48px, 8vw, 82px);
+        line-height: 0.98;
+        letter-spacing: -0.028em;
+      }
+      .title-line {
+        display: block;
+      }
+      .frontmatter {
+        padding: 58px 76px 68px;
+        border-bottom: 1px solid var(--hair);
+      }
+      .frontmatter-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 42px 56px;
+      }
+      .frontmatter h2 {
+        margin: 0 0 14px;
+        font-size: 17px;
+        font-weight: 600;
+      }
+      .frontmatter p {
+        margin: 0 0 10px;
+        color: #2d2c28;
+      }
+      .legend {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 12px;
+      }
+      .legend li {
+        margin: 0 0 5px;
+      }
+      .legend abbr {
+        display: inline-block;
+        width: 42px;
+        font-family: var(--sans);
+        font-size: 9px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--soft);
+      }
+      .index-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px 10px;
+        margin-top: 18px;
+        font-family: var(--sans);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+      }
+      .index-strip a {
+        color: var(--ink);
+        text-decoration: none;
+      }
+      .dictionary {
+        padding: 56px 64px 72px;
+        column-count: 2;
+        column-gap: 48px;
+        column-rule: 1px solid var(--hair);
+      }
+      .letter-marker {
+        break-after: avoid;
+        margin: 0 0 18px;
+        padding: 0 0 8px;
+        border-bottom: 1px solid var(--ink);
+      }
+      .letter-marker span {
+        font-size: 31px;
+        font-weight: 400;
+        line-height: 1;
+      }
+      .entry {
+        break-inside: avoid;
+        margin: 0 0 24px;
+      }
+      .entry-line {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        column-gap: 9px;
+      }
+      .headword {
+        margin: 0;
+        font-family: var(--serif);
+        font-size: 20px;
+        line-height: 1.05;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+      .pron {
+        font-size: 11px;
+        color: var(--soft);
+        white-space: nowrap;
+      }
+      .pos {
+        margin-top: 3px;
+        font-family: var(--sans);
+        font-size: 9px;
+        line-height: 1.2;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--ink);
+        opacity: 0.72;
+      }
+      .senses {
+        margin-top: 7px;
+      }
+      .sense {
+        position: relative;
+        padding-left: 17px;
+        margin: 0 0 6px;
+      }
+      .sense-no {
+        position: absolute;
+        left: 0;
+        top: 0.08em;
+        font-family: var(--sans);
+        font-size: 9px;
+        font-weight: 600;
+        color: var(--soft);
+      }
+      .definition {
+        font-size: 13.2px;
+      }
+      .example {
+        display: block;
+        margin-top: 1px;
+        font-size: 12px;
+        line-height: 1.35;
+        font-style: italic;
+        color: #57544d;
+      }
+      .xrefs {
+        margin-top: 7px;
+        padding-top: 5px;
+        border-top: 1px dotted var(--hair);
+        font-size: 10.5px;
+      }
+      .xref-label {
+        font-family: var(--sans);
+        font-size: 8.5px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--soft);
+      }
+      .xrefs a {
+        color: var(--ink);
+        text-decoration: none;
+        font-style: italic;
+      }
+      .colophon {
+        padding: 44px 76px 56px;
+        border-top: 1px solid var(--hair);
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 48px;
+        font-size: 11.5px;
+        color: var(--soft);
+      }
+      .colophon p {
+        margin: 0 0 8px;
+      }
+      .colophon strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+      .version-mark {
+        margin-top: 42px !important;
+        font-family: var(--serif);
+        font-size: 10px;
+        letter-spacing: 0.06em;
+        color: var(--soft);
+      }
+      @media (max-width: 720px) {
+        .book {
+          margin: 0;
+          width: 100%;
+          box-shadow: none;
+        }
+        .cover {
+          min-height: 82vh;
+          padding: 54px 28px 34px;
+        }
+        .frontmatter {
+          padding: 42px 28px;
+        }
+        .frontmatter-grid {
+          grid-template-columns: 1fr;
+          gap: 26px;
+        }
+        .dictionary {
+          padding: 42px 28px 54px;
+          column-count: 1;
+          column-rule: none;
+        }
+        .colophon {
+          padding: 34px 28px 44px;
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+      }
+      @page {
+        size: A5 portrait;
+        margin: 15mm 13mm 17mm;
+      }
+      @media print {
+        body {
+          background: #fff;
+          font-size: 10.2pt;
+        }
+        .book {
+          width: auto;
+          margin: 0;
+          box-shadow: none;
+        }
+        .cover {
+          min-height: 175mm;
+          padding: 10mm 6mm 0;
+          page-break-after: always;
+        }
+        .cover h1 {
+          font-size: 41pt;
+        }
+        .frontmatter {
+          padding: 3mm 0 0;
+          page-break-after: always;
+        }
+        .dictionary {
+          padding: 0;
+          column-count: 2;
+          column-gap: 8mm;
+          column-rule: 0.25pt solid #aaa;
+        }
+        .headword {
+          font-size: 13pt;
+        }
+        .definition {
+          font-size: 8.8pt;
+        }
+        .example {
+          font-size: 8pt;
+        }
+        .entry {
+          margin-bottom: 4.5mm;
+        }
+        .colophon {
+          page-break-before: always;
+          padding: 3mm 0 0;
+        }
+        a {
+          color: inherit;
+        }
+      }
+      .site-back {
+        width: min(100%, 860px);
+        margin: 0 auto;
+        padding: 22px 4px 0;
+        font-family: var(--sans);
+      }
+      .site-back a {
+        color: var(--soft-ink);
+        text-decoration: none;
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        transition: color 0.15s;
+      }
+      .site-back a:hover {
+        color: var(--ink);
+      }
+      @media (max-width: 600px) {
+        .site-back {
+          padding: 20px 26px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="site-back"><a href="/diary">← Diary</a></nav>
+    <main class="book">
+      <section class="cover">
+        <h1>
+          <span class="title-line">A Small Dictionary</span
+          ><span class="title-line">of Thirty-Five Words</span>
+        </h1>
+      </section>
+      <section class="frontmatter">
+        <div class="frontmatter-grid">
+          <div>
+            <h2>Editorial Note</h2>
+            <p>
+              Definitions are arranged according to common contemporary usage.
+              Where a word has more than one established sense, senses are
+              numbered separately. Examples have been written to illustrate
+              ordinary use. Pronunciations are given in broad transcription.
+            </p>
+          </div>
+          <div>
+            <h2>How to read an entry</h2>
+            <ul class="legend">
+              <li><abbr>head</abbr> the word being defined</li>
+              <li><abbr>pron.</abbr> broad pronunciation</li>
+              <li><abbr>pos</abbr> part of speech</li>
+              <li><abbr>1, 2…</abbr> numbered senses</li>
+              <li><abbr>ital.</abbr> example of use</li>
+              <li><abbr>see</abbr> relation to another entry</li>
+            </ul>
+            <div class="index-strip">
+              <a href="#letter-f">F</a><a href="#letter-n">N</a
+              ><a href="#letter-t">T</a><a href="#letter-a">A</a
+              ><a href="#letter-b">B</a><a href="#letter-c">C</a
+              ><a href="#letter-d">D</a><a href="#letter-e">E</a
+              ><a href="#letter-g">G</a><a href="#letter-i">I</a
+              ><a href="#letter-l">L</a><a href="#letter-o">O</a
+              ><a href="#letter-p">P</a><a href="#letter-r">R</a
+              ><a href="#letter-w">W</a><a href="#letter-y">Y</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="dictionary">
+        <div class="letter-marker" id="letter-f"><span>F</span></div>
+        <article class="entry" id="False">
+          <div class="entry-line">
+            <h3 class="headword">False</h3>
+            <span class="pron">/fɔːls/</span>
+          </div>
+          <div class="pos">adjective</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >Not in accordance with fact or reality.</span
+              ><span class="example">The report proved false.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >Not genuine; made or intended to appear true.</span
+              ><span class="example">He travelled under a false name.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >Based on a mistaken belief or impression.</span
+              ><span class="example">They acted on a false assumption.</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">opposite</span> <a href="#True">True</a>
+          </div>
+        </article>
+        <article class="entry" id="finally">
+          <div class="entry-line">
+            <h3 class="headword">finally</h3>
+            <span class="pron">/ˈfaɪnəli/</span>
+          </div>
+          <div class="pos">adverb</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >At the end of a sequence or period of waiting.</span
+              ><span class="example">The door finally opened.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >As the last point or consideration.</span
+              ><span class="example">Finally, one question remained.</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="for">
+          <div class="entry-line">
+            <h3 class="headword">for</h3>
+            <span class="pron">/fɔː; fə/</span>
+          </div>
+          <div class="pos">preposition · conjunction</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >Intended to belong to, benefit, or be received by someone or
+                something.</span
+              ><span class="example">This letter is for you.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">During a specified period.</span
+              ><span class="example">They waited for three hours.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">Because of; on account of.</span
+              ><span class="example">The city was known for its gardens.</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="from">
+          <div class="entry-line">
+            <h3 class="headword">from</h3>
+            <span class="pron">/frɒm; frəm/</span>
+          </div>
+          <div class="pos">preposition</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >Indicating the point at which movement, action, or a range
+                begins.</span
+              ><span class="example">She walked from the station.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >Indicating origin, source, or cause.</span
+              ><span class="example">The message came from abroad.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >Indicating separation or distinction.</span
+              ><span class="example"
+                >It was difficult to tell one from another.</span
+              >
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-n"><span>N</span></div>
+        <article class="entry" id="None">
+          <div class="entry-line">
+            <h3 class="headword">None</h3>
+            <span class="pron">/nʌn/</span>
+          </div>
+          <div class="pos">pronoun</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >Not one of a group of people or things.</span
+              ><span class="example">None of the letters had arrived.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">No amount or part of something.</span
+              ><span class="example">None remained.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">Not any; no one.</span
+              ><span class="example">None could answer.</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="nonlocal">
+          <div class="entry-line">
+            <h3 class="headword">nonlocal</h3>
+            <span class="pron">/ˌnɒnˈləʊkəl/</span>
+          </div>
+          <div class="pos">adjective · noun</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >Not confined to, originating in, or applying only to a
+                particular place or immediate area.</span
+              ><span class="example">The effect was nonlocal.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >Something whose influence or relation extends beyond a local
+                region.</span
+              ><span class="example">The theory permits a nonlocal.</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="not">
+          <div class="entry-line">
+            <h3 class="headword">not</h3>
+            <span class="pron">/nɒt/</span>
+          </div>
+          <div class="pos">adverb</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >Used to make a word, phrase, or statement negative.</span
+              ><span class="example">It is not finished.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >Used to deny or exclude a possibility.</span
+              ><span class="example">Not everyone agreed.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >Used to indicate a contrast with what might be expected.</span
+              ><span class="example">It was not unlike the original.</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-t"><span>T</span></div>
+        <article class="entry" id="True">
+          <div class="entry-line">
+            <h3 class="headword">True</h3>
+            <span class="pron">/truː/</span>
+          </div>
+          <div class="pos">adjective</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >In accordance with fact or reality.</span
+              ><span class="example">The story is true.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >Accurate, exact, or correctly positioned.</span
+              ><span class="example">The wheel no longer ran true.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">Faithful, loyal, or consistent.</span
+              ><span class="example">She remained true to her word.</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">opposite</span> <a href="#False">False</a>
+          </div>
+        </article>
+        <article class="entry" id="try">
+          <div class="entry-line">
+            <h3 class="headword">try</h3>
+            <span class="pron">/traɪ/</span>
+          </div>
+          <div class="pos">verb · noun</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >To make an attempt or effort to do something.</span
+              ><span class="example">Try again.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >To test something in order to discover its quality,
+                suitability, or effect.</span
+              ><span class="example">She tried the key in the lock.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">An attempt.</span
+              ><span class="example">It may work on the next try.</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">see also</span>
+            <a href="#except">except</a>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-a"><span>A</span></div>
+        <article class="entry" id="and">
+          <div class="entry-line">
+            <h3 class="headword">and</h3>
+            <span class="pron">/ænd; ənd/</span>
+          </div>
+          <div class="pos">conjunction</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >Used to connect words, phrases, or clauses of equal
+                status.</span
+              ><span class="example">Bread and water were provided.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >Used to introduce an additional fact or consequence.</span
+              ><span class="example">He opened the door and entered.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >Used between repeated words to indicate continuation or
+                increase.</span
+              ><span class="example">The sound grew louder and louder.</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">compare</span> <a href="#or">or</a>
+          </div>
+        </article>
+        <article class="entry" id="as">
+          <div class="entry-line">
+            <h3 class="headword">as</h3>
+            <span class="pron">/æz; əz/</span>
+          </div>
+          <div class="pos">conjunction · preposition · adverb</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >While or when something is happening.</span
+              ><span class="example">She watched as the light faded.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >In the role, function, or manner of.</span
+              ><span class="example">He worked as a translator.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">To the same degree or extent.</span
+              ><span class="example">It was as quiet as before.</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="assert">
+          <div class="entry-line">
+            <h3 class="headword">assert</h3>
+            <span class="pron">/əˈsɜːt/</span>
+          </div>
+          <div class="pos">verb</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >To state something firmly or confidently as true.</span
+              ><span class="example">She asserted her right to remain.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >To cause one&#x27;s authority, presence, or position to be
+                recognized.</span
+              ><span class="example">The group began to assert itself.</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="async">
+          <div class="entry-line">
+            <h3 class="headword">async</h3>
+            <span class="pron">/eɪˈsɪŋk/</span>
+          </div>
+          <div class="pos">adjective · abbrev.</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >A shortened form of asynchronous: not occurring at the same
+                time or not governed by a single shared timing.</span
+              ><span class="example">The exchange was deliberately async.</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="await">
+          <div class="entry-line">
+            <h3 class="headword">await</h3>
+            <span class="pron">/əˈweɪt/</span>
+          </div>
+          <div class="pos">verb</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >To wait for a person, event, or result.</span
+              ><span class="example">They awaited an answer.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >To be in store for; to lie ahead of.</span
+              ><span class="example">A difficult choice awaited them.</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">see also</span> <a href="#async">async</a>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-b"><span>B</span></div>
+        <article class="entry" id="break">
+          <div class="entry-line">
+            <h3 class="headword">break</h3>
+            <span class="pron">/breɪk/</span>
+          </div>
+          <div class="pos">verb · noun</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >To separate into parts by force, pressure, or strain.</span
+              ><span class="example"
+                >The branch broke under its own weight.</span
+              >
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >To interrupt the course or continuity of something.</span
+              ><span class="example">A question broke the silence.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">A pause or interruption.</span
+              ><span class="example">They took a short break.</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">see also</span>
+            <a href="#continue">continue</a>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-c"><span>C</span></div>
+        <article class="entry" id="class">
+          <div class="entry-line">
+            <h3 class="headword">class</h3>
+            <span class="pron">/klɑːs/</span>
+          </div>
+          <div class="pos">noun</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >A group of people or things regarded as sharing important
+                qualities.</span
+              ><span class="example"
+                >The specimen belongs to a familiar class.</span
+              >
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >A rank, division, or category within a larger order.</span
+              ><span class="example">Tickets were arranged by class.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >A group receiving instruction together.</span
+              ><span class="example">The class met twice a week.</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="continue">
+          <div class="entry-line">
+            <h3 class="headword">continue</h3>
+            <span class="pron">/kənˈtɪnjuː/</span>
+          </div>
+          <div class="pos">verb</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >To remain in progress or existence without stopping.</span
+              ><span class="example"
+                >The rain continued through the night.</span
+              >
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >To begin again after an interruption.</span
+              ><span class="example">After a pause, she continued.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >To proceed farther in the same direction or course.</span
+              ><span class="example">Continue until the road narrows.</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">see also</span> <a href="#break">break</a>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-d"><span>D</span></div>
+        <article class="entry" id="def">
+          <div class="entry-line">
+            <h3 class="headword">def</h3>
+            <span class="pron">/def/</span>
+          </div>
+          <div class="pos">verb · abbrev.</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >A shortened form of define: to state or describe the exact
+                nature, meaning, or limits of something.</span
+              ><span class="example"
+                >The term was def&#x27;d narrowly for the discussion.</span
+              >
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="del">
+          <div class="entry-line">
+            <h3 class="headword">del</h3>
+            <span class="pron">/del/</span>
+          </div>
+          <div class="pos">verb · abbrev.</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >A shortened form of delete: to remove, erase, or strike
+                out.</span
+              ><span class="example">The editor marked the line for del.</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-e"><span>E</span></div>
+        <article class="entry" id="elif">
+          <div class="entry-line">
+            <h3 class="headword">elif</h3>
+            <span class="pron">/ˈelɪf/</span>
+          </div>
+          <div class="pos">conjunction · contraction</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >A contracted form of else if: otherwise, on the condition that
+                a further possibility applies.</span
+              ><span class="example"
+                >If the first account is wrong, elif the second is right, the
+                conclusion changes.</span
+              >
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="else">
+          <div class="entry-line">
+            <h3 class="headword">else</h3>
+            <span class="pron">/els/</span>
+          </div>
+          <div class="pos">adverb · adjective</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >In addition to, or instead of, what has already been
+                mentioned.</span
+              ><span class="example">What else could be said?</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">Different; other.</span
+              ><span class="example">Someone else had arrived.</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">see also</span> <a href="#if">if</a>
+          </div>
+        </article>
+        <article class="entry" id="except">
+          <div class="entry-line">
+            <h3 class="headword">except</h3>
+            <span class="pron">/ɪkˈsept/</span>
+          </div>
+          <div class="pos">preposition · conjunction · verb</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">Not including; other than.</span
+              ><span class="example">Everyone came except one person.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >Used to introduce a qualification or exception.</span
+              ><span class="example"
+                >I would go, except that it is too late.</span
+              >
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >To exclude from a general statement or rule.</span
+              ><span class="example">The law excepts certain cases.</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">see also</span> <a href="#try">try</a>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-g"><span>G</span></div>
+        <article class="entry" id="global">
+          <div class="entry-line">
+            <h3 class="headword">global</h3>
+            <span class="pron">/ˈɡləʊbəl/</span>
+          </div>
+          <div class="pos">adjective · noun</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >Relating to or encompassing the whole world.</span
+              ><span class="example">The event had global consequences.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >Relating to the whole of a system rather than one part.</span
+              ><span class="example">A global view revealed the pattern.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >Something applying throughout a whole system or context.</span
+              ><span class="example">The setting was treated as a global.</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-i"><span>I</span></div>
+        <article class="entry" id="if">
+          <div class="entry-line">
+            <h3 class="headword">if</h3>
+            <span class="pron">/ɪf/</span>
+          </div>
+          <div class="pos">conjunction · noun</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >On the condition or supposition that.</span
+              ><span class="example">If it rains, we will remain inside.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >Introducing a possibility whose truth is uncertain.</span
+              ><span class="example">I asked if anyone had seen it.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">A condition or qualification.</span
+              ><span class="example">There were too many ifs.</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">see also</span> <a href="#else">else</a>
+          </div>
+        </article>
+        <article class="entry" id="import">
+          <div class="entry-line">
+            <h3 class="headword">import</h3>
+            <span class="pron">verb /ɪmˈpɔːt/ · noun /ˈɪmpɔːt/</span>
+          </div>
+          <div class="pos">verb · noun</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >To bring goods, materials, ideas, or data in from
+                elsewhere.</span
+              ><span class="example"
+                >The country imports most of its fuel.</span
+              >
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >Something brought in from elsewhere.</span
+              ><span class="example">The fruit is a seasonal import.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >Meaning, significance, or consequence.</span
+              ><span class="example"
+                >They understood the import of the decision.</span
+              >
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">see also</span> <a href="#from">from</a>
+          </div>
+        </article>
+        <article class="entry" id="in">
+          <div class="entry-line">
+            <h3 class="headword">in</h3>
+            <span class="pron">/ɪn/</span>
+          </div>
+          <div class="pos">preposition · adverb</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >Within the limits, area, substance, condition, or duration of
+                something.</span
+              ><span class="example">A light was on in the room.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >Into an enclosed or interior position.</span
+              ><span class="example">Come in.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >Included, involved, or taking part.</span
+              ><span class="example">Are you in?</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="is">
+          <div class="entry-line">
+            <h3 class="headword">is</h3>
+            <span class="pron">/ɪz/</span>
+          </div>
+          <div class="pos">verb</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >Third-person singular present of be: exists, occurs, or has a
+                specified identity or quality.</span
+              ><span class="example">The answer is simple.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >Indicates identity, condition, or relation.</span
+              ><span class="example">This is the place.</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-l"><span>L</span></div>
+        <article class="entry" id="lambda">
+          <div class="entry-line">
+            <h3 class="headword">lambda</h3>
+            <span class="pron">/ˈlæmdə/</span>
+          </div>
+          <div class="pos">noun</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >The eleventh letter of the Greek alphabet: Λ, λ.</span
+              ><span class="example"
+                >Lambda appears in many scientific notations.</span
+              >
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >A symbol or quantity represented by the Greek letter λ.</span
+              ><span class="example">The value of lambda was measured.</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-o"><span>O</span></div>
+        <article class="entry" id="or">
+          <div class="entry-line">
+            <h3 class="headword">or</h3>
+            <span class="pron">/ɔː/</span>
+          </div>
+          <div class="pos">conjunction</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition">Used to connect alternatives.</span
+              ><span class="example">Tea or coffee may be served.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >Used to introduce another name or description for the same
+                thing.</span
+              ><span class="example"
+                >The iris, or coloured part of the eye, contracts.</span
+              >
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">Otherwise; if not.</span
+              ><span class="example">Hurry, or we will be late.</span>
+            </div>
+          </div>
+          <div class="xrefs">
+            <span class="xref-label">compare</span> <a href="#and">and</a>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-p"><span>P</span></div>
+        <article class="entry" id="pass">
+          <div class="entry-line">
+            <h3 class="headword">pass</h3>
+            <span class="pron">/pɑːs/</span>
+          </div>
+          <div class="pos">verb · noun</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >To move past, across, through, or beyond something.</span
+              ><span class="example">They passed through the gate.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >To transfer or give something to another.</span
+              ><span class="example">Please pass the salt.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">To spend or cause time to elapse.</span
+              ><span class="example">The hours passed slowly.</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-r"><span>R</span></div>
+        <article class="entry" id="raise">
+          <div class="entry-line">
+            <h3 class="headword">raise</h3>
+            <span class="pron">/reɪz/</span>
+          </div>
+          <div class="pos">verb</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >To lift or move something to a higher position.</span
+              ><span class="example">She raised her hand.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >To cause something to increase, appear, or come into
+                consideration.</span
+              ><span class="example">The decision raised new questions.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >To bring up and care for a person, animal, or plant.</span
+              ><span class="example">They raised three children.</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="return">
+          <div class="entry-line">
+            <h3 class="headword">return</h3>
+            <span class="pron">/rɪˈtɜːn/</span>
+          </div>
+          <div class="pos">verb · noun</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >To come or go back to a place, person, condition, or
+                activity.</span
+              ><span class="example">She returned before dark.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >To give, send, or put something back.</span
+              ><span class="example">Please return the book.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">The act of coming or going back.</span
+              ><span class="example">His return changed the atmosphere.</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-w"><span>W</span></div>
+        <article class="entry" id="while">
+          <div class="entry-line">
+            <h3 class="headword">while</h3>
+            <span class="pron">/waɪl/</span>
+          </div>
+          <div class="pos">conjunction · noun · verb</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >During the time that something else is happening.</span
+              ><span class="example">Wait here while I look.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition">Although; despite the fact that.</span
+              ><span class="example"
+                >While the plan was difficult, it was possible.</span
+              >
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition">A period of time.</span
+              ><span class="example">Stay for a while.</span>
+            </div>
+          </div>
+        </article>
+        <article class="entry" id="with">
+          <div class="entry-line">
+            <h3 class="headword">with</h3>
+            <span class="pron">/wɪð; wɪθ/</span>
+          </div>
+          <div class="pos">preposition</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >Accompanied by or in the company of.</span
+              ><span class="example">She arrived with a friend.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >Using, carrying, containing, or marked by.</span
+              ><span class="example">Write with a pencil.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >In relation to, agreement with, or opposition to.</span
+              ><span class="example">I agree with you.</span>
+            </div>
+          </div>
+        </article>
+        <div class="letter-marker" id="letter-y"><span>Y</span></div>
+        <article class="entry" id="yield">
+          <div class="entry-line">
+            <h3 class="headword">yield</h3>
+            <span class="pron">/jiːld/</span>
+          </div>
+          <div class="pos">verb · noun</div>
+          <div class="senses">
+            <div class="sense">
+              <span class="sense-no">1</span
+              ><span class="definition"
+                >To produce, provide, or give as a result.</span
+              ><span class="example">The field yields grain each summer.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">2</span
+              ><span class="definition"
+                >To give way under pressure, force, argument, or claim.</span
+              ><span class="example">The material began to yield.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">3</span
+              ><span class="definition"
+                >To surrender possession, control, or precedence.</span
+              ><span class="example">They refused to yield the ground.</span>
+            </div>
+            <div class="sense">
+              <span class="sense-no">4</span
+              ><span class="definition">The amount produced or returned.</span
+              ><span class="example">The harvest gave a lower yield.</span>
+            </div>
+          </div>
+        </article>
+      </section>
+      <section class="colophon">
+        <div>
+          <p><strong>A Small Dictionary of Thirty-Five Words</strong></p>
+          <p>First edition.</p>
+          <p>Printed and bound in Japan.</p>
+          <p class="version-mark">3.14.7</p>
+        </div>
+        <div></div>
+      </section>
+    </main>
+  </body>
+</html>
