@@ -9,6 +9,9 @@ const nextConfig = {
           source: '/works/executed-poetry-js-lounge',
           destination: '/works/executed-poetry-js-lounge.html',
         },
+        // Self-contained viewer for the upgradeTo(Leviathan) performance.
+        // Short top-level URL for the exhibition booklet's QR code.
+        { source: '/leviathan', destination: '/leviathan.html' },
       ],
       // Clean URLs for self-contained static HTML pieces in public/diary/.
       // The [^.]+ guard skips paths with an extension (e.g. .png) so co-located
