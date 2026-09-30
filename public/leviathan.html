@@ -32,7 +32,7 @@
       }
       :root {
         --ink: #f4f4f4;
-        --dim: rgba(244, 244, 244, 0.32);
+        --dim: rgba(244, 244, 244, 0.24);
         --w: min(100vw, 74vh);
       }
       html,
@@ -128,6 +128,12 @@
       const TOKEN_URI = '0xc87b56dd' + '0'.repeat(64);
       let verb = null;
       const KEY = 'leviathan:' + WORLD.toLowerCase();
+
+      if (q.get('dim'))
+        document.documentElement.style.setProperty(
+          '--dim',
+          'rgba(244, 244, 244, ' + q.get('dim') + ')',
+        );
 
       const art = document.getElementById('art');
       const countEl = document.getElementById('count');
