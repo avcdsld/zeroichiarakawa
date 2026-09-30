@@ -166,10 +166,11 @@
         const still = !meta.animation_url || (STILL && !!meta.image);
         const el = still ? new Image() : document.createElement('iframe');
         el.src = still ? meta.image : meta.animation_url;
-        el.addEventListener('load', () => {
-          requestAnimationFrame(() => el.classList.add('in'));
-          for (const old of art.children)
-            if (old !== el) setTimeout(() => old.remove(), 2200);
+        el.addEventListener('load', () =>
+          requestAnimationFrame(() => el.classList.add('in')),
+        );
+        el.addEventListener('transitionend', () => {
+          for (const old of art.children) if (old !== el) old.remove();
         });
         art.appendChild(el);
       }
