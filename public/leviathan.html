@@ -33,7 +33,7 @@
       :root {
         --ink: #f4f4f4;
         --dim: rgba(244, 244, 244, 0.32);
-        --w: min(92vw, 74vh);
+        --w: min(100vw, 74vh);
       }
       html,
       body {
@@ -122,7 +122,7 @@
       const RPC = q.get('rpc') || CFG.rpcUrl;
       const WORLD = q.get('world') || CFG.world;
       const STILL = q.has('still');
-      const POLL_MS = 12000;
+      const POLL_MS = 60000;
       const REFRESH_MS = 30 * 60 * 1000;
       const COUNTS = { executed: '0x31a38c89', upgraded: '0xc28de2cd' };
       const TOKEN_URI = '0xc87b56dd' + '0'.repeat(64);
