@@ -35,19 +35,6 @@
       text {
         text-shadow: 0 0 8px rgba(255, 255, 255, 0.06);
       }
-      #credit {
-        position: fixed;
-        right: 11px;
-        bottom: 9px;
-        z-index: 3;
-        color: rgba(255, 255, 255, 0.32);
-        font: 11px ui-monospace, SFMono-Regular, monospace;
-        letter-spacing: 0.04em;
-        text-decoration: none;
-      }
-      #credit:hover {
-        color: rgba(255, 255, 255, 0.72);
-      }
       #slider {
         position: fixed;
         left: 50%;
@@ -94,13 +81,6 @@
     </svg>
     <div id="count"></div>
     <input id="slider" type="range" min="0" max="100" step="1" value="0" />
-    <a
-      id="credit"
-      href="https://github.com/avcdsld/upgrade-to-leviathan"
-      target="_blank"
-      rel="noopener"
-      >upgradeTo(Leviathan) · Zeroichi Arakawa · 2026</a
-    >
     <script>
       const W = 140,
         H = 90,
