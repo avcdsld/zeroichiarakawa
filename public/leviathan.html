@@ -33,7 +33,8 @@
       :root {
         --ink: #f4f4f4;
         --dim: rgba(244, 244, 244, 0.24);
-        --w: min(100vw, 74vh);
+        --left: 1vw;
+        --w: min(100%, 74vh);
       }
       html,
       body {
@@ -49,6 +50,7 @@
       main {
         position: fixed;
         inset: 0;
+        left: var(--left);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -74,7 +76,7 @@
       }
       footer {
         position: fixed;
-        left: 0;
+        left: var(--left);
         right: 0;
         bottom: 2.4vh;
         text-align: center;
@@ -129,6 +131,11 @@
       let verb = null;
       const KEY = 'leviathan:' + WORLD.toLowerCase();
 
+      if (q.get('left'))
+        document.documentElement.style.setProperty(
+          '--left',
+          q.get('left') + 'px',
+        );
       if (q.get('dim'))
         document.documentElement.style.setProperty(
           '--dim',
