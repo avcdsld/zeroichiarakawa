@@ -43,7 +43,6 @@
         background: #000;
         color: var(--ink);
         overflow: hidden;
-        cursor: none;
         user-select: none;
         font-family: 'DejaVu Sans Mono', monospace;
       }
@@ -103,6 +102,21 @@
       #chain span + span {
         margin-left: 1.6em;
       }
+      #chain a {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+      }
+      #about {
+        position: fixed;
+        right: 1.6em;
+        bottom: 2.4vh;
+        line-height: 1.9;
+        color: var(--dim);
+        text-decoration: none;
+        font-size: min(1.7vw, 1.2vh);
+        transition: opacity 1s;
+      }
       body.offline footer {
         opacity: 0.35;
       }
@@ -115,8 +129,12 @@
         <div id="count">
           <span id="n">0</span> / 100<span id="label">executed()</span>
         </div>
-        <div id="chain"><span id="block"></span><span id="addr"></span></div>
+        <div id="chain">
+          <span id="block"></span
+          ><span><a id="addr" target="_blank" rel="noopener"></a></span>
+        </div>
       </footer>
+      <a id="about" href="/leviathan/about">about</a>
     </main>
     <script>
       const CFG = window.LEVIATHAN_CONFIG;
@@ -145,7 +163,12 @@
       const art = document.getElementById('art');
       const countEl = document.getElementById('count');
       const nEl = document.getElementById('n');
-      document.getElementById('addr').textContent = WORLD;
+      const addr = document.getElementById('addr');
+      addr.textContent = WORLD;
+      addr.href =
+        (CFG.chainId === 11155111
+          ? 'https://sepolia.etherscan.io/address/'
+          : 'https://etherscan.io/address/') + WORLD;
 
       let id = 0;
       async function rpc(method, params) {
