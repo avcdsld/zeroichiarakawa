@@ -107,16 +107,6 @@
         text-decoration: underline;
         text-underline-offset: 0.2em;
       }
-      #about {
-        position: fixed;
-        right: 1.6em;
-        bottom: 2.4vh;
-        line-height: 1.9;
-        color: var(--dim);
-        text-decoration: none;
-        font-size: min(1.7vw, 1.2vh);
-        transition: opacity 1s;
-      }
       body.offline footer {
         opacity: 0.35;
       }
@@ -131,10 +121,10 @@
         </div>
         <div id="chain">
           <span id="block"></span
-          ><span><a id="addr" target="_blank" rel="noopener"></a></span>
+          ><span><a id="addr" target="_blank" rel="noopener"></a></span
+          ><span><a href="/leviathan/about">about</a></span>
         </div>
       </footer>
-      <a id="about" href="/leviathan/about">about</a>
     </main>
     <script>
       const CFG = window.LEVIATHAN_CONFIG;
