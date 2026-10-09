@@ -87,6 +87,25 @@
       [data-lang='en'] button[data-lang-button='en'] {
         color: var(--ink);
       }
+      .tabs {
+        display: flex;
+        gap: 1.6em;
+        font-size: 12px;
+        margin: 0 0 2.5rem;
+      }
+      .tabs a {
+        color: var(--dim);
+        text-decoration: none;
+      }
+      .tabs a:hover {
+        color: var(--ink);
+      }
+      .tabs a[aria-current='page'] {
+        color: var(--ink);
+        text-decoration: underline;
+        text-decoration-color: var(--dim);
+        text-underline-offset: 0.45em;
+      }
       h1 {
         font-size: 18px;
         font-weight: normal;
@@ -190,6 +209,10 @@
       </span>
     </nav>
     <main>
+      <div class="tabs">
+        <a href="/leviathan/about" aria-current="page">about</a>
+        <a href="/leviathan/record">record</a>
+      </div>
       <h1>upgradeTo(Leviathan)</h1>
       <p class="by">Zeroichi Arakawa, 2026 · Ethereum</p>
 
