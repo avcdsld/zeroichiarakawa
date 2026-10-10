@@ -136,7 +136,10 @@
       const POLL_MS = 60000;
       const REFRESH_MS = 30 * 60 * 1000;
       const COUNTS = { executed: '0x31a38c89', upgraded: '0xc28de2cd' };
-      const TOKEN_URI = '0xc87b56dd' + '0'.repeat(64);
+      const ROSTER = '0x0cbf77ab';
+      const SKETCH = '0xd2396a7b';
+      const WIDTH = 140;
+      const HEIGHT = 90;
       let verb = null;
       const KEY = 'leviathan:' + WORLD.toLowerCase();
 
@@ -173,6 +176,29 @@
         return j.result;
       }
       const call = (data) => rpc('eth_call', [{ to: WORLD, data }, 'latest']);
+      async function sketches(citizens) {
+        const res = await fetch(RPC, {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(
+            citizens.map((to, i) => ({
+              jsonrpc: '2.0',
+              id: i,
+              method: 'eth_call',
+              params: [{ to, data: SKETCH }, 'latest'],
+            })),
+          ),
+        });
+        const j = await res.json();
+        if (!Array.isArray(j) || j.length !== citizens.length)
+          throw new Error('no sketches');
+        const out = [];
+        for (const r of j) {
+          if (r.error && r.error.code !== 3) throw new Error(r.error.message);
+          out[r.id] = r.result ? abiString(r.result) : '';
+        }
+        return out;
+      }
       const word = (hex, i) => parseInt(hex.slice(2 + 64 * i, 66 + 64 * i), 16);
       function abiString(hex) {
         const at = word(hex, 0) / 32;
@@ -188,7 +214,58 @@
       let uri = '';
       let artAt = 0;
 
-      const meta = (u) => JSON.parse(atob(u.split('base64,')[1]));
+      // tokenURI() now costs more gas than a public node will lend to a call,
+      // so the page asks each Citizen for its sketch and draws as the Renderer does.
+      async function render() {
+        const hex = await call(ROSTER);
+        const citizens = [];
+        for (let i = 0; i < word(hex, 1); i++)
+          citizens.push(
+            '0x' + hex.slice(2 + 64 * (i + 2) + 24, 66 + 64 * (i + 2)),
+          );
+        const grid = new Array(WIDTH * HEIGHT).fill(' ');
+        for (const sk of await sketches(citizens))
+          for (let k = 0; k + 2 < sk.length; k += 3) {
+            const p = (sk.charCodeAt(k) << 8) | sk.charCodeAt(k + 1);
+            if (p < grid.length) grid[p] = sk[k + 2];
+          }
+        let out = '';
+        for (let y = 0; y < HEIGHT; y++)
+          out += grid.slice(y * WIDTH, (y + 1) * WIDTH).join('') + '\n';
+        return out;
+      }
+      function animation(body) {
+        const html = atob(window.LEVIATHAN_DEFAULT.split('base64,')[1]);
+        const at = html.indexOf('const body = `') + 14;
+        return (
+          'data:text/html;base64,' +
+          btoa(html.slice(0, at) + body + html.slice(html.indexOf('`.split')))
+        );
+      }
+      function image(body) {
+        let xs = '0';
+        for (let i = 1; i < WIDTH; i++) xs += ' ' + i * 6;
+        let rows = '';
+        for (const line of body.split('\n').slice(0, HEIGHT))
+          rows += "<tspan x='" + xs + "' dy='1em'>" + line + '</tspan>';
+        return (
+          'data:image/svg+xml;base64,' +
+          btoa(
+            "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 " +
+              WIDTH * 6 +
+              ' ' +
+              HEIGHT * 10 +
+              "' preserveAspectRatio='xMidYMid meet'><rect width='100%' height='100%' fill='#000'/>" +
+              "<text x='0' y='0' font-family='monospace' font-size='10' fill='#f4f4f4' xml:space='preserve'>" +
+              rows +
+              '</text></svg>',
+          )
+        );
+      }
+      const meta = (body) => ({
+        image: image(body),
+        animation_url: animation(body),
+      });
       function show(meta) {
         const still = !meta.animation_url || (STILL && !!meta.image);
         const el = still ? new Image() : document.createElement('iframe');
@@ -215,23 +292,22 @@
 
       function remember() {
         try {
-          localStorage.setItem(KEY, JSON.stringify({ count, uri }));
+          localStorage.setItem(KEY, JSON.stringify({ count, body: uri }));
         } catch (_) {}
       }
       function recall() {
         try {
           const c = JSON.parse(localStorage.getItem(KEY));
           if (c.count !== null) setCount(c.count);
-          if (c.uri) {
-            uri = c.uri;
+          if (c.body) {
+            uri = c.body;
             show(meta(uri));
           }
         } catch (_) {}
       }
 
       async function fetchArt() {
-        const next = abiString(await call(TOKEN_URI));
-        if (!next.startsWith('data:')) throw new Error('no world at ' + WORLD);
+        const next = await render();
         artAt = Date.now();
         if (next === uri) return;
         uri = next;
