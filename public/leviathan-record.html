@@ -552,12 +552,18 @@
         <p class="en">
           Data · the ERC-1967 <code>Upgraded</code> event each Citizen emits
           when executed, and its transaction, read through the Etherscan API.
-          The grouping into A to F is inferred from shared funds and code.
+          The six addresses of A are joined by an unbroken line of transfers.
+          The three of D are joined by a shared contract and by funds. That the
+          two of F belong together is inferred from identical code and timing.
+          Whether A to F are separate from one another was not established.
         </p>
         <p class="ja">
           データ · 各 Citizen が執行の際に発する ERC-1967
           <code>Upgraded</code> イベントと、そのトランザクション（Etherscan API
-          経由）。A から F のまとめ方は、資金とコードの共通点からの推定である。
+          経由）。A の 6 アドレスは、途切れない送金の線でつながっている。D の 3
+          アドレスは、共通のコントラクトと資金でつながっている。F の 2
+          アドレスを一つとするのは、コードと時刻の一致からの推定である。A から F
+          が互いに別であるかどうかは確かめていない。
         </p>
         <p>
           World ·
@@ -1587,11 +1593,11 @@
           n: 6,
           en: [
             '6 addresses',
-            'Each of the six addresses has sent exactly three transactions and sets the same EIP-7702 delegate. Each receives about 0.9 ETH, calls execute or another contract, and sends its whole balance on to a new address. Twenty-eight transfers lead from the address that executed #1 to the address that executed #4. The chain was already running by 30 September. Other addresses along it took arbitrage profits through Balancer.',
+            'Each of the six addresses has sent exactly three transactions and sets the same EIP-7702 delegate. Each receives about 0.9 ETH, calls execute or another contract, and sends its whole balance on to a new address. From the address that executed #1 to the address that executed #20, 94 transfers follow one another without a break, and all six addresses lie on that line. All 95 addresses on it set the same delegate. The chain was already running by 30 September. Other addresses along it took arbitrage profits through Balancer.',
           ],
           ja: [
             '6 アドレス',
-            '6 つのアドレスはいずれもトランザクションを 3 つだけ送っており、同じ EIP-7702 の委任先を設定している。約 0.9 ETH を受け取り、execute などを呼び、残高のすべてを次の新しいアドレスへ送る。#1 を執行したアドレスから 28 回の送金を経て、#4 を執行したアドレスに至る。この連鎖は遅くとも 9 月 30 日には始まっていた。途中のアドレスは Balancer を使ったアービトラージも行っている。',
+            '6 つのアドレスはいずれもトランザクションを 3 つだけ送っており、同じ EIP-7702 の委任先を設定している。約 0.9 ETH を受け取り、execute などを呼び、残高のすべてを次の新しいアドレスへ送る。#1 を執行したアドレスから #20 を執行したアドレスまで、94 回の送金が途切れずに続いており、6 つのアドレスはすべてその上にある。その線上の 95 のアドレスは、すべて同じ委任先を設定している。この連鎖は遅くとも 9 月 30 日には始まっていた。途中のアドレスは Balancer を使ったアービトラージも行っている。',
           ],
           addrs: [
             '0x54d2c19cbfdec34b94f197597268e995de6273ee',
@@ -1633,11 +1639,11 @@
           n: 20,
           en: [
             '3 addresses',
-            'All three call the same contract, 0x00000f91109c4d0007e90000d9facad5298a0cac. Etherscan labels one of them "Mev Bot". They have been active since 2025, with between 24,000 and 56,000 transactions each. About a tenth of each bounty goes to the block builder.',
+            'All three call the same contract, 0x00000f91109c4d0007e90000d9facad5298a0cac. Etherscan labels one of them "Mev Bot". They have been active since 2025, with between 24,000 and 56,000 transactions each. About a tenth of each bounty goes to the block builder. The contract was deployed with ETH from 0xf073a21f0d68adacfff34d5b8df04550c944e348, which also sent ETH directly to 0x9235910f. On 12 April 2025, 0x5c096ef8 and 0xe7e7ca0e each received 0.152 ETH in a single transaction from 0x7f881d3ea884051dfa36dcf68fa879dc83a9fc85, which calls the same contract and had itself been funded by 0x5c096ef8. No transfer was found between 0x9235910f and the other two.',
           ],
           ja: [
             '3 アドレス',
-            '3 つとも同じコントラクト 0x00000f91109c4d0007e90000d9facad5298a0cac を呼んでいる。Etherscan はうち 1 つに "Mev Bot" のラベルを付けている。いずれも 2025 年から稼働しており、トランザクションは 2 万 4 千から 5 万 6 千である。報奨の約 1 割がブロックビルダーへ送られている。',
+            '3 つとも同じコントラクト 0x00000f91109c4d0007e90000d9facad5298a0cac を呼んでいる。Etherscan はうち 1 つに "Mev Bot" のラベルを付けている。いずれも 2025 年から稼働しており、トランザクションは 2 万 4 千から 5 万 6 千である。報奨の約 1 割がブロックビルダーへ送られている。このコントラクトは 0xf073a21f0d68adacfff34d5b8df04550c944e348 の ETH でデプロイされ、同じアドレスが 0x9235910f に直接 ETH を送っている。0x5c096ef8 と 0xe7e7ca0e は、2025 年 4 月 12 日の一つのトランザクションで、0x7f881d3ea884051dfa36dcf68fa879dc83a9fc85 から 0.152 ETH ずつ受け取った。0x7f881d3e も同じコントラクトを呼んでおり、その資金は 0x5c096ef8 から出ている。0x9235910f と他の 2 つの間の送金は見つかっていない。',
           ],
           addrs: [
             '0x5c096ef846447cb935c5d247e4ab2a867ecc33a9',
@@ -1663,11 +1669,11 @@
           n: 4,
           en: [
             '2 addresses',
-            'Both sent their first transaction on 11 February 2026. Each sets an EIP-7702 delegate with its own address written into the code. Both call the selector 0x0000001b.',
+            'Both sent their first transaction on 11 February 2026. Each sets an EIP-7702 delegate with its own address written into the code. Both call the selector 0x0000001b. The two delegates are identical apart from the address written into them, and each was deployed by its own address, 13 minutes apart. Before that, each address received about 0.05 ETH from RAILGUN, 23 minutes apart. No transfer links the two.',
           ],
           ja: [
             '2 アドレス',
-            '2 つとも 2026 年 2 月 11 日に最初のトランザクションを送っている。それぞれ自分のアドレスをコードに書き込んだ EIP-7702 の委任先を設定している。呼び出すセレクタはどちらも 0x0000001b である。',
+            '2 つとも 2026 年 2 月 11 日に最初のトランザクションを送っている。それぞれ自分のアドレスをコードに書き込んだ EIP-7702 の委任先を設定している。呼び出すセレクタはどちらも 0x0000001b である。2 つの委任先のコードは、書き込まれたアドレスを除いて同一で、それぞれ自分のアドレスから 13 分差でデプロイされた。その前に、どちらも RAILGUN から約 0.05 ETH を 23 分差で受け取っている。2 つを結ぶ送金はない。',
           ],
           addrs: [
             '0xeeaa2562f89bd75d920d785aacd0c401a0105597',
