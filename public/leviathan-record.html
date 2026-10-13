@@ -136,6 +136,9 @@
       p {
         margin: 0 0 1.2em;
       }
+      p a {
+        overflow-wrap: anywhere;
+      }
       .count {
         margin: 0 0 3rem;
         font-variant-numeric: tabular-nums;
@@ -420,11 +423,8 @@
       </div>
       <h1>upgradeTo(Leviathan)</h1>
       <p class="by">
-        <span class="en"
-          >A record of execute() · as of 9 October 2026, 20:00 JST</span
-        ><span class="ja"
-          >execute() の記録 · 2026 年 10 月 9 日 20:00 JST 時点</span
-        >
+        <span class="en">A record of execute() · 1 to 12 October 2026</span
+        ><span class="ja">execute() の記録 · 2026 年 10 月 1 日から 12 日</span>
       </p>
 
       <div class="viewer">
@@ -460,31 +460,63 @@
 
       <div class="en">
         <p>
-          From 13:00 JST on 1 October 2026, the Citizens open one at a time,
-          every 2 hours 40 minutes. Anyone may call <code>execute()</code> on an
-          open Citizen, and 0.001 ETH is sent to the caller. By 20:00 JST on 9
-          October, 75 Citizens had been executed.
+          From 13:00 JST on 1 October 2026, the Citizens opened one at a time,
+          every 2 hours 40 minutes. Anyone could call <code>execute()</code> on
+          an open Citizen, and 0.001 ETH was sent to the caller. The hundredth
+          Citizen was executed at 13:00:11 JST on 12 October.
         </p>
         <p>
           Eight were executed before the morning of 5 October, between 13
           minutes and 34 hours after they opened. At 14:06 on 5 October, one
           transaction executed the 29 Citizens from #3 to #36 that were still
-          open. Every Citizen from #37 on was executed in the block 11 or 23
-          seconds after it opened.
+          open. Of the 63 Citizens from #37 on, 57 were executed in the block 11
+          seconds after they opened, 5 after 23 seconds and 1 after 35 seconds.
+        </p>
+        <p>
+          Eighteen minutes after the first Citizen opened, an address that
+          executed nothing sent five transactions to three Citizens. On #19 and
+          #79 it called <code>upgradeTo(address)</code> with contracts it had
+          deployed seconds earlier, and both calls failed. On #25 and #79 it
+          called <code>initialize()</code>, which succeeded and changed nothing.
+          A fifth call to #79, with the selector 0x0000d00d, also failed. The
+          address is
+          <a
+            href="https://etherscan.io/address/0x9c08257c0c535abdf83d1493cb6aa9db7a2cce9d"
+            target="_blank"
+            rel="noopener"
+            >0x9c08257c0c535abdf83d1493cb6aa9db7a2cce9d</a
+          >.
         </p>
       </div>
       <div class="ja">
         <p>
           Citizen は 2026 年 10 月 1 日 13:00 JST から、2 時間 40
-          分ごとに一つずつ開く。開いた Citizen には誰でも
+          分ごとに一つずつ開いた。開いた Citizen には誰でも
           <code>execute()</code> を呼ぶことができ、呼んだアドレスに 0.001 ETH
-          が送られる。10 月 9 日 20:00 JST までに、75 の Citizen が執行された。
+          が送られた。100 番目の Citizen は 10 月 12 日 13:00:11 JST
+          に執行された。
         </p>
         <p>
           10 月 5 日の朝までに執行されたのは 8 つで、開いてから 13 分後から 34
           時間後だった。10 月 5 日 14:06 に、一つのトランザクションが #3 から
-          #36 のうち残っていた 29 を執行した。#37 以降はすべて、開いた時刻の 11
-          秒後か 23 秒後のブロックで執行されている。
+          #36 のうち残っていた 29 を執行した。#37 以降の 63 は、開いた時刻の 11
+          秒後のブロックで執行されたものが 57、23 秒後が 5、35 秒後が 1 である。
+        </p>
+        <p>
+          最初の Citizen が開いた 18 分後、何も執行していない一つのアドレスが、3
+          つの Citizen に 5 つのトランザクションを送った。#19 と #79
+          には、数秒前に自分でデプロイしたコントラクトを引数にして
+          <code>upgradeTo(address)</code> を呼び、どちらも失敗した。#25 と #79
+          には
+          <code>initialize()</code> を呼び、成功したが何も変わらなかった。#79
+          への 5 つ目の呼び出し（セレクタ 0x0000d00d）も失敗した。そのアドレスは
+          <a
+            href="https://etherscan.io/address/0x9c08257c0c535abdf83d1493cb6aa9db7a2cce9d"
+            target="_blank"
+            rel="noopener"
+            >0x9c08257c0c535abdf83d1493cb6aa9db7a2cce9d</a
+          >
+          である。
         </p>
       </div>
 
@@ -493,13 +525,13 @@
 
       <div class="en">
         <p>
-          The 75 executions were sent from 14 addresses. Grouped by shared funds
-          and shared code, they come to six, marked A to F.
+          The 100 executions were sent from 14 addresses. Grouped by shared
+          funds and shared code, they come to six, marked A to F.
         </p>
       </div>
       <div class="ja">
         <p>
-          75 の執行は 14
+          100 の執行は 14
           のアドレスから送られている。資金とコードが共通するものをまとめると 6
           つになり、それぞれを A から F とする。
         </p>
@@ -511,8 +543,8 @@
       <ol class="actors" id="actors"></ol>
 
       <div class="ledger">
-        <p class="en">The 75 executions, in the order they happened.</p>
-        <p class="ja">75 の執行を、起きた順に並べる。</p>
+        <p class="en">The 100 executions, in the order they happened.</p>
+        <p class="ja">100 の執行を、起きた順に並べる。</p>
         <div class="ledger-scroll"><ol id="ledger"></ol></div>
       </div>
 
@@ -1292,37 +1324,260 @@
           '0x0446a740d02adb4c3897bf162d9041673d8fd3b8e8ae8556735b00de78ac726d',
           '0x00000f91109c4d0007e90000d9facad5298a0cac',
         ],
+        [
+          75,
+          '10-09 21:00:11',
+          11,
+          '0x9235910f410478b89f86e06be0e4535335af6dea',
+          'D',
+          'TaxRate',
+          '0x81ee07d9b052bbf64ba16072b0720b19a51b7e715a6ad941d875487636ee7c3f',
+          '0x00000f91109c4d0007e90000d9facad5298a0cac',
+        ],
+        [
+          76,
+          '10-09 23:40:11',
+          11,
+          '0x3a15cf422307e922645d671cb247e76e8b1ec50d',
+          'E',
+          'ProtocolShare',
+          '0x4b2ee444b0563e8df4f1aeea29cc2048c0a38d0c048d1aeb422e427b4f5c0d50',
+          '0x935eb47143b4ea09c1baf9c1a933f07d93eec0b8',
+        ],
+        [
+          77,
+          '10-10 02:20:11',
+          11,
+          '0x3a15cf422307e922645d671cb247e76e8b1ec50d',
+          'E',
+          'ExitTax',
+          '0x04ae23af9da2eb6b8f0f4d875796f52c180ef05bc30e63d4c5edad03111c0940',
+          '0x66d75d64939af357f901e2ea79cf7435d40bb546',
+        ],
+        [
+          78,
+          '10-10 05:00:11',
+          11,
+          '0x9235910f410478b89f86e06be0e4535335af6dea',
+          'D',
+          'Escheat',
+          '0x1cc826f7175fb4bbcd3f7c0ee6689484e9de52edd1e404980350ae380fc7b9a9',
+          '0x00000f91109c4d0007e90000d9facad5298a0cac',
+        ],
+        [
+          79,
+          '10-10 07:40:11',
+          11,
+          '0x9235910f410478b89f86e06be0e4535335af6dea',
+          'D',
+          'AmountCap',
+          '0x1c2f8536114e335c0bc1c02c50c09692afd0e04caeb030224ab6782dc46daf9b',
+          '0x00000f91109c4d0007e90000d9facad5298a0cac',
+        ],
+        [
+          80,
+          '10-10 10:20:11',
+          11,
+          '0x9235910f410478b89f86e06be0e4535335af6dea',
+          'D',
+          'DailyCap',
+          '0x986610c4c48bde8f5b20c0ea9e49588460d274a9d6300df8dcccfd1d41ffcbc3',
+          '0x00000f91109c4d0007e90000d9facad5298a0cac',
+        ],
+        [
+          81,
+          '10-10 13:00:11',
+          11,
+          '0x3a15cf422307e922645d671cb247e76e8b1ec50d',
+          'E',
+          'Timelock',
+          '0x184fd758277818807c555557116df5bcfaa8e96267f60917630264aca48f5b4f',
+          '0x5e745d0698f2496e3ff5babc4bb202e61133ca9d',
+        ],
+        [
+          82,
+          '10-10 15:40:11',
+          11,
+          '0x3a15cf422307e922645d671cb247e76e8b1ec50d',
+          'E',
+          'RateLimit',
+          '0x59afbc7de53b938b36f713d64f361c0bf50ff62e72cd654713fc7fbf01d96c15',
+          '0xb442655d7b4d1291a32c9a08e1c1a7f9d579e7bc',
+        ],
+        [
+          83,
+          '10-10 18:20:11',
+          11,
+          '0x3a15cf422307e922645d671cb247e76e8b1ec50d',
+          'E',
+          'CoolingOff',
+          '0x19b179a46b4e9de63af413b3288dd21f49abed98fa24efcfd146f2904f886d17',
+          '0x68505449952cb0c00957170f0422103c2c3014c5',
+        ],
+        [
+          84,
+          '10-10 21:00:11',
+          11,
+          '0x3a15cf422307e922645d671cb247e76e8b1ec50d',
+          'E',
+          'Quota',
+          '0xbea45599729104371e4d58b14c91847c917f1c5c72343ef87c89e281c9c7f438',
+          '0x1a33867375604de6d49bbe5e13d8c3ce67bd9974',
+        ],
+        [
+          85,
+          '10-10 23:40:11',
+          11,
+          '0x3a15cf422307e922645d671cb247e76e8b1ec50d',
+          'E',
+          'License',
+          '0x641a7c5e5cfd3a152a2d1a60fb5d490b6ce77d436b41e95f05bae0fe5984773d',
+          '0xfe5a31d3c4301acf4ddb751336159acc63402a6a',
+        ],
+        [
+          86,
+          '10-11 02:20:11',
+          11,
+          '0x3a15cf422307e922645d671cb247e76e8b1ec50d',
+          'E',
+          'Registration',
+          '0x8d139484360916f0955c5871a72211a9e2bc962140121309b9b16135ec2031f6',
+          '0x997b54eaf48b24b602ad9e3ed92da99eaed5617a',
+        ],
+        [
+          87,
+          '10-11 05:00:11',
+          11,
+          '0x3a15cf422307e922645d671cb247e76e8b1ec50d',
+          'E',
+          'Bond',
+          '0xc2d2c1e7ef0cc1b8a2d9536d9fe9f2d602a64ba2d6d4c4ce4684135601faebc7',
+          '0xa982c704370844274a8f54a401674ffef9a51d11',
+        ],
+        [
+          88,
+          '10-11 07:40:11',
+          11,
+          '0x5c096ef846447cb935c5d247e4ab2a867ecc33a9',
+          'D',
+          'LicenseSuspension',
+          '0xc102ed2ff3f8401b1bfb1bd8494f17a70448f64bbe3ae93c7ce12bbbe6cedb92',
+          '0x00000f91109c4d0007e90000d9facad5298a0cac',
+        ],
+        [
+          89,
+          '10-11 10:20:35',
+          35,
+          '0x9235910f410478b89f86e06be0e4535335af6dea',
+          'D',
+          'LicenseRenewal',
+          '0xadb03b173e268dd2e59bbda63bab7259b70054709f9153185d4ce9e7cef721fe',
+          '0x00000f91109c4d0007e90000d9facad5298a0cac',
+        ],
+        [
+          90,
+          '10-11 13:00:11',
+          11,
+          '0x9235910f410478b89f86e06be0e4535335af6dea',
+          'D',
+          'ApprovedImpl',
+          '0xf5351feb5df91ba50fa90d29c11c051fa46748d0b181fab53f0d750e9a8883ce',
+          '0x00000f91109c4d0007e90000d9facad5298a0cac',
+        ],
+        [
+          91,
+          '10-11 15:40:11',
+          11,
+          '0x3a15cf422307e922645d671cb247e76e8b1ec50d',
+          'E',
+          'Pause',
+          '0x53f891bee657ec2cbd6c4771f8ff0b864c8171dca68f7807b3c42e198fa9eadc',
+          '0xfeb03a38ccd21e3bb012d1a7e9bc2ccefdf05eb8',
+        ],
+        [
+          92,
+          '10-11 18:20:11',
+          11,
+          '0x3a15cf422307e922645d671cb247e76e8b1ec50d',
+          'E',
+          'NotPaused',
+          '0x936bc0de245211bec3342e49b2b53963a4f6eecaba09c42c907e34391c9cedf1',
+          '0x7ceaf1ed2a966541895fafdc20a0f888f06816ab',
+        ],
+        [
+          93,
+          '10-11 21:00:11',
+          11,
+          '0x3a15cf422307e922645d671cb247e76e8b1ec50d',
+          'E',
+          'OnlySovereign',
+          '0x386af7a6866f1a0433aee71386d101cacc77c6b2cd791a45097fec01f9977f7b',
+          '0xd8c088581cdafc7ec97a4cb46dab70cc7fc9424b',
+        ],
+        [
+          94,
+          '10-11 23:40:11',
+          11,
+          '0x3a15cf422307e922645d671cb247e76e8b1ec50d',
+          'E',
+          'GlobalUpgrade',
+          '0x5b474aa6d9adf0a02c777031d94ef74d86c12b1a5531ca83d893102a38cd0b47',
+          '0xd012d947d8dd7d5b70aee6a78f06dfc3f561d432',
+        ],
+        [
+          95,
+          '10-12 02:20:11',
+          11,
+          '0x3a15cf422307e922645d671cb247e76e8b1ec50d',
+          'E',
+          'KillSwitch',
+          '0x624c726e19ace4132cb6049ffd0b0d14f8c77300f1197b9ee40f13e938a652ca',
+          '0x751d7d38ede4e318c398531cad4089a9cf00bf5e',
+        ],
+        [
+          96,
+          '10-12 05:00:23',
+          23,
+          '0x3a15cf422307e922645d671cb247e76e8b1ec50d',
+          'E',
+          'WithdrawBlock',
+          '0xa2ae193bb0cb37acc2619f35ee33c44da523392ccf0a6d6eb205d2f2d3c1f41d',
+          '0x0fd95e6de670831cbcbda81346b6bd7fbe3170ac',
+        ],
+        [
+          97,
+          '10-12 07:40:11',
+          11,
+          '0x3a15cf422307e922645d671cb247e76e8b1ec50d',
+          'E',
+          'Issue',
+          '0xb6fe06c69f851b53fe76033de88df50787db58c334aa477d08a88f12ad134352',
+          '0xef132eab36b30161a16159fa0862e4f322aee083',
+        ],
+        [
+          98,
+          '10-12 10:20:11',
+          11,
+          '0x9235910f410478b89f86e06be0e4535335af6dea',
+          'D',
+          'Exit',
+          '0x9ee7c055f4224e695d4af7a38cf2ddd86d835b2da76f943e3ba5433319197558',
+          '0x00000f91109c4d0007e90000d9facad5298a0cac',
+        ],
+        [
+          99,
+          '10-12 13:00:11',
+          11,
+          '0x3a15cf422307e922645d671cb247e76e8b1ec50d',
+          'E',
+          'Finalization',
+          '0x8896b99e73157592319f704ecd520136a7db29bb67251b8ac74bf4c09a036aff',
+          '0xcfd3a92a08938a754ab8c13e0195c61af19da05c',
+        ],
       ];
-      const PENDING = [
-        'TaxRate',
-        'ProtocolShare',
-        'ExitTax',
-        'Escheat',
-        'AmountCap',
-        'DailyCap',
-        'Timelock',
-        'RateLimit',
-        'CoolingOff',
-        'Quota',
-        'License',
-        'Registration',
-        'Bond',
-        'LicenseSuspension',
-        'LicenseRenewal',
-        'ApprovedImpl',
-        'Pause',
-        'NotPaused',
-        'OnlySovereign',
-        'GlobalUpgrade',
-        'KillSwitch',
-        'WithdrawBlock',
-        'Issue',
-        'Exit',
-        'Finalization',
-      ];
+      const PENDING = [];
       const OPEN0 = 1790827200,
         STEP = 9600,
-        NOW = 1791543600,
         T0 = OPEN0 - 3600,
         COL = 7200,
         NCOL = 134;
@@ -1375,7 +1630,7 @@
         },
         {
           k: 'D',
-          n: 12,
+          n: 20,
           en: [
             '3 addresses',
             'All three call the same contract, 0x00000f91109c4d0007e90000d9facad5298a0cac. Etherscan labels one of them "Mev Bot". They have been active since 2025, with between 24,000 and 56,000 transactions each. About a tenth of each bounty goes to the block builder.',
@@ -1392,7 +1647,7 @@
         },
         {
           k: 'E',
-          n: 22,
+          n: 39,
           en: [
             '1 address',
             'Active since 20 September, funded through a Relay solver. For each execution it creates a new contract, calls execute in its constructor, and the contract is removed within the same transaction. Every bounty is split into 0.000105 ETH for Titan Builder and 0.000895 ETH for this address.',
@@ -1444,7 +1699,6 @@
       const PRE = 4,
         COLS = PRE + NCOL + 2 + NAMEW;
       const col = (t) => Math.floor((t - T0) / COL);
-      const NOWC = col(NOW);
       const dayCols = new Set();
       for (let d = 2; d <= 12; d++)
         dayCols.add(col(Date.UTC(2026, 9, d, -9) / 1000));
@@ -1488,7 +1742,7 @@
 
       function cells() {
         return Array.from({ length: NCOL }, (_, c) =>
-          c === NOWC ? ['f', '│'] : dayCols.has(c) ? ['f', '·'] : [null, ' '],
+          dayCols.has(c) ? ['f', '·'] : [null, ' '],
         );
       }
       function render(cs) {
@@ -1520,13 +1774,6 @@
           top.join(''),
         )}</span><span class="ln f">${esc(tick.join(''))}</span>`;
       }
-      function nowLine() {
-        return `<span class="ln f">${' '.repeat(PRE + NOWC)}↑ ${both(
-          '20:00 JST, 9 Oct',
-          '10/09 20:00 JST 記録',
-        )}</span>`;
-      }
-
       function buildFig1() {
         let html = axis();
         for (let i = 0; i < 100; i++) {
@@ -1545,7 +1792,6 @@
             cs,
           )}  <span class="nm">${esc(organ(i))}</span></span>`;
         }
-        html += nowLine();
         return html;
       }
       function buildFig2() {
@@ -1568,7 +1814,6 @@
             rows.length,
           ).padStart(2)}</span></span>`;
         }
-        html += nowLine();
         return html;
       }
 
