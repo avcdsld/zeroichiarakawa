@@ -84,6 +84,13 @@ export default function Page() {
         {/* Exhibitions */}
         <Section title={t('EXHIBITIONS', '展示')}>
           <CVItemLink
+            year="2026.10"
+            text={t('Auto-Destructive Art Exhibition', '自己破壊芸術展')}
+            venue={t('NEORT++, Tokyo', 'NEORT++, 東京')}
+            works="[assumevalid] [upgradeTo(Leviathan)]"
+            href="http://two.neort.io/exhibitions/auto_destructive_art"
+          />
+          <CVItemLink
             year="2026.2"
             text="The Latency Ledger"
             venue={t(
