@@ -96,6 +96,7 @@ export const menuData: Section[] = [
       {
         name: 'Opcode Fountain',
         slug: 'works/opcode-fountain',
+        image: '/images/opcode-fountain-card.jpg',
         description:
           'Apollinaire arranged natural language as visual form in his collection Calligrammes (1918). This work is a concrete poem that replaces the material with EVM (Ethereum Virtual Machine) opcodes. Each word corresponds to an execution defined by the specification. The instructions that well up from reproducible ground pile up, shatter, and spread to both sides in symmetry. The end of execution always hints at its own presence.\n\nPresented in the Kotoruru Indépendant Exhibition, an unjuried, free-of-charge, open-submission exhibition organized by Hasaqui, held as an online PDF publication.',
         descriptionJa:
