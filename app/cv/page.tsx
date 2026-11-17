@@ -91,6 +91,13 @@ export default function Page() {
             href="http://two.neort.io/exhibitions/auto_destructive_art"
           />
           <CVItemLink
+            year="2026.9"
+            text="EMERGENCE"
+            venue={t('Kate Vass Galerie', 'Kate Vass Galerie')}
+            works="[Executed Poetry for JavaScript]"
+            href="https://executed-poetry-js.poesy.run"
+          />
+          <CVItemLink
             year="2026.2"
             text="The Latency Ledger"
             venue={t(
