@@ -87,7 +87,7 @@ export const menuData: Section[] = [
       },
       {
         name: 'Code Poetry on X',
-        slug: 'works/code-poetry-on-x',
+        slug: 'works/codepoetry',
         description:
           'An ongoing series of code poems posted on X with the hashtag #CodePoetry. Each poem is short enough to fit in a single post and is written in a variety of programming languages. The timeline works as an open notebook: poems appear between everyday posts, are read, quoted, and sometimes executed by readers. This series is the daily practice that underlies the other works.',
         descriptionJa:
