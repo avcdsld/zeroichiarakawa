@@ -214,17 +214,29 @@ function Lightbox({
           ›
         </button>
       )}
-      <img
-        src={`/images/codepoetry/${current.src}`}
-        alt={poem.title || 'code poetry'}
-        className="max-h-[86vh] max-w-[92vw] rounded object-contain"
+      <div
+        className="flex max-h-[92vh] max-w-[92vw] flex-col items-center"
         onClick={(e) => e.stopPropagation()}
-      />
-      {images.length > 1 && (
-        <span className="absolute bottom-5 left-1/2 -translate-x-1/2 text-sm text-gray-400">
-          {index + 1} / {images.length}
-        </span>
-      )}
+      >
+        <img
+          src={`/images/codepoetry/${current.src}`}
+          alt={poem.title || 'code poetry'}
+          className="max-h-[78vh] rounded object-contain"
+        />
+        <div className="mt-3 text-center">
+          {poem.title && <p className="text-sm text-gray-200">{poem.title}</p>}
+          {poem.text && poem.text !== poem.title && (
+            <p className="mt-1 max-w-lg whitespace-pre-wrap text-xs leading-relaxed text-gray-400">
+              {poem.text}
+            </p>
+          )}
+          {images.length > 1 && (
+            <p className="mt-2 text-xs text-gray-500">
+              {index + 1} / {images.length}
+            </p>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
