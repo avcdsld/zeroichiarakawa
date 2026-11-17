@@ -36,7 +36,11 @@ export const menuData: Section[] = [
           '"assumevalid" is a blockchain that permits not verifying. In this blockchain network, it does not check whether written records are valid. It does not recalculate the hash values of blocks. It does not check script results either. Transactions that send non-existent assets are accepted as they are. The name comes from a real setting called "assumevalid" found in Bitcoin nodes. The source code is publicly available, allowing anyone to run the same software and join the network.\n\nIn the installation, a single node participating in the network is on display. Mining is performed on the displayed node, constantly proposing new blocks. Deciphering the mining results reveals the text of a certain novel. The node repeats hash calculations, continuously searching until the result corresponds to the next character of the novel. Non-matching results are discarded, and once a character is found, it moves on to the next one. There is no need to perform this calculation. There is no reward. It does not make the network secure, either. And the network does not check whether the calculations were actually performed. Even so, the node continues to calculate.\n\nDestruction does not necessarily manifest as a stop or disappearance. The system continues to run, and on the surface, it appears as though nothing has happened. On the other hand, the rules and consensus that had supported it until then have subtly changed into something else. In "assumevalid" as well, the blockchain continues to run. However, the principle that established its existence—verifying records—is broken. In a world pretending to be consistent, a single node nevertheless continues calculations that are requested by no one and verified by no one. In modern times, what does it mean to still remain sincere?',
         descriptionJa:
           '《assumevalid》は、検証しないことを許容するブロックチェーンである。このブロックチェーンのネットワークでは、書かれた記録が有効かどうかを確かめない。ブロックのハッシュ値も計算し直さない。スクリプトの結果も確かめない。存在しない資産を送るトランザクションも、そのまま受け入れる。名前は、Bitcoinノードに実在する「assumevalid」という設定から取られている。ソースコードは公開されており、誰でも同じソフトウェアを動かしてネットワークに加わることができる。\n\nインスタレーションでは、ネットワークに参加する一台のノードが展示されている。展示されたノードではマイニングが行われ、新たなブロックが提案され続けている。マイニング結果を読み解くと、ある小説の文章が現れる。ノードはハッシュ計算を繰り返し、結果が小説の次の一文字に対応するまで探し続ける。一致しない結果は捨てられ、一文字が見つかると次の文字へ進む。この計算をする必要はない。報酬もない。ネットワークが安全になるわけでもない。そして、計算が本当に行われたかを、ネットワークは確かめない。それでもノードは計算を続ける。\n\n破壊は、必ずしも停止や消滅として現れるとは限らない。システムは動き続け、表面上は何も起きていないように見える。その一方で、それまで自らを支えていたルールや合意が、いつのまにか別のものに変わっている。《assumevalid》でも、ブロックチェーンは動き続ける。しかし、記録を検証するという、自らを成立させていた原則は壊れている。整合を装う世界で、一台のノードだけが、誰にも求められず、誰にも確かめられていない計算を、それでも続けている。現代において、なお誠実であり続けることには、どのような意味があるだろう。',
-        image: '/images/assumevalid.png',
+        image: '/images/assumevalid.jpg',
+        photos: [
+          { src: '/images/assumevalid-1.jpg', width: 1600, height: 1200 },
+          { src: '/images/assumevalid-2.jpg', width: 1600, height: 1200 },
+        ],
         externalUrls: [
           'https://two.neort.io/artworks/assumevalid',
           'https://assumevalid.org',
@@ -68,7 +72,7 @@ export const menuData: Section[] = [
           "Executed Poetry for JavaScript is a series of seven code poems that run. Each poem is held in a single self-contained HTML file, stored on Ethereum as a fully onchain token. The original exists only there. When a copy is opened in a browser, the poem runs on the reader's machine.\n\nEach poem pairs a short title in plain language with a few lines of code. The title speaks of human things: knowing yourself, being fine, remembering someone, making a promise. The computer takes the title at its word and executes it. Poetry arises in the gap between what is said and what is done.\n\nEach time the code is executed, a signature is displayed as the testimony of that run. The execution environment derives a key pair from its own particulars and signs the moment and context of the execution. The testimony remains. The event it pointed to does not return.\n\nIt is the online, onchain counterpart of the series Executed Poetry, which first ran as code-poems inside a physical device.\n\nPresented in EMERGENCE, an exhibition curated by Kate Vass Galerie.",
         descriptionJa:
           '「Executed Poetry for JavaScript」は、実行される七篇のコード詩のシリーズである。各詩は単一の自己完結した HTML ファイルとして、Ethereum 上に完全にオンチェーンのトークンとして保存される。オリジナルはそこにしか存在しない。コピーがブラウザで開かれると、詩は読者の機械の上で実行される。\n\n各詩は、平易な言葉の短いタイトルと、数行のコードを組み合わせる。タイトルは人間的な事柄を語る——自分を知ること、大丈夫であること、誰かを思い出すこと、約束をすること。コンピュータはそのタイトルを言葉どおりに受け取り、実行する。詩は、語られたことと為されたことの隔たりに立ち現れる。\n\nコードが実行されるたび、その実行の証言として署名が表示される。実行環境は自らの particulars から鍵ペアを導出し、実行の瞬間と文脈に署名する。証言は残る。それが指し示した出来事は、もう返らない。\n\nこれは、かつて物理的なデバイスの中でコード詩として走ったシリーズ「Executed Poetry」の、オンライン／オンチェーン版である。\n\nKate Vass Galerie がキュレーションする展覧会「EMERGENCE」にて発表。',
-        image: '/images/executed-poetry-js-lounge.jpg',
+        image: '/images/executed-poetry-js.jpg',
         externalUrls: [
           'https://executed-poetry-js.poesy.run',
           '/works/executed-poetry-js-lounge',
@@ -215,7 +219,6 @@ Conceptual in nature yet grounded in the real resource of the world computer, it
         descriptionJa:
           '「inside window」は、Atelierがキュレーションした「Visual Poetry」グループ展の一部として制作された作品である。この作品はコード詩とジェネラティブアートを融合させている。実行されると、ブラウザの「window」オブジェクト内のすべての関数を検索し、その中から一つを選んで呼び出す。その関数呼び出しの戻り値は、コードの奥深くに眠るエラーメッセージの言葉を明らかにし、想像を超えた広大な地平を開示する。これはジェネラティブアートが自らを内省する作品であり、まったく新しい形のジェネラティブポエトリーを表現している。',
         externalUrls: [
-          'https://www.fxhash.xyz/generative/30729',
           'https://web.archive.org/web/20240721103006/https://www.atelierart.io/post/code-as-poetry-a-dialogue-with-ara-on-inside-window',
           'https://www.youtube.com/watch?v=KOUrPfp-pdE',
           'https://byod2025.web.app/inside-window/',

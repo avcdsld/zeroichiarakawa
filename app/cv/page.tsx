@@ -95,7 +95,7 @@ export default function Page() {
             text="EMERGENCE"
             venue={t('Kate Vass Galerie', 'Kate Vass Galerie')}
             works="[Executed Poetry for JavaScript]"
-            href="https://executed-poetry-js.poesy.run"
+            href="https://www.katevassgalerie.com/emergence"
           />
           <CVItemLink
             year="2026.2"
