@@ -97,9 +97,9 @@ export const menuData: Section[] = [
         name: 'Opcode Fountain',
         slug: 'works/opcode-fountain',
         description:
-          'Apollinaire arranged natural language as visual form in his collection Calligrammes (1918). This work is a concrete poem that replaces the material with EVM (Ethereum Virtual Machine) opcodes. Each word corresponds to an execution defined by the specification. The instructions that well up from reproducible ground pile up, shatter, and spread to both sides in symmetry. The end of execution always hints at its own presence.',
+          'Apollinaire arranged natural language as visual form in his collection Calligrammes (1918). This work is a concrete poem that replaces the material with EVM (Ethereum Virtual Machine) opcodes. Each word corresponds to an execution defined by the specification. The instructions that well up from reproducible ground pile up, shatter, and spread to both sides in symmetry. The end of execution always hints at its own presence.\n\nPresented in the Kotoruru Indépendant Exhibition, an unjuried, free-of-charge, open-submission exhibition organized by Hasaqui, held as an online PDF publication.',
         descriptionJa:
-          'アポリネールは詩集『カリグラム』（1918）にて、自然言語を視覚形式として配置した。本作はその素材を EVM（Ethereum Virtual Machine）のオペコードに置換した具体詩である。各語には、仕様によって定められた実行が対応する。複製可能な地盤から湧き上がった命令群は、積み上がり、砕け、両脇に広がり対称をなす。実行の終焉は、常にその存在を仄めかしている。',
+          'アポリネールは詩集『カリグラム』（1918）にて、自然言語を視覚形式として配置した。本作はその素材を EVM（Ethereum Virtual Machine）のオペコードに置換した具体詩である。各語には、仕様によって定められた実行が対応する。複製可能な地盤から湧き上がった命令群は、積み上がり、砕け、両脇に広がり対称をなす。実行の終焉は、常にその存在を仄めかしている。\n\nhasaqui 主催の「言ルル アンデパンダン展」に出展。無審査・無償・自由出品のアンデパンダン展で、オンラインPDF誌面を会場として開催された。',
         year: '2026',
       },
       {
