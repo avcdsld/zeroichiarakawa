@@ -183,7 +183,7 @@ function Lightbox({
 
   return (
     <div
-      className="bg-black/92 fixed inset-0 z-50 flex items-center justify-center"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black"
       onClick={onClose}
     >
       <button
@@ -223,7 +223,7 @@ function Lightbox({
           alt={poem.title || 'code poetry'}
           className="max-h-[78vh] rounded object-contain"
         />
-        <div className="mt-3 rounded-lg bg-black/80 px-4 py-2 text-center">
+        <div className="mt-3 text-center">
           {poem.title && <p className="text-sm text-gray-200">{poem.title}</p>}
           {poem.text && poem.text !== poem.title && (
             <p className="mt-1 max-w-lg whitespace-pre-wrap text-xs leading-relaxed text-gray-400">
