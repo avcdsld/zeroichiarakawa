@@ -98,16 +98,6 @@ export default function Page() {
             href="https://www.katevassgalerie.com/emergence"
           />
           <CVItemLink
-            year="2026.5"
-            text={t(
-              'Kotoruru Indépendant Exhibition',
-              '言ルル アンデパンダン展',
-            )}
-            venue={t('Online (PDF)', 'オンライン（PDF）')}
-            works="[Opcode Fountain]"
-            href="https://x.com/hasaqui/status/2060300998443446632"
-          />
-          <CVItemLink
             year="2026.2"
             text="The Latency Ledger"
             venue={t(
@@ -191,6 +181,27 @@ export default function Page() {
             venue={t('Shibuya Space Edge, Tokyo', '渋谷SPACE EDGE, 東京')}
             works={t('[Sakutaro Poems NFTs]', '[萩原朔太郎 詩のNFT]')}
             href="https://conata.world/caf/2022"
+          />
+        </Section>
+
+        {/* Other */}
+        <Section title={t('OTHER', 'その他')}>
+          <CVItemWithLink
+            year="2026.5"
+            linkText={t(
+              'Kotoruru Indépendant Exhibition — pamphlet contribution',
+              '言ルル アンデパンダン展 — 寄稿',
+            )}
+            href="https://x.com/hasaqui/status/2060300998443446632"
+            desc="[Opcode Fountain]"
+          />
+          <CVItemWithLink
+            year="2026.2"
+            linkText={t(
+              '"Shape of c(>_<。)" (KAOMOZI) — pamphlet contribution',
+              '「Shape of c(>_<。)」（KAOMOZI）— パンフレット寄稿',
+            )}
+            href="https://kaomozi.bandcamp.com/merch/shape-of-c-performance-pamphlet-standard-edition"
           />
         </Section>
 
