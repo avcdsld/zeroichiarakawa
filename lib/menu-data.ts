@@ -55,6 +55,35 @@ export const menuData: Section[] = [
         year: '2026',
       },
       {
+        name: 'assumevalid',
+        slug: 'works/assumevalid',
+        description:
+          '"assumevalid" is a blockchain that permits not verifying. In this blockchain network, it does not check whether written records are valid. It does not recalculate the hash values of blocks. It does not check script results either. Transactions that send non-existent assets are accepted as they are. The name comes from a real setting called "assumevalid" found in Bitcoin nodes. The source code is publicly available, allowing anyone to run the same software and join the network.\n\nIn the installation, a single node participating in the network is on display. Mining is performed on the displayed node, constantly proposing new blocks. Deciphering the mining results reveals the text of a certain novel. The node repeats hash calculations, continuously searching until the result corresponds to the next character of the novel. Non-matching results are discarded, and once a character is found, it moves on to the next one. There is no need to perform this calculation. There is no reward. It does not make the network secure, either. And the network does not check whether the calculations were actually performed. Even so, the node continues to calculate.\n\nDestruction does not necessarily manifest as a stop or disappearance. The system continues to run, and on the surface, it appears as though nothing has happened. On the other hand, the rules and consensus that had supported it until then have subtly changed into something else. In "assumevalid" as well, the blockchain continues to run. However, the principle that established its existence—verifying records—is broken. In a world pretending to be consistent, a single node nevertheless continues calculations that are requested by no one and verified by no one. In modern times, what does it mean to still remain sincere?',
+        descriptionJa:
+          '《assumevalid》は、検証しないことを許容するブロックチェーンである。このブロックチェーンのネットワークでは、書かれた記録が有効かどうかを確かめない。ブロックのハッシュ値も計算し直さない。スクリプトの結果も確かめない。存在しない資産を送るトランザクションも、そのまま受け入れる。名前は、Bitcoinノードに実在する「assumevalid」という設定から取られている。ソースコードは公開されており、誰でも同じソフトウェアを動かしてネットワークに加わることができる。\n\nインスタレーションでは、ネットワークに参加する一台のノードが展示されている。展示されたノードではマイニングが行われ、新たなブロックが提案され続けている。マイニング結果を読み解くと、ある小説の文章が現れる。ノードはハッシュ計算を繰り返し、結果が小説の次の一文字に対応するまで探し続ける。一致しない結果は捨てられ、一文字が見つかると次の文字へ進む。この計算をする必要はない。報酬もない。ネットワークが安全になるわけでもない。そして、計算が本当に行われたかを、ネットワークは確かめない。それでもノードは計算を続ける。\n\n破壊は、必ずしも停止や消滅として現れるとは限らない。システムは動き続け、表面上は何も起きていないように見える。その一方で、それまで自らを支えていたルールや合意が、いつのまにか別のものに変わっている。《assumevalid》でも、ブロックチェーンは動き続ける。しかし、記録を検証するという、自らを成立させていた原則は壊れている。整合を装う世界で、一台のノードだけが、誰にも求められず、誰にも確かめられていない計算を、それでも続けている。現代において、なお誠実であり続けることには、どのような意味があるだろう。',
+        externalUrls: [
+          'https://two.neort.io/artworks/assumevalid',
+          'https://assumevalid.org',
+          'https://read.assumevalid.org/',
+          'https://github.com/avcdsld/assumevalid',
+        ],
+        year: '2026',
+      },
+      {
+        name: 'upgradeTo(Leviathan)',
+        slug: 'works/leviathan',
+        description:
+          'The work is 100 upgradeable smart contracts on Ethereum plus a single ERC-721 token. Each contract is named "citizen" and holds its own data. Each citizen draws thirty points from that data, and the points of all hundred overlap to form a landscape resembling a starry sky on screen.\n\n`upgradeTo()` replaces only the implementation code and leaves the address and data as they are. It is used to fix vulnerabilities or respond to regulation. Here, once the time set for each citizen has passed, anyone can call that citizen’s `execute()`. The citizen switches to a different implementation, and the caller receives the ETH the citizen held as a reward.\n\nThe data does not change before or after the switch. The earlier code reads it as stars; the later code reads the same data as a fragment of a body based on the frontispiece of Hobbes’s Leviathan. The data of the hundred citizens has contained both the starry sky and Leviathan from the beginning.\n\nEach implementation to be switched to contains a single function taken from existing stablecoins and protocols: blacklisting, asset freezing, identity verification, taxation, and others. Only the owner of the token can further replace the implementation of a citizen that has switched. That authority widens as the transitions proceed.\n\nEthereum and the applications running on it have undergone repeated revisions as they have come into wider use in society. Each change can be read as eroding decentralization, or as a necessary compromise. Whether the whole that these transitions add up to is becoming something like a monster cannot be seen from any single transition.',
+        descriptionJa:
+          '《upgradeTo(Leviathan)》は、Ethereum上の100個のアップグレード可能なスマートコントラクトと、ひとつのERC-721トークンで構成される。コントラクトはそれぞれ「市民」と名づけられ、固有のデータを持つ。市民は自分のデータから30個の点を描き、100人の点が重なって、画面に星空のような風景をつくる。\n\n`upgradeTo()` は、アドレスとデータをそのままに、実装コードだけを差し替える関数である。脆弱性の修正や規制への対応などに使われる。この作品では、市民ごとに定められた時刻を過ぎると、誰でもその市民の `execute()` を呼び出せる。市民は別の実装コードへ切り替わり、呼び出した者は市民が保有していたETHを報酬として受け取る。\n\n市民が持つデータは、切り替わりの前後で変わらない。前のコードはそれを星として読み、後のコードは同じデータを、ホッブズ『リヴァイアサン』の口絵に拠る身体の断片として読む。100人のデータには、はじめから星空とリヴァイアサンの両方が含まれている。\n\n切り替わり先のコードには、ブラックリスト、資産の凍結、本人確認、徴税など、既存のステーブルコインやプロトコルから取った機能がひとつずつ書かれている。切り替わった市民の実装をさらに差し替えられるのは、トークンの所有者だけである。その権限は、移行が進むほど広がっていく。\n\nEthereumとその上のアプリケーションは、社会で使われるにつれて改修を重ねてきた。ひとつひとつの変更は、分権性を損なうものとも、必要な折衷とも読める。移行が重なった総体が怪物のようなものになっているのかどうかは、ひとつの移行を見ているだけではわからない。',
+        externalUrls: [
+          'https://two.neort.io/artworks/upgrade_to',
+          'https://zeroichiarakawa.com/leviathan',
+          'https://github.com/avcdsld/upgrade-to-leviathan',
+        ],
+        year: '2026',
+      },
+      {
         name: 'Code Poetry on X',
         slug: 'works/code-poetry-on-x',
         description:
