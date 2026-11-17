@@ -216,7 +216,7 @@ export default function Page() {
             href="https://electronicbookreview.com/publications/verificational-reading-code-beyond-interpretation/"
             venue={t(
               'electronic book review (peer-reviewed)',
-              'electronic book review（査読付）',
+              'electronic book review（査読あり）',
             )}
             doi="10.64773/kf7r-g2b3"
           />
