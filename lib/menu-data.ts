@@ -80,6 +80,19 @@ export const menuData: Section[] = [
         year: '2026',
       },
       {
+        name: 'Code Poetry',
+        slug: 'works/codepoetry',
+        image: '/images/code-poetry-on-x.jpg',
+        description:
+          'An ongoing series of code poems posted on X with the hashtag #CodePoetry. Each poem is short enough to fit in a single post and is written in a variety of programming languages. The timeline works as an open notebook: poems appear between everyday posts, are read, quoted, and sometimes executed by readers. This series is the daily practice that underlies the other works.',
+        descriptionJa:
+          'X上で #CodePoetry のハッシュタグとともに投稿し続けているコード詩の連作。各詩は一つのポストに収まる短さで、さまざまなプログラミング言語で書かれている。タイムラインは開かれたノートとして機能し、詩は日々の投稿のあいだに現れ、読まれ、引用され、ときに読者によって実行される。この連作は、他の作品の土台となる日々の実践である。',
+        externalUrls: [
+          'https://x.com/search?q=from%3Aarandoros%20%23CodePoetry&src=typed_query&f=live',
+        ],
+        year: '2023―',
+      },
+      {
         name: 'no extension',
         slug: 'works/no-extension',
         description:
@@ -103,19 +116,6 @@ export const menuData: Section[] = [
           'https://x.com/search?q=%23LatencyLedger&src=typed_query&f=live',
         ],
         year: '2026',
-      },
-      {
-        name: 'Code Poetry on X',
-        slug: 'works/codepoetry',
-        image: '/images/code-poetry-on-x.jpg',
-        description:
-          'An ongoing series of code poems posted on X with the hashtag #CodePoetry. Each poem is short enough to fit in a single post and is written in a variety of programming languages. The timeline works as an open notebook: poems appear between everyday posts, are read, quoted, and sometimes executed by readers. This series is the daily practice that underlies the other works.',
-        descriptionJa:
-          'X上で #CodePoetry のハッシュタグとともに投稿し続けているコード詩の連作。各詩は一つのポストに収まる短さで、さまざまなプログラミング言語で書かれている。タイムラインは開かれたノートとして機能し、詩は日々の投稿のあいだに現れ、読まれ、引用され、ときに読者によって実行される。この連作は、他の作品の土台となる日々の実践である。',
-        externalUrls: [
-          'https://x.com/search?q=from%3Aarandoros%20%23CodePoetry&src=typed_query&f=live',
-        ],
-        year: '2023―',
       },
       {
         name: 'CodeTEI',
