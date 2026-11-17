@@ -198,8 +198,8 @@ export default function Page() {
           <CVItemWithLink
             year="2026.2"
             linkText={t(
-              '"Shape of c(>_<。)" (KAOMOZI) — pamphlet contribution',
-              '「Shape of c(>_<。)」（KAOMOZI）— パンフレット寄稿',
+              '"Shape of c(>_<。)" (KAOMOZI) — pamphlet contribution [440]',
+              '「Shape of c(>_<。)」（KAOMOZI）— パンフレット寄稿 [440]',
             )}
             href="https://kaomozi.bandcamp.com/merch/shape-of-c-performance-pamphlet-standard-edition"
           />
