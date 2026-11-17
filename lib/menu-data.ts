@@ -94,6 +94,15 @@ export const menuData: Section[] = [
         year: '2023―',
       },
       {
+        name: 'Opcode Fountain',
+        slug: 'works/opcode-fountain',
+        description:
+          'Apollinaire arranged natural language as visual form in his collection Calligrammes (1918). This work is a concrete poem that replaces the material with EVM (Ethereum Virtual Machine) opcodes. Each word corresponds to an execution defined by the specification. The instructions that well up from reproducible ground pile up, shatter, and spread to both sides in symmetry. The end of execution always hints at its own presence.',
+        descriptionJa:
+          'アポリネールは詩集『カリグラム』（1918）にて、自然言語を視覚形式として配置した。本作はその素材を EVM（Ethereum Virtual Machine）のオペコードに置換した具体詩である。各語には、仕様によって定められた実行が対応する。複製可能な地盤から湧き上がった命令群は、積み上がり、砕け、両脇に広がり対称をなす。実行の終焉は、常にその存在を仄めかしている。',
+        year: '2026',
+      },
+      {
         name: 'no extension',
         slug: 'works/no-extension',
         description:
@@ -116,15 +125,6 @@ export const menuData: Section[] = [
           'https://tzkt.io/KT1DTdeD27wygvkjBCqEi1K5gVLKYXeE3VRh',
           'https://x.com/search?q=%23LatencyLedger&src=typed_query&f=live',
         ],
-        year: '2026',
-      },
-      {
-        name: 'Opcode Fountain',
-        slug: 'works/opcode-fountain',
-        description:
-          'Apollinaire arranged natural language as visual form in his collection Calligrammes (1918). This work is a concrete poem that replaces the material with EVM (Ethereum Virtual Machine) opcodes. Each word corresponds to an execution defined by the specification. The instructions that well up from reproducible ground pile up, shatter, and spread to both sides in symmetry. The end of execution always hints at its own presence.',
-        descriptionJa:
-          'アポリネールは詩集『カリグラム』（1918）にて、自然言語を視覚形式として配置した。本作はその素材を EVM（Ethereum Virtual Machine）のオペコードに置換した具体詩である。各語には、仕様によって定められた実行が対応する。複製可能な地盤から湧き上がった命令群は、積み上がり、砕け、両脇に広がり対称をなす。実行の終焉は、常にその存在を仄めかしている。',
         year: '2026',
       },
       {
